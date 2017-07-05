@@ -59,6 +59,7 @@ int main(void)
 {
     int n;
     n = 0;
+
 //    printf("1. Enter number of students n = ");
     while ((n < 1) || (n > 60))
     {
