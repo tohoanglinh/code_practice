@@ -41,7 +41,7 @@ int find_between(int a[], int size_a, int b[], int size_b)
     max = find_max_value(a, size_a);
     int min;
     min = find_min_value(b, size_b);
-    
+
     int x;
     int i;
     int found_cnt;
@@ -49,7 +49,7 @@ int find_between(int a[], int size_a, int b[], int size_b)
     int test_a, test_b;
     test_a = 0;
     test_b = 0;
-    
+
     for (x = max; x <= min; x++)
     {
         for (i = 0; i < size_a; i++)
@@ -79,11 +79,11 @@ int find_between(int a[], int size_a, int b[], int size_b)
         if ((1 == test_a) && (1 == test_b))
         {
             /* found x, increase counter found */
-            //printf("So can tim la %d\n", x);
+            //printf("Found the between number is %d\n", x);
             found_cnt++;
         }
     }
-    
+
     return found_cnt;
 }
 
@@ -115,9 +115,9 @@ int main(void)
 
     /* output: no of integers that are considered to be between A and B */
     printf("%d", find_between(a, n, b, m));
-    
+
     free(b);
     free(a);
-    
+
     return 0;
 }
