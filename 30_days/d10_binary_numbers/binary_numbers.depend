@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1492675282 source:d:\code\c\codeblocks\binary_numbers\main.c
+	<stdio.h>
+	<string.h>
+
