@@ -10,7 +10,12 @@ int length(char *s);
 int main(void)
 {
     /*input: 12-hour AM/PM format*/
-    char *s = (char *)malloc(512000*sizeof(char));
+    char *s;
+    s = malloc(512000*sizeof(char));
+    if (NULL == s)
+    {
+        return (-1);
+    }
     scanf("%s", s);
 
     /*output: 24-hour military format*/ 

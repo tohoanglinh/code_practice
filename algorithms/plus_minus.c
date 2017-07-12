@@ -8,7 +8,12 @@ int main(void)
     scanf("%d", &N);
 
     /*input: the 2nd line contains N space-separated integers (a0, a1...)*/
-    int a[N];
+    int *a;
+    a = malloc(N*sizeof(int));
+    if (a == NULL)
+    {
+        return (-1);
+    }
     int index;
     for (index = 0; index < N; index++)
     {
