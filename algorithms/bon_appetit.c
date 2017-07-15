@@ -44,11 +44,11 @@ int main(void)
     }
 
     /* amount of money that Brian charged Anna for her share of the bill */
-    float b_charged;
-    scanf("%f", &b_charged);
+    int b_charged;
+    scanf("%d", &b_charged);
 
     /* output */
-    float b_actual;
+    int b_actual;
     b_actual = 0;
     int sum;
     sum = 0;
@@ -60,8 +60,8 @@ int main(void)
         }
     }
     //printf("sum = %d\n", sum);
-    b_actual = (float)(sum)/2;
-    //printf("b_actual = %f\n", b_actual);
+    b_actual = (sum)/2;
+    //printf("b_actual = %d\n", b_actual);
 
     if (b_charged > b_actual)
     {
