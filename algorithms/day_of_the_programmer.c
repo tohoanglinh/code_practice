@@ -17,11 +17,23 @@
 
 #include <stdio.h>
 
+void print_full_date(int year)
+{
+    printf("This is full date\n");
+}
+
 int main(void)
 {
-    /* input */
-
+    /* input: year y */
+    int y;
+    y = 0;
+    while (y < 1700 || y > 2700)
+    {
+        scanf("%d", &y);
+    }
+    
     /* output */
+    print_full_date(y);
 
     return 0;
 }
