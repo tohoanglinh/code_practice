@@ -21,10 +21,19 @@
 #define TRUE  1
 #define FALSE 0
 
-int find_duplicate(int *arr, int size_arr)
+int find_duplicate(int element, int *arr, int size_arr)
 {
-    
-    return 0;
+    int i;
+    int cnt;
+    cnt = 0;
+    for (i = 0; i < size_arr; i++)
+    {
+        if (arr[i] == arr[element])
+        {
+            cnt++;
+        }
+    }
+    return cnt;
 }
 
 int main(void)
@@ -52,8 +61,20 @@ int main(void)
     }
     
     /* output */
-    // find the duplicate color element
-    find_duplicate(color, n);
+    i = 0;
+    while (i < n)
+    {
+        /* if i != all the last --> count_number */
+        for (j = 0; j < i; j++)
+        {
+            if (color[i] == color[j])
+            {
+                break;
+            }
+        }
+        printf("Color with index %d is %d\n", i, find_duplicate(i, color, n));
+        i++;
+    }
     
     free(color);
     return 0;
