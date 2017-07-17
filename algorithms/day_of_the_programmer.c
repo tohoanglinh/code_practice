@@ -17,9 +17,29 @@
 
 #include <stdio.h>
 
-void print_full_date(int year)
+void print_full_date(int date, int month, int year)
+{
+    
+}
+
+int find_date(int year)
 {
     printf("This is full date\n");
+    if ( y >= 1700 && y <= 1917)
+    {
+        /* Julian calendar */
+    }
+    else if (y >= 1919)
+    {
+        /* Gregorian calendar */
+        
+    }
+    else
+    {
+        /* transition from Julian to Gregorian */
+    }
+    
+    return 0;
 }
 
 int main(void)
@@ -33,7 +53,7 @@ int main(void)
     }
     
     /* output */
-    print_full_date(y);
+    print_full_date(find_date(y), find_month(y), y);
 
     return 0;
 }
