@@ -62,17 +62,23 @@ int main(void)
     
     /* output */
     i = 0;
+    int j;
+    char test;
     while (i < n)
     {
+        test = 0;
         /* if i != all the last --> count_number */
         for (j = 0; j < i; j++)
         {
             if (color[i] == color[j])
             {
-                break;
+                test = 1;
             }
         }
-        printf("Color with index %d is %d\n", i, find_duplicate(i, color, n));
+        if (1 == test)
+        {
+            printf("Color type %d is %d\n", color[i], find_duplicate(i, color, n));
+        }
         i++;
     }
     
