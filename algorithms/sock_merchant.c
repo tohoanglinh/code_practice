@@ -63,25 +63,32 @@ int main(void)
     /* output */
     i = 0;
     int j;
-    char test;
+    char checkpoint;
+    int pair;
+    pair = 0;
     while (i < n)
     {
-        test = 0;
+        checkpoint = 0;
         /* if i != all the last --> count_number */
         for (j = 0; j < i; j++)
         {
             if (color[i] == color[j])
             {
-                test = 1;
+                checkpoint = 1;
             }
         }
-        if (1 == test)
+        if (0 == checkpoint)
         {
-            printf("Color type %d is %d\n", color[i], find_duplicate(i, color, n));
+//            printf("There are %d socks with color type %d\n", find_duplicate(i, color, n), color[i]);
+//            10 - 4 - 2 = 4/2
+//            20 - 3 - 1 = 3/2
+//            30 - 1 - 0 = 1/2
+//            50 - 1 - 0 = 1/2
+            pair = pair + find_duplicate(i, color, n)/2;
         }
         i++;
     }
-    
+    printf("%d\n", pair);
     free(color);
     return 0;
 }
