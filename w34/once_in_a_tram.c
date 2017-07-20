@@ -29,10 +29,54 @@
  */
 #define MAX_CNT 200
 
+uint8_t isLucky(char *tmp_str)
+{
+    uint8_t i, first_three_sum, second_three_sum;
+    first_three_sum = 0;
+    second_three_sum = 0;
+
+    for (i = 0; i < 3; i++)
+    {
+        first_three_sum = first_three_sum + tmp_str[i];
+    }
+    for (i = 3; i < 6; i++)
+    {
+        second_three_sum = second_three_sum + tmp_str[i];
+    }
+    if (first_three_sum == second_three_sum)
+    {
+        /* lucky */
+        return true;
+    }
+    else
+    {
+        /* unlucky */
+        return false;
+    }
+    return 0;
+}
+
+uint8_t *decode(long num)
+{
+
+}
+
 uint8_t main(void)
 {
     /* input x: integer, 6-digit number on the ticket */
-    int x;
+    long x;
+    x = 0;
+    while (x < 0 || x > 999999)
+    {
+        scanf("%ld", &x);
+    }
+
     /* output */
+    uint8_t *x_num;
+    x_num = malloc(6);
+
+    isLucky(x_num);
+
+    free(x_num);
     return 0;
 }
