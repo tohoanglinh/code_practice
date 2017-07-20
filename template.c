@@ -9,15 +9,18 @@
  * INCLUDES
  */
 #include <stdio.h>
+#include <stdbool.h>
+#include <stdint.h>
+#include <stdlib.h>
 
 /**
  * DEFINES & MACROS
  */
-#define TRUE  1
-#define FALSE 0
+#define MAX_CNT 200
 
-int main(void)
+uint8_t main(void)
 {
-    
+    /* input */
+    /* output */
     return 0;
 }
