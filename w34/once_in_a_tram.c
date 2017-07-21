@@ -23,15 +23,17 @@
 #include <stdbool.h>
 #include <stdint.h>
 #include <stdlib.h>
+#include <math.h>
 
 /**
  * DEFINES & MACROS
  */
 #define MAX_CNT 200
 
-uint8_t isLucky(char *tmp_str)
+bool isLucky(char *tmp_str)
 {
     uint8_t i, first_three_sum, second_three_sum;
+    bool lucky;
     first_three_sum = 0;
     second_three_sum = 0;
 
@@ -46,19 +48,31 @@ uint8_t isLucky(char *tmp_str)
     if (first_three_sum == second_three_sum)
     {
         /* lucky */
-        return true;
+        lucky = true;
     }
     else
     {
         /* unlucky */
-        return false;
+        lucky = false;
     }
-    return 0;
+    return lucky;
 }
 
-uint8_t *decode(long num)
+void encode(uint8_t *in_num, long out_num)
 {
+    
+}
 
+uint8_t decode(long in_num, uint8_t *out_num)
+{
+    uint8_t i;
+    i = 0;
+    while (i < 6)
+    {
+        *(out_num+i) = in_num/(long)pow(10,(5-i));
+        in_num = in_num%(long)pow(10,(5-i));
+        i++;
+    }
 }
 
 uint8_t main(void)
@@ -66,7 +80,7 @@ uint8_t main(void)
     /* input x: integer, 6-digit number on the ticket */
     long x;
     x = 0;
-    while (x < 0 || x > 999999)
+    while (x < 100000 || x > 999998)
     {
         scanf("%ld", &x);
     }
@@ -75,7 +89,7 @@ uint8_t main(void)
     uint8_t *x_num;
     x_num = malloc(6);
 
-    isLucky(x_num);
+    decode(x, x_num);
 
     free(x_num);
     return 0;
