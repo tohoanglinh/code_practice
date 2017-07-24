@@ -24,7 +24,22 @@ using namespace std;
 
 /* access specifier default of class member: private */
 class Student{
-    int name;
+  private:
+    int age;
+    string first_name;
+    string last_name;
+    int standard;
+  private:
+    void to_string();
+  public:
+    void get_age()
+    {
+        cin >> age;
+    }
+    void set_age()
+    {
+	cout << age;
+    }
 };
 
 /*******************************************************************************
