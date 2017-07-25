@@ -15,6 +15,7 @@
  * Includes
  ******************************************************************************/
 #include <iostream>
+#include <sstream>
 using namespace std;
 
 /*******************************************************************************
@@ -29,16 +30,50 @@ class Student{
     string first_name;
     string last_name;
     int standard;
-  private:
-    void to_string();
   public:
-    void get_age()
+    void set_age(int tmp_age)
     {
-        cin >> age;
+	   age = tmp_age;
     }
-    void set_age()
+    int get_age()
     {
-	cout << age;
+        return age;
+    }
+    void set_first_name(string tmp_first_name)
+    {
+        first_name = tmp_first_name;
+    }
+    string get_first_name()
+    {
+        return first_name;
+    }
+    void set_last_name(string tmp_last_name)
+    {
+        last_name = tmp_last_name;
+    }
+    string get_last_name()
+    {
+        return last_name;
+    }
+    void set_standard(int tmp_standard)
+    {
+	   standard = tmp_standard;
+    }
+    int get_standard()
+    {
+        return standard;
+    }
+  private:
+    string num_to_ch(int num)
+    {
+        return (num + 48);
+    }
+  public:
+    string to_string()
+    {
+        string outstr;
+        outstr = num_to_ch(age/10)+num_to_ch(age%10)+first_name+","+last_name;
+        return outstr;
     }
 };
 
@@ -47,6 +82,24 @@ class Student{
  ******************************************************************************/
 int main(void)
 {
-    cout << "Hello\n";
+    cout << "Class\n";
+    
+    int age, standard;
+    string first_name, last_name;
+    cin >> age >> first_name >> last_name >> standard;
+
+    Student st;
+
+    st.set_age(age);
+    st.set_standard(standard);
+    st.set_first_name(first_name);
+    st.set_last_name(last_name);
+
+    cout << st.get_age() << "\n";
+    cout << st.get_last_name() << ", " << st.get_first_name() << "\n";
+    cout << st.get_standard() << "\n";
+    cout << "\n";
+    cout << st.to_string();
+
     return 0;
 }

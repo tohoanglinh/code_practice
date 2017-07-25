@@ -25,5 +25,10 @@ int main(void)
 {
     cout << "Variable sized arrays\n";
     
+    /* n: number of variable length arrays */
+    /* q: number of queries */
+    int n, q;
+    cin >> n >> q;
+    
     return 0;
 }
