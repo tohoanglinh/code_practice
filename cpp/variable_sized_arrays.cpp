@@ -1,8 +1,10 @@
 /**
- * File   : hello.cpp
+ * File   : variable_sized_arrays.cpp
  * Author : To Hoang Linh
  * Date   : 2017-07-25
- * ForWhat: Template hello for cpp.
+ * ForWhat: Consider an n-element array, a, where each index i in the array contains
+ * a reference to an array of k_i integers (where the value of k_i varies from array
+ * to array). Given a, you must answer q queries.
  */
 
 /*******************************************************************************
@@ -21,7 +23,7 @@ using namespace std;
  ******************************************************************************/
 int main(void)
 {
-    cout << "Hello\n";
+    cout << "Variable sized arrays\n";
     
     return 0;
 }
