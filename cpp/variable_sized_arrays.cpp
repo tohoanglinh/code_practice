@@ -1,29 +1,34 @@
 /**
- * File   : template.c
+ * File   : variable_sized_arrays.cpp
  * Author : To Hoang Linh
- * Date   : 2017-07-24
- * ForWhat: to create a generic template for C/C++ source coding.
+ * Date   : 2017-07-25
+ * ForWhat: Consider an n-element array, a, where each index i in the array contains
+ * a reference to an array of k_i integers (where the value of k_i varies from array
+ * to array). Given a, you must answer q queries.
  */
 
 /*******************************************************************************
  * Includes
  ******************************************************************************/
-#include <stdio.h>
-#include <stdbool.h>
-#include <stdint.h>
-#include <stdlib.h>
+#include <iostream>
+using namespace std;
 
 /*******************************************************************************
  * Definitions
  ******************************************************************************/
-#define MAX_CNT 200
+#define MACRO1 2
 
 /*******************************************************************************
  * Code
  ******************************************************************************/
 int main(void)
 {
-    /* input */
-    /* output */
+    cout << "Variable sized arrays\n";
+    
+    /* n: number of variable length arrays */
+    /* q: number of queries */
+    int n, q;
+    cin >> n >> q;
+    
     return 0;
 }

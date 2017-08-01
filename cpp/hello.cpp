@@ -1,29 +1,27 @@
 /**
- * File   : template.c
+ * File   : hello.cpp
  * Author : To Hoang Linh
- * Date   : 2017-07-24
- * ForWhat: to create a generic template for C/C++ source coding.
+ * Date   : 2017-07-25
+ * ForWhat: Template hello for cpp.
  */
 
 /*******************************************************************************
  * Includes
  ******************************************************************************/
-#include <stdio.h>
-#include <stdbool.h>
-#include <stdint.h>
-#include <stdlib.h>
+#include <iostream>
+using namespace std;
 
 /*******************************************************************************
  * Definitions
  ******************************************************************************/
-#define MAX_CNT 200
+#define MACRO1 2
 
 /*******************************************************************************
  * Code
  ******************************************************************************/
 int main(void)
 {
-    /* input */
-    /* output */
+    cout << "Hello\n";
+    
     return 0;
 }
