@@ -19,7 +19,7 @@
  */
 /* printf, scanf */
 #include <stdio.h>
-/* malloc, free */
+/* malloc, free, abs */
 #include <stdlib.h>
 
 /**
@@ -30,6 +30,39 @@
 
 int main(void)
 {
+    /* q: number of queries */
+    int q;
+    scanf("%d", &q);
+    int i;
+    int x[q];   /* cat A   location */
+    int y[q];   /* cat B   location */
+    int z[q];   /* mouse C location */
+    for (i = 0; i < q; i++)
+    {
+        scanf("%d %d %d", &x[i], &y[i], &z[i]);
+    }
     
+    /* output: which catches which first */
+    int distAC;
+    int distBC;
+    
+    for (i = 0; i < q; i++)
+    {
+        distAC = abs(x[i] - z[i]);
+        distBC = abs(y[i] - z[i]);
+        if (distAC == distBC)
+        {
+            printf("Mouse C\n");
+        }
+        else if (distAC > distBC)
+        {
+            printf("Cat B\n");
+        }
+        else
+        {
+            printf("Cat A\n");
+        }
+    }
+
     return 0;
 }
