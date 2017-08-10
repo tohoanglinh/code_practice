@@ -28,6 +28,21 @@
 /*******************************************************************************
  * Code
  ******************************************************************************/
+int max(int arr[], int size_arr)
+{
+    int i;
+    int max_val;
+    max_val = arr[0];
+    for (i = 0; i < size_arr; i++)
+    {
+        if (arr[i] > max_val)
+        {
+            max_val = arr[i];
+        }
+    }
+    return 0;
+}
+
 int main(void)
 {
     /* input */
@@ -59,9 +74,15 @@ int main(void)
     {
         for (j = 0; j < m; j++)
         {
-            sum_price[k] = keyboard_price[i] + usbdrive_price[j];
+            sum_price[j+m*i] = keyboard_price[i] + usbdrive_price[j];
         }
-    } 
+    }
+
+    int k;
+    for (k = 0; k < m*n; k++)
+    {
+        printf("sum_price[%d] = %d\n", k, sum_price[k]);
+    }
    
     free(sum_price); 
     free(keyboard_price);
