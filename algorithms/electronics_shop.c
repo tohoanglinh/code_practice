@@ -51,8 +51,19 @@ int main(void)
     }
     
     /* output */
-    
-    
+    int j;
+    int *sum_price;
+    sum_price = malloc(n*m*sizeof(int));
+
+    for (i = 0; i < n; i++)
+    {
+        for (j = 0; j < m; j++)
+        {
+            sum_price[k] = keyboard_price[i] + usbdrive_price[j];
+        }
+    } 
+   
+    free(sum_price); 
     free(keyboard_price);
     free(usbdrive_price);
     return 0;
