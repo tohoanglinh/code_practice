@@ -22,19 +22,47 @@
 /*******************************************************************************
  * Definitions
  ******************************************************************************/
-#define MAX_CNT 200
+#define MAX_LENGTH 100000
 
 /*******************************************************************************
  * Code
  ******************************************************************************/
+bool isCapital(char ch)
+{
+    /* is this character capital? */
+    if ((ch >= 'A') && (ch <= 'Z'))
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+
 int main(void)
 {
     /* input */
-    char *s;
-    string_s = malloc(100*sizeof(char));
+    char *string_s;
+    string_s = malloc(MAX_LENGTH*sizeof(char));
     scanf("%s", string_s);
 
     /* output */
+    int i;
+    i = 0;
+    int cnt;
+    cnt = 1;
+    while (string_s[i] != '\0')
+    {
+        if (true == isCapital(string_s[i]))
+        {
+            cnt++;
+        }
+        i++;
+    }
+
+    printf("%d", cnt);
+    
     free(string_s);
     return 0;
 }
