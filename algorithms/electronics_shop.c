@@ -28,28 +28,13 @@
 /*******************************************************************************
  * Code
  ******************************************************************************/
-int max(int arr[], int size_arr)
-{
-    int i;
-    int max_val;
-    max_val = arr[0];
-    for (i = 0; i < size_arr; i++)
-    {
-        if (arr[i] > max_val)
-        {
-            max_val = arr[i];
-        }
-    }
-    return 0;
-}
-
 int main(void)
 {
     /* input */
     int s;      /* s: amount of money Monica has */
     int n;      /* n: number of keyboard brands */
     int m;      /* m: number of USBdrive brands */
-    
+
     scanf("%d %d %d", &s, &n, &m);
     
     int i;
@@ -67,21 +52,30 @@ int main(void)
     
     /* output */
     int j;
+    int latest_sum;
     int *sum_price;
     sum_price = malloc(n*m*sizeof(int));
-
+    latest_sum = 0;
     for (i = 0; i < n; i++)
     {
         for (j = 0; j < m; j++)
         {
             sum_price[j+m*i] = keyboard_price[i] + usbdrive_price[j];
+            if ((sum_price[j+m*i] <= s) && (sum_price[j+m*i] >= latest_sum))
+            {
+                /* you can buy it */
+                latest_sum = sum_price[j+m*i];
+            }
         }
     }
 
-    int k;
-    for (k = 0; k < m*n; k++)
+    if (latest_sum == 0)
     {
-        printf("sum_price[%d] = %d\n", k, sum_price[k]);
+        printf("-1");
+    }
+    else
+    {
+        printf("%d", latest_sum);
     }
    
     free(sum_price); 
