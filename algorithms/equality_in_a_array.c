@@ -29,6 +29,16 @@
 int main(void)
 {
     /* input */
+    int n;      /* n: number of elements in array A */
+    int i;
+    int *A = malloc(sizeof(int)*n);
+    scanf("%d", &n);
+    for (i = 0; i < n; i++)
+    {
+        scanf(" %d", A+i);
+    }
+
     /* output */
+    free(A);
     return 0;
 }
