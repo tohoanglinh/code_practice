@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListItem>
+  <TGrupItem>
+    <Name>Configurations</Name>
+    <Symbol>MainConfigurationsGrp</Symbol>
+    <TypeSpec>typeEnaDis</TypeSpec>
+    <Hint>Main group that contains configurations.</Hint>
+    <ItemLevel>BASIC</ItemLevel>
+    <BoldName>true</BoldName>
+    <EditLine>false</EditLine>
+    <Description>Enabled</Description>
+    <Expanded>Yes</Expanded>
+    <DefaultValue>true</DefaultValue>
+    <DefineSymbol>YES_NO</DefineSymbol>
+    <IfDisabled>setNOTHING</IfDisabled>
+    <Children>
+        <GrupItem>
+            <TListItemFromFile>
+                <Name>Configurations list</Name>
+                <Symbol>tcpipCfg</Symbol>
+                <Hint>Number of configurations</Hint>
+                <ItemLevel>BASIC</ItemLevel>
+                <EditLine>true</EditLine>
+                <Description/>
+                <UI_DisplayIn>TABLE_AND_GRAPHICAL_VIEW</UI_DisplayIn>
+                <UI_DisplayExtraText>DISPLAY_AUTO_POSITION</UI_DisplayExtraText>
+                <UI_GroupStyle>MASTER_DETAIL_TABLE</UI_GroupStyle>
+                <UI_DisplayedAtTab>true</UI_DisplayedAtTab>
+                <UI_Layout>DEFAULT</UI_Layout>
+                <Expanded>No</Expanded>
+                <ItemsType>Beans\tcpip\Items\tcpip_configuration.item</ItemsType>
+                <ItemsTypeChangeAble>true</ItemsTypeChangeAble>
+                <ItemsName>Configuration </ItemsName>
+                <ItemsNameFrstIndx>0</ItemsNameFrstIndx>
+                <ItemsHint/>
+                <ItemsSymb>tcpipCfg_</ItemsSymb>
+                <ItemsTypeSpec/>
+                <MinItems>1</MinItems>
+                <MaxItems>-1</MaxItems>
+                <MinItemsProtected>false</MinItemsProtected>
+                <SetNumOfListItemsAfterLoad>1</SetNumOfListItemsAfterLoad>
+                <ItemsReorderingEnabled>true</ItemsReorderingEnabled>
+            </TListItemFromFile>
+        </GrupItem>
+    </Children>
+  </TGrupItem>
+  <Links>
+    <EmptySection_DummyValue/>
+  </Links>
+</ListItem>

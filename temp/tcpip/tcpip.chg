@@ -1,0 +1,15 @@
+%include ..\Beans\_SDK\SdkCommonV2.chg
+%-                                
+%inclSUB sdk_defaultAction()
+%if %get(CompVersion,Exists?) = 'yes'
+  %set CompVersion Value %tcpip_SdkVersionValue
+%endif
+%-
+%- include common chg
+%include ..\Beans\tcpip\tcpip_common.chg
+%-
+%- include platform-specific chg, if available
+%if %sys_file_exists(Beans\tcpip\Items\%CompVersion\tcpip.chg) = 'yes'
+    %include ..\Beans\tcpip\Items\%CompVersion\tcpip.chg
+  %endif
+%-

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListItem>
+    <TInPEinvisibleGroup>
+        <Name>Settings</Name>
+        <Symbol>Settings</Symbol>
+        <Hint>Settings.</Hint>
+        <ItemLevel>BASIC</ItemLevel>
+        <BoldName>true</BoldName>
+        <EditLine>false</EditLine>
+        <Description/>
+        <Expanded>Always</Expanded>
+        <Children>
+            <GrupItem>
+                <TIncludeItem>
+                    <Name>PropertiesItem</Name>
+                    <Symbol>PropertiesItem</Symbol>
+                    <Hint>Includes component item</Hint>
+                    <ItemLevel>BASIC</ItemLevel>
+                    <ReadOnly>true</ReadOnly>
+                    <EditLine>false</EditLine>
+                    <Description/>
+                    <Expanded>Always</Expanded>
+                    <ItemsType>Beans\tcpip\Items\tcpip_properties.item</ItemsType>
+                    <ItemsTypeChangeAble>false</ItemsTypeChangeAble>
+                    <ItemsName/>
+                    <ItemsNameFrstIndx>0</ItemsNameFrstIndx>
+                    <ItemsHint/>
+                    <ItemsSymb/>
+                    <ItemsTypeSpec/>
+                    <MinItems>1</MinItems>
+                    <MaxItems>1</MaxItems>
+                    <MinItemsProtected>false</MinItemsProtected>
+                    <SetNumOfListItemsAfterLoad>1</SetNumOfListItemsAfterLoad>
+                </TIncludeItem>
+            </GrupItem>
+            <GrupItem>
+                <TIncludeItem>
+                    <Name>LinkItem</Name>
+                    <Symbol>LinkItem</Symbol>
+                    <Hint>Includes component item</Hint>
+                    <ItemLevel>BASIC</ItemLevel>
+                    <ReadOnly>true</ReadOnly>
+                    <EditLine>true</EditLine>
+                    <Description/>
+                    <Expanded>Always</Expanded>
+                    <ItemsType>Beans\tcpip\Items\tcpip_links.item</ItemsType>
+                    <ItemsTypeChangeAble>false</ItemsTypeChangeAble>
+                    <ItemsName/>
+                    <ItemsNameFrstIndx>0</ItemsNameFrstIndx>
+                    <ItemsHint/>
+                    <ItemsSymb/>
+                    <ItemsTypeSpec/>
+                    <MinItems>1</MinItems>
+                    <MaxItems>1</MaxItems>
+                    <MinItemsProtected>false</MinItemsProtected>
+                    <SetNumOfListItemsAfterLoad>1</SetNumOfListItemsAfterLoad>
+                </TIncludeItem>
+            </GrupItem>
+        </Children>
+    </TInPEinvisibleGroup>
+    <Links>
+        <EmptySection_DummyValue/>
+    </Links>
+</ListItem>

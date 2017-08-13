@@ -1,0 +1,10 @@
+%- 
+%if %get(PeriphDevice,Exists?) = 'yes'
+%set PeriphDevice Allocate yes
+%endif
+
+%- ============================================================================
+%- AFTER
+%- ============================================================================
+%- this method should be called in the end of script
+%inclSUB sdk_checkUniqueIdentificators()

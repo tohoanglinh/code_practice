@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListItem>
+    <TGrupItem>
+        <Name>Shared components</Name>
+        <Symbol>LinkGrp</Symbol>
+        <Hint>Shared components needed by this component.</Hint>
+        <ItemLevel>BASIC</ItemLevel>
+        <BoldName>true</BoldName>
+        <EditLine>false</EditLine>
+        <Description/>
+        <Expanded>Yes</Expanded>
+        <Children>
+            <GrupItem>
+                <TInhrLinkItem>
+                    <Name>enet</Name>
+                    <Symbol>Link0</Symbol>
+                    <TypeSpec>enet</TypeSpec>
+                    <Hint>Link to an existing or to a new shared component.</Hint>
+                    <ItemLevel>BASIC</ItemLevel>
+                    <EditLine>false</EditLine>
+                    <DefaultValue/>
+                    <CanDelete>false</CanDelete>
+                    <IconPopup>false</IconPopup>
+                    <SortStyle/>
+                </TInhrLinkItem>
+            </GrupItem>
+        </Children>
+    </TGrupItem>
+    <Links>
+        <EmptySection_DummyValue/>
+    </Links>
+</ListItem>
+

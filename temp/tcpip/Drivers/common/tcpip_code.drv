@@ -1,0 +1,113 @@
+%-      Copyright 2017 NXP
+%-
+%if Language='ANSIC'
+%- ****************************************************************************
+%- HEADER FILE START
+%- ****************************************************************************
+%define! StateType tcpip_state_t
+%INTERFACE
+%include Common\Header.h
+#ifndef %'ModuleName'_H
+#define %'ModuleName'_H
+/* MODULE %ModuleName. */
+
+/* Include inherited beans */
+%ifdef InhrSymbolList
+  %for var from InhrSymbolList
+#include "%@%var@ModuleName.h"
+  %endfor
+%endif
+%-
+#include "%ProcessorModule.h"
+
+#include "lwipcfg.h"
+#include "lwipopts.h"
+#include "lwippools.h"
+
+%- This generates the MAC address
+%- ----------------------------------------------------------------------------
+%>1%sdk_briefStart The MAC address of the module %sdk_commentEnd
+extern uint8_t %'DeviceName'_MacAddr[6];
+#define LWIP_MAC_ADDR_BASE %'DeviceName'_MacAddr[0],%'DeviceName'_MacAddr[1],%'DeviceName'_MacAddr[2],%'DeviceName'_MacAddr[3],%'DeviceName'_MacAddr[4],%'DeviceName'_MacAddr[5]
+
+#undef LWIP_DHCP
+%if %get(tcpipCfg_dhcp0,Bool) = "yes"
+#define LWIP_DHCP 1
+%else
+#define LWIP_DHCP 0
+%endif
+
+#undef LWIP_IPv4
+%if %get(tcpipCfg_ipv40,Bool) = "yes"
+#define LWIP_IPv4 1
+%else
+#define LWIP_IPv4 0
+%endif
+
+#undef LWIP_IPv6
+%if %get(tcpipCfg_ipv60,Bool) = "yes"
+#define LWIP_IPv6 1
+%else
+#define LWIP_IPv6 0
+%endif
+
+#undef LWIP_TCP
+%if %get(tcpipCfg_tcp0,Bool) = "yes"
+#define LWIP_TCP 1
+%else
+#define LWIP_TCP 0
+%endif
+
+#undef LWIP_UDP
+%if %get(tcpipCfg_udp0,Bool) = "yes"
+#define LWIP_UDP 1
+%else
+#define LWIP_UDP 0
+%endif
+
+#undef LWIP_STATS
+%if %get(tcpipCfg_stat0,Bool) = "yes"
+#define LWIP_STATS 1
+%else
+#define LWIP_STATS 0
+%endif
+
+#endif /* ifndef %'ModuleName'_H */
+%include Common\Header.end
+%- ****************************************************************************
+%- HEADER FILE END
+%- ****************************************************************************
+%-
+%-BW_EVENT_DEFINITION_START
+%-BW_EVENT_DEFINITION_END
+
+%-
+%- ****************************************************************************
+%- SRC FILE START
+%- ****************************************************************************
+%IMPLEMENTATION
+%include Common\Header.c
+
+#include "%'ModuleName'.h"
+
+%- This generates the MAC address
+%- ----------------------------------------------------------------------------
+%>1%sdk_briefStart The MAC address of the tcpip module %sdk_commentEnd
+uint8_t %'DeviceName'_MacAddr[6] = {0x%str_replace(tcpipCfg_mac0,":",", 0x")};
+
+%-
+%-
+/* END %ModuleName. */
+
+%- include end header
+%include Common\Header.end
+%- ****************************************************************************
+%- SRC FILE END
+%- ****************************************************************************
+%-
+%-BW_EVENT_IMPLEMENT_START
+%-BW_EVENT_IMPLEMENT_END
+
+%else %- Language (& Compiler)
+  %error^ This component is not implemented in selected language & compiler !
+%endif %- Language (& Compiler)
