@@ -1,6 +1,10 @@
 %include ..\Beans\_SDK\SdkCommonV2.chg
 %-                                
 %inclSUB sdk_defaultAction()
+
+%set DeviceName Text tcpipConfig
+%set DeviceName ReadOnly True
+
 %if %get(CompVersion,Exists?) = 'yes'
   %set CompVersion Value %tcpip_SdkVersionValue
 %endif

@@ -47,8 +47,23 @@
         <Hint>Name of the component.</Hint>
         <ItemLevel>BASIC</ItemLevel>
         <EditLine>true</EditLine>
-        <DefaultValue/>
+        <ReadOnly>true</ReadOnly>
+        <DefaultValue>tcpipConfig</DefaultValue>
       </TCompNameItem>
+    </Property>
+    <Property>
+      <TStrgItem>
+        <Name>lwIP version</Name>
+        <Symbol>lwIPversion</Symbol>
+        <Hint>Specifies which lwIP version is being used.</Hint>
+        <ItemLevel>BASIC</ItemLevel>
+        <ReadOnly>true</ReadOnly>
+        <EditLine>true</EditLine>
+        <DefaultValue>2.0.2</DefaultValue>
+        <StrDefine>nothing</StrDefine>
+        <MinLength>0</MinLength>
+        <MaxLength>-1</MaxLength>
+      </TStrgItem>
     </Property>
     <Property>
       <TStrgItem>

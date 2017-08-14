@@ -24,6 +24,20 @@
                     <SortStyle/>
                 </TInhrLinkItem>
             </GrupItem>
+            <GrupItem>
+              <TInhrLinkItem>
+                <Name>freertos</Name>
+                <Symbol>Link1</Symbol>
+                <TypeSpec>freertos</TypeSpec>
+                <Hint>Link to an existing or to a new shared component.</Hint>
+                <ItemLevel>BASIC</ItemLevel>
+                <EditLine>false</EditLine>
+                <DefaultValue/>
+                <CanDelete>false</CanDelete>
+                <IconPopup>false</IconPopup>
+                <SortStyle/>
+              </TInhrLinkItem>
+            </GrupItem>
         </Children>
     </TGrupItem>
     <Links>
