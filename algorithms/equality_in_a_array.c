@@ -17,6 +17,7 @@
 #include <stdbool.h>
 #include <stdint.h>
 #include <stdlib.h>
+#include "../temp/lwipcfg.h"
 
 /*******************************************************************************
  * Definitions
@@ -32,6 +33,10 @@ int main(void)
     int n;      /* n: number of elements in array A */
     int i;
     int *A = malloc(sizeof(int)*n);
+    
+    printf("%d", LWIP_DHCP);
+    getch();
+    
     scanf("%d", &n);
     for (i = 0; i < n; i++)
     {
