@@ -1,19 +1,20 @@
 %include ..\Beans\_SDK\SdkCommonV2.chg
-%-                                
 %inclSUB sdk_defaultAction()
 
-%set DeviceName Text tcpipConfig
-%set DeviceName ReadOnly True
-
+%- set component version
 %if %get(CompVersion,Exists?) = 'yes'
   %set CompVersion Value %tcpip_SdkVersionValue
 %endif
-%-
+
 %- include common chg
 %include ..\Beans\tcpip\tcpip_common.chg
-%-
+
 %- include platform-specific chg, if available
-%if %sys_file_exists(Beans\tcpip\Items\%CompVersion\tcpip.chg) = 'yes'
-    %include ..\Beans\tcpip\Items\%CompVersion\tcpip.chg
+%if %sys_file_exists(Beans\tcpip\Items\%CompVersion\tcpip_methods.chg) = 'yes'
+    %include ..\Beans\tcpip\Items\%CompVersion\tcpip_methods.chg
+  %endif
+
+%if %sys_file_exists(Beans\tcpip\Items\%CompVersion\tcpip_update.chg) = 'yes'
+    %include ..\Beans\tcpip\Items\%CompVersion\tcpip_update.chg
   %endif
 %-

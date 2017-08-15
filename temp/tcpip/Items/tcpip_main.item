@@ -12,15 +12,15 @@
         <Children>
             <GrupItem>
                 <TIncludeItem>
-                    <Name>PropertiesItem</Name>
-                    <Symbol>PropertiesItem</Symbol>
-                    <Hint>Includes component item</Hint>
+                    <Name>GeneralItem</Name>
+                    <Symbol>GeneralItem</Symbol>
+                    <Hint>Includes general defines item</Hint>
                     <ItemLevel>BASIC</ItemLevel>
                     <ReadOnly>true</ReadOnly>
                     <EditLine>false</EditLine>
                     <Description/>
                     <Expanded>Always</Expanded>
-                    <ItemsType>Beans\tcpip\Items\tcpip_properties.item</ItemsType>
+                    <ItemsType>Beans\tcpip\Items\tcpip_general.item</ItemsType>
                     <ItemsTypeChangeAble>false</ItemsTypeChangeAble>
                     <ItemsName/>
                     <ItemsNameFrstIndx>0</ItemsNameFrstIndx>

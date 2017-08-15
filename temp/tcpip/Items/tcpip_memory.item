@@ -1,0 +1,220 @@
+<ListItem>
+  <TInPEinvisibleGroup>
+    <Name>MemSettings</Name>
+    <Symbol>MemSettingsGrp</Symbol>
+    <Hint>MemSettings.</Hint>
+    <ItemLevel>BASIC</ItemLevel>
+    <BoldName>true</BoldName>
+    <EditLine>false</EditLine>
+    <Description/>
+    <Expanded>Always</Expanded>
+           <Children>
+                  <GrupItem>
+                    <TGrupItem>
+                      <Name>Memory Options</Name>
+                      <Symbol>memoryCfgGrp</Symbol>
+                      <Hint>Memory Options.</Hint>
+                      <ItemLevel>BASIC</ItemLevel>
+                      <BoldName>true</BoldName>
+                      <EditLine>false</EditLine>
+                      <Description/>
+                      <Expanded>No</Expanded>
+                      <Children>
+                        <GrupItem>
+                            <TBoolItem>
+                                <Name>Memory value edit</Name>
+                                <Symbol>tcpipCfg_MEM_EDIT</Symbol>
+                                <TypeSpec>typeBool</TypeSpec>
+                                <Hint>Click to edit the following related-memory fields.</Hint>
+                                <ItemLevel>BASIC</ItemLevel>
+                                <DefaultValue>false</DefaultValue>
+                                <UI_BoolStyle>CHECKBOX</UI_BoolStyle>
+                            </TBoolItem>
+                        </GrupItem>
+                        <GrupItem>
+                          <TStrgItem>
+                                <Name>Memory alignment</Name>
+                                <Symbol>tcpipCfg_MEM_ALIGNMENT</Symbol>
+                                <Hint>MEM_ALIGNMENT: should be set to the alignment of the CPU for which lwIP is compiled. 4 byte alignment -> define MEM_ALIGNMENT to 4, 2 byte alignment -> define MEM_ALIGNMENT to 2.</Hint>
+                                <ItemLevel>BASIC</ItemLevel>
+                                <EditLine>true</EditLine>
+                                <DefaultValue>4</DefaultValue>
+                                <StrDefine>nothing</StrDefine>
+                                <MinLength>1</MinLength>
+                                <MaxLength>1</MaxLength>
+                          </TStrgItem>
+                        </GrupItem>
+                        <GrupItem>
+                          <TStrgItem>
+                                <Name>Memory heap size</Name>
+                                <Symbol>tcpipCfg_MEM_SIZE</Symbol>
+                                <Hint>MEM_SIZE: the size of the heap memory. If the application will send a lot of data that needs to be copied, this should be set high.</Hint>
+                                <ItemLevel>BASIC</ItemLevel>
+                                <EditLine>true</EditLine>
+                                <DefaultValue>32768</DefaultValue>
+                                <StrDefine>nothing</StrDefine>
+                                <ReadOnly>true</ReadOnly>
+                                <MinLength>1</MinLength>
+                                <MaxLength>6</MaxLength>
+                          </TStrgItem>
+                        </GrupItem>
+                        <GrupItem>
+                          <TStrgItem>
+                                <Name>No of packet buffer</Name>
+                                <Symbol>tcpipCfg_MEMP_NUM_PBUF</Symbol>
+                                <Hint>MEMP_NUM_PBUF: the number of memp struct pbufs. If the application sends a lot of data out of ROM (or other static memory), this should be set high.</Hint>
+                                <ItemLevel>BASIC</ItemLevel>
+                                <EditLine>true</EditLine>
+                                <DefaultValue>16</DefaultValue>
+                                <StrDefine>nothing</StrDefine>
+                                <ReadOnly>true</ReadOnly>
+                                <MinLength>1</MinLength>
+                                <MaxLength>6</MaxLength>
+                          </TStrgItem>
+                        </GrupItem>
+                        <GrupItem>
+                          <TStrgItem>
+                                <Name>No of RAW PCB</Name>
+                                <Symbol>tcpipCfg_MEMP_NUM_RAW_PCB</Symbol>
+                                <Hint>MEMP_NUM_RAW_PCB: the number of RAW protocol control blocks. One per active RAW "connection".</Hint>
+                                <ItemLevel>BASIC</ItemLevel>
+                                <EditLine>true</EditLine>
+                                <DefaultValue>4</DefaultValue>
+                                <StrDefine>nothing</StrDefine>
+                                <ReadOnly>true</ReadOnly>
+                                <MinLength>1</MinLength>
+                                <MaxLength>2</MaxLength>
+                          </TStrgItem>
+                        </GrupItem>
+                        <GrupItem>
+                          <TStrgItem>
+                                <Name>No of UDP PCB</Name>
+                                <Symbol>tcpipCfg_MEMP_NUM_UDP_PCB</Symbol>
+                                <Hint>MEMP_NUM_UDP_PCB: the number of UDP protocol control blocks. One per active UDP "connection".</Hint>
+                                <ItemLevel>BASIC</ItemLevel>
+                                <EditLine>true</EditLine>
+                                <DefaultValue>8</DefaultValue>
+                                <StrDefine>nothing</StrDefine>
+                                <ReadOnly>true</ReadOnly>
+                                <MinLength>1</MinLength>
+                                <MaxLength>2</MaxLength>
+                          </TStrgItem>
+                        </GrupItem>
+                        <GrupItem>
+                          <TStrgItem>
+                                <Name>No of TCP PCB</Name>
+                                <Symbol>tcpipCfg_MEMP_NUM_TCP_PCB</Symbol>
+                                <Hint>MEMP_NUM_TCP_PCB: the number of simultaneously active TCP connections.</Hint>
+                                <ItemLevel>BASIC</ItemLevel>
+                                <EditLine>true</EditLine>
+                                <DefaultValue>8</DefaultValue>
+                                <StrDefine>nothing</StrDefine>
+                                <ReadOnly>true</ReadOnly>
+                                <MinLength>1</MinLength>
+                                <MaxLength>2</MaxLength>
+                          </TStrgItem>
+                        </GrupItem>
+                        <GrupItem>
+                          <TStrgItem>
+                                <Name>No of listen TCP PCB</Name>
+                                <Symbol>tcpipCfg_MEMP_NUM_TCP_PCB_LISTEN</Symbol>
+                                <Hint>MEMP_NUM_TCP_PCB_LISTEN: the number of listening TCP connections.</Hint>
+                                <ItemLevel>BASIC</ItemLevel>
+                                <EditLine>true</EditLine>
+                                <DefaultValue>8</DefaultValue>
+                                <StrDefine>nothing</StrDefine>
+                                <ReadOnly>true</ReadOnly>
+                                <MinLength>1</MinLength>
+                                <MaxLength>2</MaxLength>
+                          </TStrgItem>
+                        </GrupItem>
+                        <GrupItem>
+                          <TStrgItem>
+                                <Name>No of segment TCP PCB</Name>
+                                <Symbol>tcpipCfg_MEMP_NUM_TCP_SEG</Symbol>
+                                <Hint>MEMP_NUM_TCP_SEG: the number of simultaneously queued TCP segments.</Hint>
+                                <ItemLevel>BASIC</ItemLevel>
+                                <EditLine>true</EditLine>
+                                <DefaultValue>16</DefaultValue>
+                                <StrDefine>nothing</StrDefine>
+                                <ReadOnly>true</ReadOnly>
+                                <MinLength>1</MinLength>
+                                <MaxLength>2</MaxLength>
+                          </TStrgItem>
+                        </GrupItem>
+                        <GrupItem>
+                          <TStrgItem>
+                                <Name>No of active timeouts</Name>
+                                <Symbol>tcpipCfg_MEMP_NUM_SYS_TIMEOUT</Symbol>
+                                <Hint>MEMP_NUM_SYS_TIMEOUT: the number of simultaneously active timeouts.</Hint>
+                                <ItemLevel>BASIC</ItemLevel>
+                                <EditLine>true</EditLine>
+                                <DefaultValue>15</DefaultValue>
+                                <StrDefine>nothing</StrDefine>
+                                <ReadOnly>true</ReadOnly>
+                                <MinLength>1</MinLength>
+                                <MaxLength>2</MaxLength>
+                          </TStrgItem>
+                        </GrupItem>
+                        <GrupItem>
+                          <TStrgItem>
+                                <Name>No of struct netbufs</Name>
+                                <Symbol>tcpipCfg_MEMP_NUM_NETBUF</Symbol>
+                                <Hint>MEMP_NUM_NETBUF: the number of struct netbufs.</Hint>
+                                <ItemLevel>BASIC</ItemLevel>
+                                <EditLine>true</EditLine>
+                                <DefaultValue>16</DefaultValue>
+                                <StrDefine>nothing</StrDefine>
+                                <ReadOnly>true</ReadOnly>
+                                <MinLength>1</MinLength>
+                                <MaxLength>2</MaxLength>
+                          </TStrgItem>
+                        </GrupItem>
+                        <GrupItem>
+                          <TStrgItem>
+                                <Name>No of struct netconns</Name>
+                                <Symbol>tcpipCfg_MEMP_NUM_NETCONN</Symbol>
+                                <Hint>MEMP_NUM_NETCONN: the number of struct netconns.</Hint>
+                                <ItemLevel>BASIC</ItemLevel>
+                                <EditLine>true</EditLine>
+                                <DefaultValue>32</DefaultValue>
+                                <StrDefine>nothing</StrDefine>
+                                <ReadOnly>true</ReadOnly>
+                                <MinLength>1</MinLength>
+                                <MaxLength>2</MaxLength>
+                          </TStrgItem>
+                        </GrupItem>
+                        <GrupItem>
+                          <TStrgItem>
+                                <Name>No of struct tcpip_msg_api</Name>
+                                <Symbol>tcpipCfg_MEMP_NUM_TCPIP_MSG_API</Symbol>
+                                <Hint>MEMP_NUM_TCPIP_MSG_*: the number of struct tcpip_msg, which is used for sequential API communication and incoming packets. Used in src/api/tcpip.c.</Hint>
+                                <ItemLevel>BASIC</ItemLevel>
+                                <EditLine>true</EditLine>
+                                <DefaultValue>32</DefaultValue>
+                                <StrDefine>nothing</StrDefine>
+                                <ReadOnly>true</ReadOnly>
+                                <MinLength>1</MinLength>
+                                <MaxLength>2</MaxLength>
+                          </TStrgItem>
+                        </GrupItem>
+                        <GrupItem>
+                          <TStrgItem>
+                                <Name>No of struct tcpip_msg_inpkt</Name>
+                                <Symbol>tcpipCfg_MEMP_NUM_TCPIP_MSG_INPKT</Symbol>
+                                <Hint>MMEMP_NUM_TCPIP_MSG_*: the number of struct tcpip_msg, which is used for sequential API communication and incoming packets. Used in src/api/tcpip.c.</Hint>
+                                <ItemLevel>BASIC</ItemLevel>
+                                <EditLine>true</EditLine>
+                                <DefaultValue>32</DefaultValue>
+                                <StrDefine>nothing</StrDefine>
+                                <ReadOnly>true</ReadOnly>
+                                <MinLength>1</MinLength>
+                                <MaxLength>2</MaxLength>
+                          </TStrgItem>
+                        </GrupItem>
+                      </Children>
+                    </TGrupItem>
+                  </GrupItem>
+            </Children>
+  </TInPEinvisibleGroup>
+</ListItem>

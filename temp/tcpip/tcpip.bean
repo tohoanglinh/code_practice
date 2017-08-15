@@ -36,8 +36,8 @@
     <supported_derivatives families="C55" peripherals="ENET">
         <CPU_integer_feature name="PE_SPEC_INT_FEATURE_KSDK_VERSION_RELEASE_ID" operator="eql" value="SDK_RELEASE_VERSION_ID"/>
     </supported_derivatives>
-	<supported_compiler>GNU C Compiler</supported_compiler>
-	<UI_ShowInspectorPages>com.freescale.processorexpert.inspector.page.properties, com.freescale.processorexpert.inspector.page.methods</UI_ShowInspectorPages>
+    <supported_compiler>GNU C Compiler</supported_compiler>
+    <UI_ShowInspectorPages>com.freescale.processorexpert.inspector.page.properties, com.freescale.processorexpert.inspector.page.methods</UI_ShowInspectorPages>
   </Options>
   <PropertyList>
     <Property>
@@ -103,11 +103,7 @@
     </Property>
   </PropertyList>
   <EventList>
-  </EventList>
-  <MethodList>
-    <EmptySection_DummyValue/>
-    <EmptySection_DummyValue/>
-  </MethodList> 
+  </EventList> 
   <Links>
     <EmptySection_DummyValue/>
     <EmptySection_DummyValue/>

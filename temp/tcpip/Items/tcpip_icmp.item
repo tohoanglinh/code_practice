@@ -1,0 +1,42 @@
+<ListItem>
+  <TInPEinvisibleGroup>
+    <Name>ICMPSettings</Name>
+    <Symbol>ICMPSettingsGrp</Symbol>
+    <Hint>ICMPSettings.</Hint>
+    <ItemLevel>BASIC</ItemLevel>
+    <BoldName>true</BoldName>
+    <EditLine>false</EditLine>
+    <Description/>
+    <Expanded>Always</Expanded>
+           <Children>
+                  <GrupItem>
+                    <TGrupItem>
+                      <Name>ICMP</Name>
+                      <Symbol>icmpCfgGrp</Symbol>
+                      <Hint>Internet Control Message Protocol (ICMP) is used by network devices, including routers, to send error messages and operational information indicating, for example, that a requested service is not available or that a host or router could not be reached</Hint>
+                      <ItemLevel>BASIC</ItemLevel>
+                      <BoldName>true</BoldName>
+                      <EditLine>false</EditLine>
+                      <Description/>
+                      <Expanded>No</Expanded>
+                      <Children>
+                        <GrupItem>
+                          <TStrgItem>
+                                <Name>ICMP_TTL</Name>
+                                <Symbol>tcpipCfg_ICMP_TTL</Symbol>
+                                <Hint>ICMP Time to live.</Hint>
+                                <ItemLevel>BASIC</ItemLevel>
+                                <EditLine>true</EditLine>
+                                <DefaultValue>255</DefaultValue>
+                                <StrDefine>nothing</StrDefine>
+                                <ReadOnly>false</ReadOnly>
+                                <MinLength>1</MinLength>
+                                <MaxLength>3</MaxLength>
+                          </TStrgItem>
+                        </GrupItem>
+                      </Children>
+                    </TGrupItem>
+                  </GrupItem>
+            </Children>
+  </TInPEinvisibleGroup>
+</ListItem>
