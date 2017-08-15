@@ -4,7 +4,7 @@
     <Name>tcpip</Name>
     <UUID>com.freescale.processorexpert.ksdk.tcpip</UUID>
     <Description>TCP/IP stack (tcpip)</Description>
-    <Author>D2C</Author>
+    <Author>T2L</Author>
     <Version>SDK_RELEASE_VERSION_ID</Version>
     <Icon>Ethernet_LDD</Icon>
     <TypesFiles>PE,tcpip\Items\*</TypesFiles>

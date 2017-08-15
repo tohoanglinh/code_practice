@@ -37,9 +37,9 @@
 %- If you change these lines, Component Wizard will not be responsible for loosing or damaging your code!
 %-
 %-
-%define DriverAuthor  D2C
+%define DriverAuthor  T2L
 %define DriverVersion 01.00
-%define DriverDate    25.07.2014
+%define DriverDate    15.08.2017
 %-
 %-
 %define isSdkComponent
@@ -94,8 +94,33 @@
 %undef! listComments
 %SUBROUTINE_END
 %-
-%if %sys_file_exists(Beans\tcpip\Drivers\common\tcpip_code.drv) == 'yes'
-  %include common\tcpip_code.drv
+
+%if Language='ANSIC'
+%INTERFACE
+%if %sys_file_exists(Beans\tcpip\Drivers\%CompVersion\tcpip_header.drv) = 'yes'
+  %include %CompVersion\tcpip_header.drv
+%endif
+%IMPLEMENTATION
+%if %sys_file_exists(Beans\tcpip\Drivers\%CompVersion\tcpip_source.drv) = 'yes'
+  %include %CompVersion\tcpip_source.drv
+%endif
+%-
+%else %- Language (& Compiler)
+  %error^ This component is not implemented in selected language & compiler !
+%endif %- Language (& Compiler)
+
+%- # Add needed folders to include paths #
+%if %ProjectStaticFilesGenerationMode = 'LINKED'
+    %append PE_G_4PEx_ToolChain_C_Compiler_Includes "${S32_SDK_PATH}/middleware/tcpip/lwip/src/include"
+    %append PE_G_4PEx_ToolChain_C_Compiler_Includes "${S32_SDK_PATH}/middleware/tcpip/tcpip_stack"
+    %append PE_G_4PEx_ToolChain_C_Compiler_Includes "${S32_SDK_PATH}/middleware/tcpip/tcpip_stack/ports/netif/enetif"
+    %append PE_G_4PEx_ToolChain_C_Compiler_Includes "${S32_SDK_PATH}/middleware/tcpip/tcpip_stack/ports/OS/FreeRTOS"
+%elif %ProjectStaticFilesGenerationMode = 'STANDALONE'
+    %append PE_G_4PEx_ToolChain_C_Compiler_Includes "${ProjDirPath}/SDK/middleware/tcpip/lwip/src/include"
+    %append PE_G_4PEx_ToolChain_C_Compiler_Includes "${ProjDirPath}/SDK/middleware/tcpip/tcpip_stack"
+    %append PE_G_4PEx_ToolChain_C_Compiler_Includes "${ProjDirPath}/SDK/middleware/tcpip/tcpip_stack/ports/netif/enetif"
+    %append PE_G_4PEx_ToolChain_C_Compiler_Includes "${ProjDirPath}/SDK/middleware/tcpip/tcpip_stack/ports/OS/FreeRTOS"
 %endif
 %DEBUG
 %ALL_SYMBOLS
+%-
