@@ -1,0 +1,68 @@
+<ListItem>
+  <TInPEinvisibleGroup>
+    <Name>ARPSettings</Name>
+    <Symbol>ARPSettingsGrp</Symbol>
+    <Hint>ARPSettings.</Hint>
+    <ItemLevel>BASIC</ItemLevel>
+    <BoldName>true</BoldName>
+    <EditLine>false</EditLine>
+    <Description/>
+    <Expanded>Always</Expanded>
+           <Children>
+                  <GrupItem>
+                    <TGrupItem>
+                      <Name>Address Resolution Protocol (ARP)</Name>
+                      <Symbol>ARPCfgGrp</Symbol>
+                      <Hint>Address Resolution Protocol (ARP) is a communications protocol used for resolution of Internet layer addresses (e.g. an IPv4 address) into link layer addresses (e.g. a MAC address). It operates on top of layer 2 in OSI model. In case of IPv6, ARP is replaced by Neighbor Discovery Protocol (NDP).</Hint>
+                      <ItemLevel>BASIC</ItemLevel>
+                      <BoldName>true</BoldName>
+                      <EditLine>false</EditLine>
+                      <Description/>
+                      <Expanded>No</Expanded>
+                      <Children>
+                        <GrupItem>
+                            <TBoolItem>
+                                <Name>ARP</Name>
+                                <Symbol>tcpipCfg_ARP</Symbol>
+                                <TypeSpec>typeYesNo</TypeSpec>
+                                <Hint>ARP Enabled Option.</Hint>
+                                <ItemLevel>BASIC</ItemLevel>
+                                <ReadOnly>false</ReadOnly>
+                                <DefaultValue>true</DefaultValue>
+                                <UI_BoolStyle>CHECKBOX</UI_BoolStyle>
+                            </TBoolItem>
+                        </GrupItem>
+                        <GrupItem>
+                          <TStrgItem>
+                                <Name>ARP Table Size</Name>
+                                <Symbol>tcpipCfg_ARP_TABLE_SIZE</Symbol>
+                                <Hint>ARP Table Size.</Hint>
+                                <ItemLevel>BASIC</ItemLevel>
+                                <EditLine>true</EditLine>
+                                <DefaultValue>10</DefaultValue>
+                                <StrDefine>nothing</StrDefine>
+                                <ReadOnly>false</ReadOnly>
+                                <MinLength>1</MinLength>
+                                <MaxLength>3</MaxLength>
+                          </TStrgItem>
+                        </GrupItem>
+                        <GrupItem>
+                          <TStrgItem>
+                                <Name>ARP Queueing</Name>
+                                <Symbol>tcpipCfg_ARP_QUEUEING</Symbol>
+                                <Hint>ARP Queueing.</Hint>
+                                <ItemLevel>BASIC</ItemLevel>
+                                <EditLine>true</EditLine>
+                                <DefaultValue>1</DefaultValue>
+                                <StrDefine>nothing</StrDefine>
+                                <ReadOnly>false</ReadOnly>
+                                <MinLength>1</MinLength>
+                                <MaxLength>2</MaxLength>
+                          </TStrgItem>
+                        </GrupItem>
+                      </Children>
+                    </TGrupItem>
+                  </GrupItem>
+            </Children>
+  </TInPEinvisibleGroup>
+</ListItem>

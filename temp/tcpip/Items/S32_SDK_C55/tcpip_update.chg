@@ -1,5 +1,7 @@
+%------------------------------- LOGGING for DEBUG OUT  -------------------------------
+%-%log aaa %EXPR(1~%get(tcpipCfg_ARP,Value))
 %------------------------------- General configuration  -------------------------------
-%if %get(tcpipCfg_MEM_EDIT,Value) = 'true'
+%if %get(tcpipCfg_MEM_EDIT,Value) == '0'
 %set tcpipCfg_MEM_ALIGNMENT ReadOnly false
 %set tcpipCfg_MEM_SIZE ReadOnly false
 %set tcpipCfg_MEMP_NUM_PBUF ReadOnly false
@@ -13,6 +15,7 @@
 %set tcpipCfg_MEMP_NUM_NETCONN ReadOnly false
 %set tcpipCfg_MEMP_NUM_TCPIP_MSG_API ReadOnly false
 %set tcpipCfg_MEMP_NUM_TCPIP_MSG_INPKT ReadOnly false
+%set tcpipCfg_PBUF_POOL_SIZE ReadOnly false
 %else
 %set tcpipCfg_MEM_ALIGNMENT ReadOnly true
 %set tcpipCfg_MEM_SIZE ReadOnly true
@@ -27,14 +30,23 @@
 %set tcpipCfg_MEMP_NUM_NETCONN ReadOnly true
 %set tcpipCfg_MEMP_NUM_TCPIP_MSG_API ReadOnly true
 %set tcpipCfg_MEMP_NUM_TCPIP_MSG_INPKT ReadOnly true
+%set tcpipCfg_PBUF_POOL_SIZE ReadOnly true
 %endif
 
 %------------------------------- L2 Data Link configuration  --------------------------
 %set tcpipCfg_MAC Value %get(@Link0@enetMac,Value)
 
+%if %get(tcpipCfg_ARP,Value) == '0'
+%set tcpipCfg_ARP_TABLE_SIZE ReadOnly false
+%set tcpipCfg_ARP_QUEUEING ReadOnly false
+%else
+%set tcpipCfg_ARP_TABLE_SIZE ReadOnly true
+%set tcpipCfg_ARP_QUEUEING ReadOnly true
+%endif
+
 %------------------------------- L3 IP Network configuration  -------------------------
 %- Example: if click to choose IPv4, then we allow to modify the related fields of IPv4.
-%if %get(tcpipCfg_DHCP,Value) = 'true'
+%if %get(tcpipCfg_DHCP,Value) == '0'
 %set tcpipCfg_IPV4 Bool no
 %set tcpipCfg_IPV6 Bool no
 %else
@@ -42,7 +54,7 @@
 %set tcpipCfg_IPV6 Bool yes
 %endif
 
-%if %get(tcpipCfg_IPV4,Value) = 'true'
+%if %get(tcpipCfg_IPV4,Value) == '0'
 %set tcpipCfg_IPV4ADDR ReadOnly false
 %set tcpipCfg_IPV4SUBNETMASK ReadOnly false
 %set tcpipCfg_IPV4GW ReadOnly false
@@ -52,14 +64,14 @@
 %set tcpipCfg_IPV4GW ReadOnly true
 %endif
 
-%if %get(tcpipCfg_IPV6,Value) = 'true'
+%if %get(tcpipCfg_IPV6,Value) == '0'
 %set tcpipCfg_IPV6ADDR ReadOnly false
 %else
 %set tcpipCfg_IPV6ADDR ReadOnly true
 %endif
 
 %------------------------------- L4 Transport configuration  --------------------------
-%if %get(tcpipCfg_TCP,Value) = 'true'
+%if %get(tcpipCfg_TCP,Value) == '0'
 %set tcpipCfg_TCP_TTL ReadOnly false
 %set tcpipCfg_TCP_QUEUE_OOSEQ ReadOnly false
 %set tcpipCfg_TCP_MSS ReadOnly false
@@ -77,7 +89,7 @@
 %set tcpipCfg_TCP_SYNMAXRTX ReadOnly true
 %endif
 
-%if %get(tcpipCfg_UDP,Value) = 'true'
+%if %get(tcpipCfg_UDP,Value) == '0'
 %set tcpipCfg_UDP_TTL ReadOnly false
 %else
 %set tcpipCfg_UDP_TTL ReadOnly true

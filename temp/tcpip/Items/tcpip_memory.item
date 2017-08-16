@@ -24,7 +24,7 @@
                             <TBoolItem>
                                 <Name>Memory value edit</Name>
                                 <Symbol>tcpipCfg_MEM_EDIT</Symbol>
-                                <TypeSpec>typeBool</TypeSpec>
+                                <TypeSpec>typeYesNo</TypeSpec>
                                 <Hint>Click to edit the following related-memory fields.</Hint>
                                 <ItemLevel>BASIC</ItemLevel>
                                 <DefaultValue>false</DefaultValue>
@@ -210,6 +210,20 @@
                                 <ReadOnly>true</ReadOnly>
                                 <MinLength>1</MinLength>
                                 <MaxLength>2</MaxLength>
+                          </TStrgItem>
+                        </GrupItem>
+                        <GrupItem>
+                          <TStrgItem>
+                                <Name>No of buffers in pbuf pool</Name>
+                                <Symbol>tcpipCfg_PBUF_POOL_SIZE</Symbol>
+                                <Hint>PBUF_POOL_SIZE: Number of buffers in the pbuf pool.</Hint>
+                                <ItemLevel>BASIC</ItemLevel>
+                                <EditLine>true</EditLine>
+                                <DefaultValue>128</DefaultValue>
+                                <StrDefine>nothing</StrDefine>
+                                <ReadOnly>true</ReadOnly>
+                                <MinLength>1</MinLength>
+                                <MaxLength>4</MaxLength>
                           </TStrgItem>
                         </GrupItem>
                       </Children>

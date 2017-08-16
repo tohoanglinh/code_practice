@@ -4,7 +4,7 @@
     <Name>tcpip</Name>
     <UUID>com.freescale.processorexpert.ksdk.tcpip</UUID>
     <Description>TCP/IP stack (tcpip)</Description>
-    <Author>T2L</Author>
+    <Author>LINH</Author>
     <Version>SDK_RELEASE_VERSION_ID</Version>
     <Icon>Ethernet_LDD</Icon>
     <TypesFiles>PE,tcpip\Items\*</TypesFiles>
@@ -102,10 +102,10 @@
       </TIncludeItem>
     </Property>
   </PropertyList>
-  <EventList>
-  </EventList> 
-  <Links>
+  <MethodList> 
     <EmptySection_DummyValue/>
+  </MethodList> 
+  <Links>
     <EmptySection_DummyValue/>
   </Links>
   <Revisions>

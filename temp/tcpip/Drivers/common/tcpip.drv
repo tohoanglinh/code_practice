@@ -37,7 +37,7 @@
 %- If you change these lines, Component Wizard will not be responsible for loosing or damaging your code!
 %-
 %-
-%define DriverAuthor  T2L
+%define DriverAuthor  LINH
 %define DriverVersion 01.00
 %define DriverDate    15.08.2017
 %-
@@ -94,7 +94,6 @@
 %undef! listComments
 %SUBROUTINE_END
 %-
-
 %if Language='ANSIC'
 %INTERFACE
 %if %sys_file_exists(Beans\tcpip\Drivers\%CompVersion\tcpip_header.drv) = 'yes'

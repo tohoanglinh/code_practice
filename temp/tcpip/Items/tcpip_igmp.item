@@ -11,7 +11,7 @@
            <Children>
                   <GrupItem>
                     <TGrupItem>
-                      <Name>IGMP</Name>
+                      <Name>Internet Group Management Protocol (IGMP)</Name>
                       <Symbol>igmpCfgGrp</Symbol>
                       <Hint>Internet Group Management Protocol (IGMP) is a communications protocol used by hosts and adjacent routers on IPv4 networks to establish multicast group memberships.</Hint>
                       <ItemLevel>BASIC</ItemLevel>

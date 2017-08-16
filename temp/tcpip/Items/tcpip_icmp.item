@@ -11,7 +11,7 @@
            <Children>
                   <GrupItem>
                     <TGrupItem>
-                      <Name>ICMP</Name>
+                      <Name>Internet Control Message Protocol (ICMP)</Name>
                       <Symbol>icmpCfgGrp</Symbol>
                       <Hint>Internet Control Message Protocol (ICMP) is used by network devices, including routers, to send error messages and operational information indicating, for example, that a requested service is not available or that a host or router could not be reached</Hint>
                       <ItemLevel>BASIC</ItemLevel>
