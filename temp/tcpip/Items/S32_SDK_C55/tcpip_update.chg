@@ -1,6 +1,14 @@
 %------------------------------- LOGGING for DEBUG OUT  -------------------------------
 %-%log aaa %EXPR(1~%get(tcpipCfg_ARP,Value))
+
 %------------------------------- General configuration  -------------------------------
+%- set specific FreeRTOS value for lwIP with OS projects
+%if %get(tcpipCfg_FREERTOS,Value) == '0'
+%set @Link1@configCPU_CLOCK_HZ Value 40000000
+%set @Link1@configMINIMAL_STACK_SIZE Value 512
+%set @Link1@configTOTAL_HEAP_SIZE Value 49152
+%endif
+
 %if %get(tcpipCfg_MEM_EDIT,Value) == '0'
 %set tcpipCfg_MEM_ALIGNMENT ReadOnly false
 %set tcpipCfg_MEM_SIZE ReadOnly false
