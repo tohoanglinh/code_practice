@@ -29,7 +29,7 @@ IncludeVersionInfo=0
 SupportXPThemes=0
 CompilerSet=0
 CompilerSettings=0000000000000000001000000
-UnitCount=4
+UnitCount=1
 
 [VersionInfo]
 Major=1
@@ -49,16 +49,6 @@ ProductName=
 ProductVersion=1.0.0.0
 AutoIncBuildNr=0
 SyncProduct=1
-
-[Unit1]
-FileName=algorithms\equality_in_a_array.c
-CompileCpp=0
-Folder=
-Compile=1
-Link=1
-Priority=1000
-OverrideBuildCmd=0
-BuildCmd=
 
 [Unit2]
 FileName=temp\tcpipConfig.h
@@ -84,6 +74,16 @@ BuildCmd=
 FileName=temp\lwipopts.h
 CompileCpp=0
 Folder=header
+Compile=1
+Link=1
+Priority=1000
+OverrideBuildCmd=0
+BuildCmd=
+
+[Unit1]
+FileName=algorithms\strange_advertising.c
+CompileCpp=0
+Folder=sources
 Compile=1
 Link=1
 Priority=1000
