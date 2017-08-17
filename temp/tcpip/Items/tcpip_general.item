@@ -57,13 +57,13 @@
                         </GrupItem>
                         <GrupItem>
                             <TBoolItem>
-                                <Name>Statistics</Name>
+                                <Name>Statistics:</Name>
                                 <Symbol>tcpipCfg_STATS</Symbol>
                                 <TypeSpec>typeYesNo</TypeSpec>
                                 <Hint>Statistics options.</Hint>
                                 <ItemLevel>BASIC</ItemLevel>
-                                <ReadOnly>false</ReadOnly>
-                                <DefaultValue>false</DefaultValue>
+                                <ReadOnly>true</ReadOnly>
+                                <DefaultValue>true</DefaultValue>
                                 <UI_BoolStyle>CHECKBOX</UI_BoolStyle>
                             </TBoolItem>
                         </GrupItem>

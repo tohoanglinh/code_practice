@@ -24,7 +24,7 @@
  * Data Link Layer
  ****************************************************************************/
 %>1%sdk_briefStart MAC address of the module %sdk_commentEnd
-#define LWIP_MAC_ADDR_BASE            %>%'SymbolCol' %str_replace(tcpipCfg_MAC,":",",")
+#define LWIP_MAC_ADDR_BASE            %>%'SymbolCol' 0x%str_replace(tcpipCfg_MAC,":",",0x")
 
 %>1%sdk_briefStart ARP options %sdk_commentEnd
 #define LWIP_ARP                      %>%'SymbolCol' %EXPR(1~%get(tcpipCfg_ARP,Value)) %>%'CommentCol' /* 1: Enable ARP, 0: Disable ARP */
@@ -36,7 +36,7 @@
  ****************************************************************************/
 %>1%sdk_briefStart DHCP and AUTOIP options of the module %sdk_commentEnd
 #define LWIP_DHCP                     %>%'SymbolCol' %EXPR(1~%get(tcpipCfg_DHCP,Value)) %>%'CommentCol' /* 1: Enable DHCP, 0: Disable DHCP */
-#define DHCP_DOES_ARP_CHECK           %>%'SymbolCol' (LWIP_DHCP)                        %>%'CommentCol' /* 1 if you want to do an ARP check on the offered address (recommended) */
+#define DHCP_DOES_ARP_CHECK           %>%'SymbolCol' (LWIP_DHCP)                        %>%'CommentCol' /* 1: Do an ARP check on the offered address (recommended) */
 #define LWIP_AUTOIP                   %>%'SymbolCol' (LWIP_DHCP)                        %>%'CommentCol' /* 1: Enable AUTOIP, 0: Disable AUTOIP */
 #define LWIP_DHCP_AUTOIP_COOP         %>%'SymbolCol' (LWIP_DHCP && LWIP_AUTOIP)         %>%'CommentCol' /* AUTOIP and DHCP Cooperation */
 
