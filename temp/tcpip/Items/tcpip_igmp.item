@@ -32,7 +32,7 @@
                             <Expanded>Yes</Expanded>
                             <TextValueIndex>true</TextValueIndex>
                             <IconPopup>true</IconPopup>
-                            <DefaultIndex>0</DefaultIndex>
+                            <DefaultIndex>1</DefaultIndex>
                           </TEnumItem>
                         </GrupItem>
                       </Children>

@@ -2,13 +2,15 @@
 %-%log aaa %EXPR(1~%get(tcpipCfg_ARP,Value))
 
 %------------------------------- General configuration  -------------------------------
-%- set specific FreeRTOS value for lwIP with OS projects
+%- specify required FreeRTOS values for lwIP with FreeRTOS
 %if %get(tcpipCfg_FREERTOS,Value) == '0'
 %set @Link1@configCPU_CLOCK_HZ Value 40000000
 %set @Link1@configMINIMAL_STACK_SIZE Value 512
 %set @Link1@configTOTAL_HEAP_SIZE Value 49152
+%set @Link1@FreeRtosUserDefinitions Line[2] #define configNUM_THREAD_LOCAL_STORAGE_POINTERS  2
 %endif
 
+%- enable/disable lock/unlock edit memory related fields
 %if %get(tcpipCfg_MEM_EDIT,Value) == '0'
 %set tcpipCfg_MEM_ALIGNMENT ReadOnly false
 %set tcpipCfg_MEM_SIZE ReadOnly false

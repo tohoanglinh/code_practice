@@ -22,12 +22,12 @@
                       <Children>
                         <GrupItem>
                             <TBoolItem>
-                                <Name>ARP</Name>
+                                <Name>ARP:</Name>
                                 <Symbol>tcpipCfg_ARP</Symbol>
                                 <TypeSpec>typeYesNo</TypeSpec>
-                                <Hint>ARP Enabled Option.</Hint>
+                                <Hint>ARP should be always on, because it's required for translate IP to MAC address function.</Hint>
                                 <ItemLevel>BASIC</ItemLevel>
-                                <ReadOnly>false</ReadOnly>
+                                <ReadOnly>true</ReadOnly>
                                 <DefaultValue>true</DefaultValue>
                                 <UI_BoolStyle>CHECKBOX</UI_BoolStyle>
                             </TBoolItem>

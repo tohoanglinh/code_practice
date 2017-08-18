@@ -87,10 +87,7 @@
                                 <Symbol>tcpipCfg_MAC</Symbol>
                                 <Hint>The MAC address, 6 octets, is automatically and continuously get from the shared enet component.</Hint>
                                 <ItemLevel>BASIC</ItemLevel>
-                                <EditLine>false</EditLine>
                                 <ReadOnly>true</ReadOnly>
-                                <DefaultValue/>
-                                <StrDefine>nothing</StrDefine>
                                 <MinLength>17</MinLength>
                                 <MaxLength>17</MaxLength>
                           </TStrgItem>
