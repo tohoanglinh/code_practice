@@ -85,7 +85,7 @@
                           <TStrgItem>
                                 <Name>MAC Address:</Name>
                                 <Symbol>tcpipCfg_MAC</Symbol>
-                                <Hint>The MAC address, 6 octets, is automatically and continuously get from the shared enet component.</Hint>
+                                <Hint>The MAC address, 6 octets, is automatically and continuously get from the shared enet component. To change it, go to Referenced_Components-->enet-->Configurations-->MAC Address</Hint>
                                 <ItemLevel>BASIC</ItemLevel>
                                 <ReadOnly>true</ReadOnly>
                                 <MinLength>17</MinLength>
@@ -134,7 +134,19 @@
                                 <Name>DHCP</Name>
                                 <Symbol>tcpipCfg_DHCP</Symbol>
                                 <TypeSpec>typeYesNo</TypeSpec>
-                                <Hint>DHCP Enable Option.</Hint>
+                                <Hint>Dynamic Host Configuration Protocol (DHCP) is controlled by a DHCP server (e.g. a router or a residential gateway). It enables computers to request IP addresses and networking parameters automatically, reducing the need for a network admin or a user to do those things manually.</Hint>
+                                <ItemLevel>BASIC</ItemLevel>
+                                <ReadOnly>false</ReadOnly>
+                                <DefaultValue>false</DefaultValue>
+                                <UI_BoolStyle>CHECKBOX</UI_BoolStyle>
+                            </TBoolItem>
+                        </GrupItem>
+                        <GrupItem>
+                            <TBoolItem>
+                                <Name>AUTOIP</Name>
+                                <Symbol>tcpipCfg_AUTOIP</Symbol>
+                                <TypeSpec>typeYesNo</TypeSpec>
+                                <Hint>Like DHCP, AUTOIP is a module that enables dynamic IPv4 addresses to be assigned to a device on startup. However, DHCP requires a DHCP server. AUTOIP is a server-less method of choosing an IP address. A host configured with AUTOIP will get an address with a 169.254/16 prefix (that is, 169.254.xxx.xxx).</Hint>
                                 <ItemLevel>BASIC</ItemLevel>
                                 <ReadOnly>false</ReadOnly>
                                 <DefaultValue>false</DefaultValue>
@@ -146,7 +158,7 @@
                                 <Name>IPv4</Name>
                                 <Symbol>tcpipCfg_IPV4</Symbol>
                                 <TypeSpec>typeYesNo</TypeSpec>
-                                <Hint>IPv4 Enable.</Hint>
+                                <Hint>IPv4 Enable. To set the related IPv4 parameters manually, please uncheck DHCP and AUTOIP.</Hint>
                                 <ItemLevel>BASIC</ItemLevel>
                                 <ReadOnly>false</ReadOnly>
                                 <DefaultValue>true</DefaultValue>

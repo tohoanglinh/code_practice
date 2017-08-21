@@ -56,28 +56,16 @@
 
 %------------------------------- L3 IP Network configuration  -------------------------
 %- Example: if click to choose IPv4, then we allow to modify the related fields of IPv4.
-%if %get(tcpipCfg_DHCP,Value) == '0'
-%set tcpipCfg_IPV4 Bool no
-%set tcpipCfg_IPV6 Bool no
-%else
-%set tcpipCfg_IPV4 Bool yes
-%set tcpipCfg_IPV6 Bool yes
-%endif
-
-%if %get(tcpipCfg_IPV4,Value) == '0'
-%set tcpipCfg_IPV4ADDR ReadOnly false
-%set tcpipCfg_IPV4SUBNETMASK ReadOnly false
-%set tcpipCfg_IPV4GW ReadOnly false
-%else
+%if (%get(tcpipCfg_DHCP,Value) == '0' || %get(tcpipCfg_AUTOIP,Value) == '0')
 %set tcpipCfg_IPV4ADDR ReadOnly true
 %set tcpipCfg_IPV4SUBNETMASK ReadOnly true
 %set tcpipCfg_IPV4GW ReadOnly true
-%endif
-
-%if %get(tcpipCfg_IPV6,Value) == '0'
-%set tcpipCfg_IPV6ADDR ReadOnly false
-%else
 %set tcpipCfg_IPV6ADDR ReadOnly true
+%else
+%set tcpipCfg_IPV4ADDR ReadOnly false
+%set tcpipCfg_IPV4SUBNETMASK ReadOnly false
+%set tcpipCfg_IPV4GW ReadOnly false
+%set tcpipCfg_IPV6ADDR ReadOnly false
 %endif
 
 %------------------------------- L4 Transport configuration  --------------------------

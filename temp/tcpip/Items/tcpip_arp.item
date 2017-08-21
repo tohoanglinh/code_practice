@@ -25,7 +25,7 @@
                                 <Name>ARP:</Name>
                                 <Symbol>tcpipCfg_ARP</Symbol>
                                 <TypeSpec>typeYesNo</TypeSpec>
-                                <Hint>ARP should be always on, because it's required for translate IP to MAC address function.</Hint>
+                                <Hint>ARP should be always on, because it's a required feature to translate IP to MAC address.</Hint>
                                 <ItemLevel>BASIC</ItemLevel>
                                 <ReadOnly>true</ReadOnly>
                                 <DefaultValue>true</DefaultValue>

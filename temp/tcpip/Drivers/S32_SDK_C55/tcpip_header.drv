@@ -35,13 +35,13 @@
  * IP Network Layer
  ****************************************************************************/
 %>1%sdk_briefStart DHCP and AUTOIP options of the module %sdk_commentEnd
-#define LWIP_DHCP                     %>%'SymbolCol' %EXPR(1~%get(tcpipCfg_DHCP,Value)) %>%'CommentCol' /* 1: Enable DHCP, 0: Disable DHCP */
-#define DHCP_DOES_ARP_CHECK           %>%'SymbolCol' (LWIP_DHCP)                        %>%'CommentCol' /* 1: Do an ARP check on the offered address (recommended) */
-#define LWIP_AUTOIP                   %>%'SymbolCol' (LWIP_DHCP)                        %>%'CommentCol' /* 1: Enable AUTOIP, 0: Disable AUTOIP */
-#define LWIP_DHCP_AUTOIP_COOP         %>%'SymbolCol' (LWIP_DHCP && LWIP_AUTOIP)         %>%'CommentCol' /* AUTOIP and DHCP Cooperation */
+#define LWIP_DHCP                     %>%'SymbolCol' %EXPR(1~%get(tcpipCfg_DHCP,Value))   %>%'CommentCol' /* 1: Enable DHCP, 0: Disable DHCP */
+#define DHCP_DOES_ARP_CHECK           %>%'SymbolCol' (LWIP_DHCP)                          %>%'CommentCol' /* 1: Do an ARP check on the offered address (recommended) */
+#define LWIP_AUTOIP                   %>%'SymbolCol' %EXPR(1~%get(tcpipCfg_AUTOIP,Value)) %>%'CommentCol' /* 1: Enable AUTOIP, 0: Disable AUTOIP */
+#define LWIP_DHCP_AUTOIP_COOP         %>%'SymbolCol' (LWIP_DHCP && LWIP_AUTOIP)           %>%'CommentCol' /* AUTOIP and DHCP Cooperation */
 
 %>1%sdk_briefStart IPv4 options of the module %sdk_commentEnd
-#define LWIP_IPV4                     %>%'SymbolCol' %EXPR(1~%get(tcpipCfg_IPV4,Value)) %>%'CommentCol' /* 1: Enable IPv4, 0: Disable IPv4 */
+#define LWIP_IPV4                     %>%'SymbolCol' %EXPR(1~%get(tcpipCfg_IPV4,Value))   %>%'CommentCol' /* 1: Enable IPv4, 0: Disable IPv4 */
 #define LWIP_PORT_INIT_IPADDR(addr)   %>%'SymbolCol' IP4_ADDR((addr), %str_replace(tcpipCfg_IPV4ADDR,".",","))
 #define LWIP_PORT_INIT_NETMASK(addr)  %>%'SymbolCol' IP4_ADDR((addr), %str_replace(tcpipCfg_IPV4SUBNETMASK,".",","))
 #define LWIP_PORT_INIT_GW(addr)       %>%'SymbolCol' IP4_ADDR((addr), %str_replace(tcpipCfg_IPV4GW,".",","))
