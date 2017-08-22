@@ -68,6 +68,12 @@
 %set tcpipCfg_IPV6ADDR ReadOnly false
 %endif
 
+%if (%get(tcpipCfg_DHCP,Value) == '0' && %get(tcpipCfg_AUTOIP,Value) == '0')
+%set tcpipCfg_DHCP_AUTOIP_COOP_TRIES ReadOnly false
+%else
+%set tcpipCfg_DHCP_AUTOIP_COOP_TRIES ReadOnly true
+%endif
+
 %------------------------------- L4 Transport configuration  --------------------------
 %if %get(tcpipCfg_TCP,Value) == '0'
 %set tcpipCfg_TCP_TTL ReadOnly false

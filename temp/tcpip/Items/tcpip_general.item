@@ -131,7 +131,7 @@
                       <Children>
                         <GrupItem>
                             <TBoolItem>
-                                <Name>DHCP</Name>
+                                <Name>DHCP (Server)</Name>
                                 <Symbol>tcpipCfg_DHCP</Symbol>
                                 <TypeSpec>typeYesNo</TypeSpec>
                                 <Hint>Dynamic Host Configuration Protocol (DHCP) is controlled by a DHCP server (e.g. a router or a residential gateway). It enables computers to request IP addresses and networking parameters automatically, reducing the need for a network admin or a user to do those things manually.</Hint>
@@ -143,7 +143,7 @@
                         </GrupItem>
                         <GrupItem>
                             <TBoolItem>
-                                <Name>AUTOIP</Name>
+                                <Name>AUTOIP (Server-less)</Name>
                                 <Symbol>tcpipCfg_AUTOIP</Symbol>
                                 <TypeSpec>typeYesNo</TypeSpec>
                                 <Hint>Like DHCP, AUTOIP is a module that enables dynamic IPv4 addresses to be assigned to a device on startup. However, DHCP requires a DHCP server. AUTOIP is a server-less method of choosing an IP address. A host configured with AUTOIP will get an address with a 169.254/16 prefix (that is, 169.254.xxx.xxx).</Hint>
@@ -154,13 +154,26 @@
                             </TBoolItem>
                         </GrupItem>
                         <GrupItem>
+                          <TStrgItem>
+                                <Name>DHCP Discover->AUTOIP</Name>
+                                <Symbol>tcpipCfg_DHCP_AUTOIP_COOP_TRIES</Symbol>
+                                <Hint>Set to the number of DHCP DISCOVER probes that should be sent before falling back on AUTOIP (the DHCP client keeps running in this case). This can be set as low as 1 to get an AutoIP address very  quickly, but you should be prepared to handle a changing IP address when DHCP overrides AutoIP.</Hint>
+                                <ItemLevel>BASIC</ItemLevel>
+                                <EditLine>true</EditLine>
+                                <DefaultValue>3</DefaultValue>
+                                <ReadOnly>false</ReadOnly>
+                                <MinLength>1</MinLength>
+                                <MaxLength>2</MaxLength>
+                          </TStrgItem>
+                        </GrupItem>
+                        <GrupItem>
                             <TBoolItem>
-                                <Name>IPv4</Name>
+                                <Name>IPv4 Support</Name>
                                 <Symbol>tcpipCfg_IPV4</Symbol>
                                 <TypeSpec>typeYesNo</TypeSpec>
-                                <Hint>IPv4 Enable. To set the related IPv4 parameters manually, please uncheck DHCP and AUTOIP.</Hint>
+                                <Hint>IPv4 Support. To set the related IPv4 parameters manually, please uncheck both DHCP and AUTOIP.</Hint>
                                 <ItemLevel>BASIC</ItemLevel>
-                                <ReadOnly>false</ReadOnly>
+                                <ReadOnly>true</ReadOnly>
                                 <DefaultValue>true</DefaultValue>
                                 <UI_BoolStyle>CHECKBOX</UI_BoolStyle>
                             </TBoolItem>
@@ -209,12 +222,12 @@
                         </GrupItem>
                         <GrupItem>
                             <TBoolItem>
-                                <Name>IPv6</Name>
+                                <Name>IPv6 Support</Name>
                                 <Symbol>tcpipCfg_IPV6</Symbol>
                                 <TypeSpec>typeYesNo</TypeSpec>
-                                <Hint>IPv6 Enable.</Hint>
+                                <Hint>IPv6 Support.</Hint>
                                 <ItemLevel>BASIC</ItemLevel>
-                                <ReadOnly>false</ReadOnly>
+                                <ReadOnly>true</ReadOnly>
                                 <DefaultValue>true</DefaultValue>
                                 <UI_BoolStyle>CHECKBOX</UI_BoolStyle>
                             </TBoolItem>
