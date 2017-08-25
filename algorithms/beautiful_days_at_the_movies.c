@@ -20,18 +20,77 @@
 #include <stdbool.h>
 #include <stdint.h>
 #include <stdlib.h>
+#include <math.h>
 
 /*******************************************************************************
  * Definitions
  ******************************************************************************/
-#define MAX_CNT 200
 
 /*******************************************************************************
  * Code
  ******************************************************************************/
+int getLength(int num)
+{
+    int tmp_len = 0;
+
+    while(num/10 != 0)
+    {
+        tmp_len++;
+        num = num/10;
+    }
+    
+    if (num/10 == 0)
+    {
+        tmp_len++;
+    }
+    return tmp_len;
+}
+
+int reversed(int num, int len)
+{
+    int new_num = 0;
+    int remain;
+    int idx;
+    idx = len-1;
+
+    while(num/10 != 0)
+    {
+        remain = num%10;
+        new_num = new_num + remain*pow(10,idx);
+        num = num/10;
+        idx--;
+    }
+    
+    if(num/10 == 0)
+    {
+        new_num = new_num+num%10;
+    }
+    
+    return new_num;
+}
+ 
 int main(void)
 {
-    /* input */
-    /* output */
+    /* input: i, j, k */
+    int i, j, k;
+    scanf("%d %d %d", &i, &j, &k);
+    
+    /* output
+       x tu i --> j
+      |x - reversed(x)| % k == 0  */
+    int x;
+    int beautiful_cnt = 0;
+    for (x = i; x < j; x++)
+    {
+        /* find beautiful days */
+        if (abs(x-reversed(x,getLength(x))) % k == 0)
+        {
+            /* that's a beautiful day */
+            beautiful_cnt++;
+        }
+    }
+    
+    printf("%d", beautiful_cnt);
+    
     return 0;
 }

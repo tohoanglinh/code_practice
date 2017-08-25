@@ -20,6 +20,26 @@ Disadvantages:
 */
 #include "linkedlists.h"
 
+/* add item to end of list */
+void LL_pushItem(node_t * head, int item_data)
+{
+    node_t * current = head;
+
+    /* move pointer current from head --> end of list (NULL) */
+    while(current->next != NULL)
+    {
+        current = current->next;
+    }
+    
+    /* now is the end of list, we can add a new item */
+    current->next = malloc(sizeof(node_t));
+    current->next->data = item_data;
+    current->next->next = NULL;
+}
+
+/* add item to begin of list */
+
+/* print list */
 void LL_printList(node_t * head)
 {
     node_t * current = head;
@@ -31,6 +51,7 @@ void LL_printList(node_t * head)
     }
 }
 
+/* check emptiness of list */
 bool LL_isListEmpty(node_t * head)
 {
     return (head == NULL);

@@ -11,7 +11,7 @@ int main(void)
 {
     node_t *head0   = NULL;
 
-    /* list0 */
+    /* init list0 */
     head0 = malloc(sizeof(node_t));
     head0->data = 1;
     head0->next = malloc(sizeof(node_t));
@@ -20,6 +20,7 @@ int main(void)
     head0->next->next->data = 3;
     head0->next->next->next = NULL;
 
+    /* test empty and print */
     if (true == LL_isListEmpty(head0))
     {
         printf("List is empty\n");
@@ -30,5 +31,8 @@ int main(void)
         LL_printList(head0);
     }
 
+    /* test push */
+    LL_pushItem(head0, 4);
+    
     return 0;
 }

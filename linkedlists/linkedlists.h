@@ -28,7 +28,8 @@ typedef struct node
 /*******************************************
  * APIS
  *******************************************/
-// add item
+/* add item to end of list */
+void LL_pushItem(node_t * head, int item_data);
 
 // remove item
 
