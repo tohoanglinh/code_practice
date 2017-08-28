@@ -26,18 +26,44 @@
  ******************************************************************************/
 #define MAX_PAGES 100000
 #define MIN_PAGES 1
+#define SIDES_PER_PAGE 2
 
 /*******************************************************************************
  * Code
  ******************************************************************************/
 int forward_turn(int total_pages, int wanted_page)
 {
-    return 2;
+    /* start from 1 --> wanted page */
+    if (wanted_page%2 == 0)
+    {
+        return (wanted_page/SIDES_PER_PAGE);
+    }
+    else
+    {
+        return ((wanted_page-1)/SIDES_PER_PAGE);
+    }
+    return 0;
 }
 
 int reverse_turn(int total_pages, int wanted_page)
 {
-    return 1;
+    /* start from n total_pages --> wanted page */
+    if (total_pages%2 == 0)
+    {
+        if (wanted_page%2 == 0)
+        {
+            return (total_pages-wanted_page)/SIDES_PER_PAGE;
+        }
+        else
+        {
+            return (total_pages-wanted_page+1)/SIDES_PER_PAGE;
+        }
+    }
+    else
+    {
+        return (total_pages-wanted_page)/SIDES_PER_PAGE;
+    }
+    return 0;
 }
 
 int min(int num1, int num2)
