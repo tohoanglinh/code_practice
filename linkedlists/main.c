@@ -23,16 +23,21 @@ int main(void)
     /* test empty and print */
     if (true == LL_isListEmpty(head0))
     {
-        printf("List is empty\n");
+        printf("Init List is empty\n");
     }
     else
     {
-        printf("List is not empty\n");
+        printf("Init List is not empty\n");
         LL_printList(head0);
     }
 
     /* test push */
-    LL_pushItem(head0, 4);
+    LL_pushItemBegin(&head0, 0);
+    LL_pushItemEnd(head0, 4);
+    printf("New List is\n");
+    LL_printList(head0);
+    
+    /* test remove */
     
     return 0;
 }

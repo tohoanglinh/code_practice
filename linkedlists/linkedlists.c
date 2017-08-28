@@ -21,7 +21,7 @@ Disadvantages:
 #include "linkedlists.h"
 
 /* add item to end of list */
-void LL_pushItem(node_t * head, int item_data)
+void LL_pushItemEnd(node_t * head, int item_data)
 {
     node_t * current = head;
 
@@ -38,6 +38,17 @@ void LL_pushItem(node_t * head, int item_data)
 }
 
 /* add item to begin of list */
+/* how to call: LL_pushItemBegin(&head0, 0); */
+void LL_pushItemBegin(node_t ** head, int item_data)
+{
+    node_t * new_node;
+    new_node = malloc(sizeof(node_t));
+    
+    new_node->data = item_data;
+    new_node->next = *head;
+
+    *head = new_node;
+}
 
 /* print list */
 void LL_printList(node_t * head)
