@@ -30,7 +30,7 @@ void LL_pushItemEnd(node_t * head, int item_data)
     {
         current = current->next;
     }
-    
+
     /* now is the end of list, we can add a new item */
     current->next = malloc(sizeof(node_t));
     current->next->data = item_data;
@@ -43,7 +43,7 @@ void LL_pushItemBegin(node_t ** head, int item_data)
 {
     node_t * new_node;
     new_node = malloc(sizeof(node_t));
-    
+
     new_node->data = item_data;
     new_node->next = *head;
 
@@ -54,7 +54,7 @@ void LL_pushItemBegin(node_t ** head, int item_data)
 void LL_printList(node_t * head)
 {
     node_t * current = head;
-    
+
     while (current != NULL)
     {
         printf("%d\n", current->data);
