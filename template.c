@@ -1,7 +1,7 @@
 /**
  * File   : template.c
  * Author : To Hoang Linh
- * Date   : 2017-07-24
+ * Date   : 2017-08-28
  * ForWhat: to create a generic template for C/C++ source coding.
  */
 
