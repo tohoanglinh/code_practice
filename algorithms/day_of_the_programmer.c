@@ -16,30 +16,78 @@
  * */
 
 #include <stdio.h>
+#include <stdbool.h>
 
-void print_full_date(int date, int month, int year)
+#define JANUARY 31
+#define MARCH   31
+#define APRIL   30
+#define MAY     31
+#define JUNE    30
+#define JULY    31
+#define AUGUST  31
+
+void printFullDate(int date, int month, int year)
 {
-    
+    printf("%02d.%02d.%04d\n", date, month, year);
 }
 
-int find_date(int year)
+bool isLeapYear(int year)
 {
-    printf("This is full date\n");
-    if ( y >= 1700 && y <= 1917)
+    if (year >= 1700 && year <= 1917)
     {
         /* Julian calendar */
+        if (year % 4 == 0)
+        {
+            return true;
+        }
     }
-    else if (y >= 1919)
+    else if (year >= 1919)
     {
         /* Gregorian calendar */
-        
+        if ((year % 400 == 0) || (year % 4 == 0 && year % 100 != 0))
+        {
+            return true;
+        }
     }
     else
     {
-        /* transition from Julian to Gregorian */
+        /* transition from Julian to Gregorian: 1918 */
+        return false;
     }
-    
-    return 0;
+    return false;
+}
+
+int sumDate(int year)
+{
+    int february;
+    if (year != 1918)
+    {
+        if (true == isLeapYear(year))
+        {
+            february = 29;
+        }
+        else
+        {
+            february = 28;
+        }
+    }
+    else
+    {
+        /* in 1918, february only has 15 days */
+        february = 28 - 14 + 1;
+    }
+    return (JANUARY+february+MARCH+APRIL+MAY+JUNE+JULY+AUGUST);
+}
+
+/* find 256th date of the year */
+int findDate(int year)
+{
+    return (256-sumDate(year));
+}
+
+int findMonth(int year)
+{
+    return 9;
 }
 
 int main(void)
@@ -51,9 +99,9 @@ int main(void)
     {
         scanf("%d", &y);
     }
-    
-    /* output */
-    print_full_date(find_date(y), find_month(y), y);
+
+    /* output : find the day of the programmer during year y, dd.mm.yyyy */
+    printFullDate(findDate(y), findMonth(y), y);
 
     return 0;
 }
