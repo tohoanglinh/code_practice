@@ -10,28 +10,28 @@
     <Expanded>Always</Expanded>
            <Children>
                   <GrupItem>
-                    <TGrupItem>
+                    <TBoolGrupItem>
                       <Name>Address Resolution Protocol (ARP)</Name>
-                      <Symbol>ARPCfgGrp</Symbol>
+                      <Symbol>tcpipCfg_ARP</Symbol>
+                      <TypeSpec>type_tcpip_ConfigParams</TypeSpec>
                       <Hint>Address Resolution Protocol (ARP) is a communications protocol used for resolution of Internet layer addresses (e.g. an IPv4 address) into link layer addresses (e.g. a MAC address). It operates on top of layer 2 in OSI model. In case of IPv6, ARP is replaced by Neighbor Discovery Protocol (NDP).</Hint>
                       <ItemLevel>BASIC</ItemLevel>
                       <BoldName>true</BoldName>
                       <EditLine>false</EditLine>
-                      <Description/>
+                      <UI_DisplayIn>TABLE_AND_GRAPHICAL_VIEW</UI_DisplayIn>
+                      <UI_DisplayExtraText>DISPLAY_AUTO_POSITION</UI_DisplayExtraText>
+                      <Description>Enabled</Description>
                       <Expanded>No</Expanded>
+                      <UI_GroupStyle>GROUP</UI_GroupStyle>
+                      <UI_NumColumnsInWrappedLayout>4</UI_NumColumnsInWrappedLayout>
+                      <UI_ValueSelectionStyle>CHECKBOX</UI_ValueSelectionStyle>
+                      <TypeSpecNameChangeAble>false</TypeSpecNameChangeAble>
+                      <DefaultIndex>0</DefaultIndex>
+                      <TextValueIndex>false</TextValueIndex>
+                      <DefaultValue>true</DefaultValue>
+                      <DefineSymbol>YES_NO</DefineSymbol>
+                      <IfDisabled>setNOTHING</IfDisabled>
                       <Children>
-                        <GrupItem>
-                            <TBoolItem>
-                                <Name>ARP:</Name>
-                                <Symbol>tcpipCfg_ARP</Symbol>
-                                <TypeSpec>typeYesNo</TypeSpec>
-                                <Hint>ARP should be always on, because it's a required feature to translate IP to MAC address.</Hint>
-                                <ItemLevel>BASIC</ItemLevel>
-                                <ReadOnly>true</ReadOnly>
-                                <DefaultValue>true</DefaultValue>
-                                <UI_BoolStyle>CHECKBOX</UI_BoolStyle>
-                            </TBoolItem>
-                        </GrupItem>
                         <GrupItem>
                           <TStrgItem>
                                 <Name>ARP Table Size</Name>
@@ -61,7 +61,7 @@
                           </TStrgItem>
                         </GrupItem>
                       </Children>
-                    </TGrupItem>
+                    </TBoolGrupItem>
                   </GrupItem>
             </Children>
   </TInPEinvisibleGroup>

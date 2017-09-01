@@ -1,0 +1,52 @@
+%-      Copyright 2017 NXP
+%-
+%- ****************************************************************************
+%- HEADER FILE START
+%- ****************************************************************************
+%INTERFACE
+%define! DirRel_Code_rep %str_replace(DirRel_Code,"\","/")
+%FILE %'DirRel_Code_rep'lwipcfg.h
+%include Common\Header.h
+
+#ifndef LWIP_LWIPCFG_H
+#define LWIP_LWIPCFG_H
+/* FILE LWIPCFG_H. */
+%:SymbolCol  = 38
+%:CommentCol = 66
+
+/****************************************************************************
+ * Demo applications
+ ****************************************************************************/
+#define LWIP_CHARGEN_APP             %>%'SymbolCol' %EXPR(1~%get(tcpipCfg_CHARGEN,Value))       %>%'CommentCol' /* 1: Enable CHARGEN, 0: Disable CHARGEN */
+#define LWIP_DNS_APP                 %>%'SymbolCol' %EXPR(1~%get(tcpipCfg_DNS,Value))
+#define LWIP_HTTPD_APP               %>%'SymbolCol' %EXPR(1~%get(tcpipCfg_HTTPD,Value))
+#define LWIP_HTTPD_APP_NETCONN       %>%'SymbolCol' %EXPR(1~%get(tcpipCfg_HTTPD_NETCONN,Value)) %>%'CommentCol' /* 1: use NETCONN HTTP SERVER, 0: use RAW API HTTP SERVER */
+#define LWIP_NETBIOS_APP             %>%'SymbolCol' %EXPR(1~%get(tcpipCfg_NETBIOS,Value))
+#define LWIP_NETIO_APP               %>%'SymbolCol' %EXPR(1~%get(tcpipCfg_NETIO,Value))
+#define LWIP_RTP_APP                 %>%'SymbolCol' %EXPR(1~%get(tcpipCfg_RTP,Value))
+#define LWIP_SHELL_APP               %>%'SymbolCol' %EXPR(1~%get(tcpipCfg_SHELL,Value))
+#define LWIP_SNTP_APP                %>%'SymbolCol' %EXPR(1~%get(tcpipCfg_SNTP,Value))
+#define LWIP_SOCKET_EXAMPLES_APP     %>%'SymbolCol' %EXPR(1~%get(tcpipCfg_SOCKET_EXAMPLES,Value))
+#define LWIP_TCPECHO_APP             %>%'SymbolCol' %EXPR(1~%get(tcpipCfg_TCPECHO,Value))
+#define LWIP_TCPECHO_APP_NETCONN     %>%'SymbolCol' %EXPR(1~%get(tcpipCfg_TCPECHO_NETCONN,Value))%>%'CommentCol' /* 1: use NETCONN TCPECHO SERVER, 0: use RAW API TCPECHO SERVER */
+#define LWIP_UDPECHO_APP             %>%'SymbolCol' %EXPR(1~%get(tcpipCfg_UDPECHO,Value))
+#define LWIP_LWIPERF_APP             %>%'SymbolCol' %EXPR(1~%get(tcpipCfg_LWIPERF,Value))        %>%'CommentCol' /* lwIP iPerf server implementation to measure performance [support only TCP over IPv4] */
+
+/****************************************************************************
+ * User Settings
+ ****************************************************************************/
+%if defined(tcpipCfg_USER_DEFINES) 
+  %if %tcpipCfg_USER_DEFINESLines>.'0'
+    %for var from [1..%tcpipCfg_USER_DEFINESLines]
+      %if %[%var,tcpipCfg_USER_DEFINESLen]>.'0'
+%[%var,tcpipCfg_USER_DEFINES]
+      %endif
+    %endfor
+  %endif
+%endif
+
+#endif /* ifndef LWIP_LWIPCFG_H */
+%include Common\Header.end
+%- ****************************************************************************
+%- HEADER FILE END
+%- ****************************************************************************

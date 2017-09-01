@@ -4,6 +4,18 @@
   <Types>
     <Type>
       <Type>TEnumSpec</Type>
+      <Name>type_tcpip_ConfigParams</Name>
+      <Items lines_count="2">
+        <Line>yes</Line>
+        <Line>no</Line>
+      </Items>
+      <Defines lines_count="2">
+        <Line>1</Line>
+        <Line>0</Line>
+      </Defines>
+    </Type>
+    <Type>
+      <Type>TEnumSpec</Type>
       <Name>type_tcpip_ConfigIGMPversion</Name>
       <Items lines_count="3">
         <Line>1</Line>

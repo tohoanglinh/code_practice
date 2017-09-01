@@ -35,13 +35,46 @@ int main(void)
 {
     /* input n: number of steps in Gary's hike */
     int n;
-    scanf("%d", &n);
+    scanf("%d ", &n);
     
+    /* input: sequence of Up-Down steps */
     char *sequenceUD;
     sequenceUD = malloc(sizeof(char)*n);
     
-    /* output: number of valleys Gary walked through? */
+    int i;
+    i = 0;
+    for (i = 0; i < n; i++)
+    {
+        scanf("%c", sequenceUD+i);
+    }
     
+    SUDDDUDUUS
+    
+    /* output: number of valleys Gary walked through? */
+    int init_height = 0;
+    int *height;
+    height = malloc(sizeof(int)*n);
+    *height = init_height;
+
+    for (i = 0; i < n; i++)
+    {
+        if (*(sequenceUD+i) == 'U')
+        {
+            *(height+i) = *(height+i-1)+1;
+        }
+        else if (*(sequenceUD+i) == 'D')
+        {
+            *(height+i) = *(height+i-1)-1;
+        }
+    }
+    
+    for (i = 0; i < n; i++)
+    {
+        printf("%d", *(height+i));
+    }
+    
+    free(sequenceUD);
+    free(height);
     
     return 0;
 }

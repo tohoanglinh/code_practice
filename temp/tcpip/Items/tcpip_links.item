@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ListItem>
     <TGrupItem>
-        <Name>Shared components</Name>
+        <Name>Shared Components</Name>
         <Symbol>LinkGrp</Symbol>
         <Hint>Shared components needed by this component.</Hint>
         <ItemLevel>BASIC</ItemLevel>
@@ -10,20 +10,6 @@
         <Description/>
         <Expanded>Yes</Expanded>
         <Children>
-            <GrupItem>
-                <TInhrLinkItem>
-                    <Name>enet</Name>
-                    <Symbol>Link0</Symbol>
-                    <TypeSpec>enet</TypeSpec>
-                    <Hint>Link to an existing or to a new shared component.</Hint>
-                    <ItemLevel>BASIC</ItemLevel>
-                    <EditLine>false</EditLine>
-                    <DefaultValue/>
-                    <CanDelete>false</CanDelete>
-                    <IconPopup>false</IconPopup>
-                    <SortStyle/>
-                </TInhrLinkItem>
-            </GrupItem>
             <GrupItem>
               <TInhrLinkItem>
                 <Name>freertos</Name>
@@ -38,6 +24,48 @@
                 <SortStyle/>
               </TInhrLinkItem>
             </GrupItem>
+          <GrupItem>
+            <TInhrLinkItem>
+              <Name>interrupt_manager</Name>
+              <Symbol>Link2</Symbol>
+              <TypeSpec>interrupt_manager</TypeSpec>
+              <Hint>Link to an existing or to a new shared component.</Hint>
+              <ItemLevel>BASIC</ItemLevel>
+              <EditLine>false</EditLine>
+              <DefaultValue/>
+              <CanDelete>false</CanDelete>
+              <IconPopup>false</IconPopup>
+              <SortStyle/>
+            </TInhrLinkItem>
+          </GrupItem>
+          <GrupItem>
+            <TInhrLinkItem>
+              <Name>clock_manager</Name>
+              <Symbol>Link3</Symbol>
+              <TypeSpec>clock_manager</TypeSpec>
+              <Hint>Link to an existing or to a new shared component.</Hint>
+              <ItemLevel>BASIC</ItemLevel>
+              <EditLine>false</EditLine>
+              <DefaultValue/>
+              <CanDelete>false</CanDelete>
+              <IconPopup>false</IconPopup>
+              <SortStyle/>
+            </TInhrLinkItem>
+          </GrupItem>
+          <GrupItem>
+            <TInhrLinkItem>
+              <Name>osif</Name>
+              <Symbol>Link4</Symbol>
+              <TypeSpec>osif</TypeSpec>
+              <Hint>Link to an existing or to a new shared component.</Hint>
+              <ItemLevel>BASIC</ItemLevel>
+              <EditLine>false</EditLine>
+              <DefaultValue/>
+              <CanDelete>false</CanDelete>
+              <IconPopup>false</IconPopup>
+              <SortStyle/>
+            </TInhrLinkItem>
+          </GrupItem>
         </Children>
     </TGrupItem>
     <Links>

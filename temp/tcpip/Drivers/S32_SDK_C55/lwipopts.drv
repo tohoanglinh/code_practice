@@ -4,122 +4,22 @@
 %- HEADER FILE START
 %- ****************************************************************************
 %INTERFACE
+%define! DirRel_Code_rep %str_replace(DirRel_Code,"\","/")
+%FILE %'DirRel_Code_rep'lwipopts.h
 %include Common\Header.h
 
-#ifndef %'ModuleName'_H
-#define %'ModuleName'_H
-/* MODULE %ModuleName. */
-
-/* Include inherited beans */
-%ifdef InhrSymbolList
-  %for var from InhrSymbolList
-#include "%@%var@ModuleName.h"
-  %endfor
-%endif
-%-
-#include "%ProcessorModule.h"
+#ifndef LWIP_LWIPOPTS_H
+#define LWIP_LWIPOPTS_H
+/* FILE LWIPOPTS_H. */
 %:SymbolCol  = 38
 %:CommentCol = 66
-/****************************************************************************
- * Data Link Layer
- ****************************************************************************/
-%>1%sdk_briefStart MAC address of the module %sdk_commentEnd
-#define LWIP_MAC_ADDR_BASE            %>%'SymbolCol' 0x%str_replace(tcpipCfg_MAC,":",",0x")
-
-%>1%sdk_briefStart ARP options %sdk_commentEnd
-#define LWIP_ARP                      %>%'SymbolCol' %EXPR(1~%get(tcpipCfg_ARP,Value)) %>%'CommentCol' /* 1: Support ARP, 0: Disable ARP */
-#define ARP_TABLE_SIZE                %>%'SymbolCol' %'tcpipCfg_ARP_TABLE_SIZE'        %>%'CommentCol' /* ARP Table size */
-#define ARP_QUEUEING                  %>%'SymbolCol' %'tcpipCfg_ARP_QUEUEING'          %>%'CommentCol' /* ARP Queueing */
 
 /****************************************************************************
- * IP Network Layer
+ * General: OS, Memory, etc.
  ****************************************************************************/
-%>1%sdk_briefStart DHCP and AUTOIP options of the module %sdk_commentEnd
-#define LWIP_DHCP                     %>%'SymbolCol' %EXPR(1~%get(tcpipCfg_DHCP,Value))   %>%'CommentCol' /* 1: Enable DHCP, 0: Disable DHCP */
-#define DHCP_DOES_ARP_CHECK           %>%'SymbolCol' (LWIP_DHCP)                          %>%'CommentCol' /* 1: Do an ARP check on the offered address (recommended) */
-#define LWIP_AUTOIP                   %>%'SymbolCol' %EXPR(1~%get(tcpipCfg_AUTOIP,Value)) %>%'CommentCol' /* 1: Enable AUTOIP, 0: Disable AUTOIP */
-#define LWIP_DHCP_AUTOIP_COOP         %>%'SymbolCol' (LWIP_DHCP && LWIP_AUTOIP)           %>%'CommentCol' /* AUTOIP and DHCP Cooperation */
-#define LWIP_DHCP_AUTOIP_COOP_TRIES   %>%'SymbolCol' %'tcpipCfg_DHCP_AUTOIP_COOP_TRIES'   %>%'CommentCol' /* Number of DHCP Discover tries before switching to
-                                                                                          %>%'CommentCol'    AUTOIP. Set it to a low value will get a IP quickly.
-                                                                                          %>%'CommentCol'    But you should prepare to handle changing
-                                                                                          %>%'CommentCol'    IP address when DHCP overrides AUTOIP */
+#define LWIP_NETIF_HOSTNAME          %>%'SymbolCol' 1
+#define LWIP_NETIF_HOSTNAME_TEXT     %>%'SymbolCol' %'tcpipCfg_USE_HOST_NAME'
 
-%>1%sdk_briefStart IPv4 options of the module %sdk_commentEnd
-#define LWIP_IPV4                     %>%'SymbolCol' %EXPR(1~%get(tcpipCfg_IPV4,Value))   %>%'CommentCol' /* 1: Support IPv4, 0: Disable IPv4 */
-#define LWIP_PORT_INIT_IPADDR(addr)   %>%'SymbolCol' IP4_ADDR((addr), %str_replace(tcpipCfg_IPV4ADDR,".",","))
-#define LWIP_PORT_INIT_NETMASK(addr)  %>%'SymbolCol' IP4_ADDR((addr), %str_replace(tcpipCfg_IPV4SUBNETMASK,".",","))
-#define LWIP_PORT_INIT_GW(addr)       %>%'SymbolCol' IP4_ADDR((addr), %str_replace(tcpipCfg_IPV4GW,".",","))
-
-%>1%sdk_briefStart IPv6 options of the module %sdk_commentEnd
-#define LWIP_IPV6                    %>%'SymbolCol' %EXPR(1~%get(tcpipCfg_IPV6,Value))  %>%'CommentCol' /* 1: Support IPv6, 0: Disable IPv6 */
-
-%>1%sdk_briefStart IP forward ability of the module %sdk_commentEnd
-#define IP_FORWARD                   %>%'SymbolCol' 0                                   %>%'CommentCol' /* 1: Forward IP packets across network interfaces,
-                                                                                        %>%'CommentCol'    0: Run lwIP on a device with only 1 network interface */
-
-%>1%sdk_briefStart IP reassembly and segmentation. These are orthogonal even if they both deal with IP fragments %sdk_commentEnd
-#define IP_REASSEMBLY                %>%'SymbolCol' 1
-#define IP_REASS_MAX_PBUFS           %>%'SymbolCol' 10
-#define MEMP_NUM_REASSDATA           %>%'SymbolCol' 10
-#define IP_FRAG                      %>%'SymbolCol' 1
-
-%>1%sdk_briefStart IGMP options of the module %sdk_commentEnd
-#define LWIP_IGMP                    %>%'SymbolCol' LWIP_IPV4
-
-%>1%sdk_briefStart ICMP options of the module %sdk_commentEnd
-#define LWIP_ICMP                    %>%'SymbolCol' LWIP_IPV4
-#define ICMP_TTL                     %>%'SymbolCol' %'tcpipCfg_ICMP_TTL'                %>%'CommentCol' /* ICMP Time to live value */
-
-/****************************************************************************
- * Transport Layer
- ****************************************************************************/
-%>1%sdk_briefStart TCP options of the module %sdk_commentEnd
-#define LWIP_TCP                     %>%'SymbolCol' %EXPR(1~%get(tcpipCfg_TCP,Value))   %>%'CommentCol' /* 1: Enable TCP, 0: Disable TCP */
-#define TCP_TTL                      %>%'SymbolCol' %'tcpipCfg_TCP_TTL'                 %>%'CommentCol' /* TCP Time to live value */
-#define TCP_QUEUE_OOSEQ              %>%'SymbolCol' %'tcpipCfg_TCP_QUEUE_OOSEQ'         %>%'CommentCol' /* Controls if TCP should queue segments that arrive out of order.
-                                                                                        %>%'CommentCol'    Defines to 0 if your device is low on memory. */
-#define TCP_MSS                      %>%'SymbolCol' %'tcpipCfg_TCP_MSS'                 %>%'CommentCol' /* TCP Maximum segment size */
-#define TCP_SND_BUF                  %>%'SymbolCol' %'tcpipCfg_TCP_SND_BUF'             %>%'CommentCol' /* TCP sender buffer space (bytes). */
-
-/* TCP sender buffer space (pbufs). This must be at least = 2 *
-   TCP_SND_BUF/TCP_MSS for things to work. */
-#define TCP_SND_QUEUELEN             %>%'SymbolCol' (4 * TCP_SND_BUF/TCP_MSS)
-
-/* TCP writable space (bytes). This must be less than or equal
-   to TCP_SND_BUF. It is the amount of space which must be
-   available in the tcp snd_buf for select to return writable */
-#define TCP_SNDLOWAT                 %>%'SymbolCol' (TCP_SND_BUF/2)
-
-#define TCP_WND                      %>%'SymbolCol' %'tcpipCfg_TCP_WND'                 %>%'CommentCol' /* TCP receive window. */
-#define TCP_MAXRTX                   %>%'SymbolCol' %'tcpipCfg_TCP_MAXRTX'              %>%'CommentCol' /* Maximum number of retransmissions of data segments. */
-#define TCP_SYNMAXRTX                %>%'SymbolCol' %'tcpipCfg_TCP_SYNMAXRTX'           %>%'CommentCol' /* Maximum number of retransmissions of SYN segments. */
-
-%>1%sdk_briefStart UDP options of the module %sdk_commentEnd
-#define LWIP_UDP                     %>%'SymbolCol' %EXPR(1~%get(tcpipCfg_UDP,Value))   %>%'CommentCol' /* 1: Enable UDP, 0: Disable UDP */
-#define LWIP_UDPLITE                 %>%'SymbolCol' LWIP_UDP
-#define UDP_TTL                      %>%'SymbolCol' %'tcpipCfg_UDP_TTL'                 %>%'CommentCol' /* UDP Time to live value. */
-
-/****************************************************************************
- * Applications Layer
- ****************************************************************************/
-#define LWIP_CHARGEN_APP             %>%'SymbolCol' %EXPR(1~%get(tcpipCfg_CHARGEN,Value))     %>%'CommentCol' /* 1: Enable CHARGEN, 0: Disable CHARGEN */
-#define LWIP_DNS_APP                 %>%'SymbolCol' %EXPR(1~%get(tcpipCfg_DNS,Value))
-#define LWIP_HTTPD_APP               %>%'SymbolCol' %EXPR(1~%get(tcpipCfg_HTTPD,Value))
-#define LWIP_HTTPD_APP_NETCONN       %>%'SymbolCol' %EXPR(1~%get(tcpipCfg_HTTPD_NETCONN,Value))%>%'CommentCol' /* 1: use NETCONN HTTP SERVER, 0: use RAW API HTTP SERVER */
-#define LWIP_NETBIOS_APP             %>%'SymbolCol' %EXPR(1~%get(tcpipCfg_NETBIOS,Value))
-#define LWIP_NETIO_APP               %>%'SymbolCol' %EXPR(1~%get(tcpipCfg_NETIO,Value))
-#define LWIP_RTP_APP                 %>%'SymbolCol' %EXPR(1~%get(tcpipCfg_RTP,Value))
-#define LWIP_SHELL_APP               %>%'SymbolCol' %EXPR(1~%get(tcpipCfg_SHELL,Value))
-#define LWIP_SNTP_APP                %>%'SymbolCol' %EXPR(1~%get(tcpipCfg_SNTP,Value))
-#define LWIP_SOCKET_EXAMPLES_APP     %>%'SymbolCol' %EXPR(1~%get(tcpipCfg_SOCKET_EXAMPLES,Value))
-#define LWIP_TCPECHO_APP             %>%'SymbolCol' %EXPR(1~%get(tcpipCfg_TCPECHO,Value))
-#define LWIP_TCPECHO_APP_NETCONN     %>%'SymbolCol' %EXPR(1~%get(tcpipCfg_TCPECHO_NETCONN,Value))%>%'CommentCol' /* 1: use NETCONN TCPECHO SERVER, 0: use RAW API TCPECHO SERVER */
-#define LWIP_UDPECHO_APP             %>%'SymbolCol' %EXPR(1~%get(tcpipCfg_UDPECHO,Value))
-#define LWIP_LWIPERF_APP             %>%'SymbolCol' %EXPR(1~%get(tcpipCfg_LWIPERF,Value))        %>%'CommentCol' /* lwIP iPerf server implementation to measure performance [support only TCP over IPv4] */
-
-/****************************************************************************
- * General: OS, Memory, Output Debug
- ****************************************************************************/
 #define TCPIP_MBOX_SIZE              %>%'SymbolCol' 10
 
 #define DEFAULT_UDP_RECVMBOX_SIZE    %>%'SymbolCol' 10
@@ -136,6 +36,9 @@
 #define NO_SYS                       %>%'SymbolCol' %get(tcpipCfg_FREERTOS,Value) %>%'CommentCol' /* 0: using OS with multi-thread --> use netconn API; 1: not using OS --> use Raw API */
 #define LWIP_SOCKET                  %>%'SymbolCol' (NO_SYS==0)
 #define LWIP_NETCONN                 %>%'SymbolCol' (NO_SYS==0)
+
+%>1%sdk_briefStart RAW API options of the module %sdk_commentEnd
+#define LWIP_RAW                     %>%'SymbolCol' 1
 
 /** SYS_LIGHTWEIGHT_PROT
  * define SYS_LIGHTWEIGHT_PROT in lwipopts.h if you want inter-task protection
@@ -208,6 +111,126 @@ a lot of data that needs to be copied, this should be set high. */
 
 #define PBUF_POOL_SIZE               %>%'SymbolCol' %'tcpipCfg_PBUF_POOL_SIZE'          %>%'CommentCol' /* The number of buffers in the pbuf pool. */
 
+/****************************************************************************
+ * Data Link Layer
+ ****************************************************************************/
+%>1%sdk_briefStart MAC address of the module %sdk_commentEnd
+#define LWIP_MAC_ADDR_BASE            %>%'SymbolCol' 0x%str_replace(tcpipCfg_MAC,":",",0x")
+
+%>1%sdk_briefStart ARP options %sdk_commentEnd
+%if %get(tcpipCfg_ARP,Value) == 'yes'
+#define LWIP_ARP                      %>%'SymbolCol' 1                                 %>%'CommentCol' /* 1: Enable ARP, 0: Disable ARP */
+%else
+#define LWIP_ARP                      %>%'SymbolCol' 0                                 %>%'CommentCol' /* 1: Enable ARP, 0: Disable ARP */
+%endif
+#define ARP_TABLE_SIZE                %>%'SymbolCol' %'tcpipCfg_ARP_TABLE_SIZE'        %>%'CommentCol' /* ARP Table size */
+#define ARP_QUEUEING                  %>%'SymbolCol' %'tcpipCfg_ARP_QUEUEING'          %>%'CommentCol' /* ARP Queueing */
+
+/****************************************************************************
+ * IP Network Layer
+ ****************************************************************************/
+%>1%sdk_briefStart IPv4 options of the module %sdk_commentEnd
+%if %get(tcpipCfg_IPV4,Value) == 'yes'
+#define LWIP_IPV4                     %>%'SymbolCol' 1                                    %>%'CommentCol' /* 1: Enable IPv4, 0: Disable IPv4 */
+%else
+#define LWIP_IPV4                     %>%'SymbolCol' 0                                    %>%'CommentCol' /* 1: Enable IPv4, 0: Disable IPv4 */
+%endif
+
+%>1%sdk_briefStart Dynamic IP address settings of the module %sdk_commentEnd
+#define LWIP_DHCP                     %>%'SymbolCol' %EXPR(1~%get(tcpipCfg_DHCP,Value))   %>%'CommentCol' /* 1: Enable DHCP, 0: Disable DHCP */
+#define DHCP_DOES_ARP_CHECK           %>%'SymbolCol' (LWIP_DHCP)                          %>%'CommentCol' /* 1: Do an ARP check on the offered address (recommended) */
+#define LWIP_AUTOIP                   %>%'SymbolCol' %EXPR(1~%get(tcpipCfg_AUTOIP,Value)) %>%'CommentCol' /* 1: Enable AUTOIP, 0: Disable AUTOIP */
+#define LWIP_DHCP_AUTOIP_COOP         %>%'SymbolCol' (LWIP_DHCP && LWIP_AUTOIP)           %>%'CommentCol' /* AUTOIP and DHCP Cooperation */
+#define LWIP_DHCP_AUTOIP_COOP_TRIES   %>%'SymbolCol' %'tcpipCfg_DHCP_AUTOIP_COOP_TRIES'   %>%'CommentCol' /* Number of DHCP Discover tries before switching to
+                                                                                          %>%'CommentCol'    AUTOIP. Set it to a low value will get a IP quickly.
+                                                                                          %>%'CommentCol'    But you should prepare to handle changing
+                                                                                          %>%'CommentCol'    IP address when DHCP overrides AUTOIP */
+
+%>1%sdk_briefStart Static IP address settings of the module %sdk_commentEnd
+#define LWIP_PORT_INIT_IPADDR(addr)   %>%'SymbolCol' IP4_ADDR((addr), %str_replace(tcpipCfg_IPV4ADDR,".",","))
+#define LWIP_PORT_INIT_NETMASK(addr)  %>%'SymbolCol' IP4_ADDR((addr), %str_replace(tcpipCfg_IPV4SUBNETMASK,".",","))
+#define LWIP_PORT_INIT_GW(addr)       %>%'SymbolCol' IP4_ADDR((addr), %str_replace(tcpipCfg_IPV4GW,".",","))
+
+%>1%sdk_briefStart IP forward ability of the module %sdk_commentEnd
+#define IP_FORWARD                   %>%'SymbolCol' 0                                   %>%'CommentCol' /* 1: Forward IP packets across network interfaces,
+                                                                                        %>%'CommentCol'    0: Run lwIP on a device with only 1 network interface */
+
+%>1%sdk_briefStart IP reassembly and segmentation. These are orthogonal even if they both deal with IP fragments %sdk_commentEnd
+#define IP_REASSEMBLY                %>%'SymbolCol' 1
+#define IP_REASS_MAX_PBUFS           %>%'SymbolCol' 10
+#define MEMP_NUM_REASSDATA           %>%'SymbolCol' 10
+#define IP_FRAG                      %>%'SymbolCol' 1
+
+%>1%sdk_briefStart ICMP options of the module %sdk_commentEnd
+%if %get(tcpipCfg_ICMP,Value) == 'yes'
+    %if %get(tcpipCfg_IPV4,Value) == 'no'
+        %error ICMP requires IPv4 to work. (Properties >> IP Network >> IPv4 Support)
+    %else
+#define LWIP_ICMP                    %>%'SymbolCol' 1
+    %endif
+%else
+#define LWIP_ICMP                    %>%'SymbolCol' 0
+%endif
+#define ICMP_TTL                     %>%'SymbolCol' %'tcpipCfg_ICMP_TTL'                %>%'CommentCol' /* ICMP Time to live value */
+
+%>1%sdk_briefStart IGMP options of the module %sdk_commentEnd
+%if %get(tcpipCfg_IGMP,Value) == 'yes'
+    %if %get(tcpipCfg_IPV4,Value) == 'no'
+        %error IGMP requires IPv4 to work. (Properties >> IP Network >> IPv4 Support)
+    %else
+#define LWIP_IGMP                    %>%'SymbolCol' 1
+    %endif
+%else
+#define LWIP_IGMP                    %>%'SymbolCol' 0
+%endif
+
+%>1%sdk_briefStart IPv6 options of the module %sdk_commentEnd
+%if %get(tcpipCfg_IPV6,Value) == 'yes'
+#define LWIP_IPV6                     %>%'SymbolCol' 1                                    %>%'CommentCol' /* 1: Enable IPv6, 0: Disable IPv6 */
+%else
+#define LWIP_IPV6                     %>%'SymbolCol' 0                                    %>%'CommentCol' /* 1: Enable IPv6, 0: Disable IPv6 */
+%endif
+
+/****************************************************************************
+ * Transport Layer
+ ****************************************************************************/
+%>1%sdk_briefStart TCP options of the module %sdk_commentEnd
+%if %get(tcpipCfg_TCP,Value) == 'yes'
+#define LWIP_TCP                     %>%'SymbolCol' 1                                   %>%'CommentCol' /* 1: Enable TCP, 0: Disable TCP */
+%else
+#define LWIP_TCP                     %>%'SymbolCol' 0                                   %>%'CommentCol' /* 1: Enable TCP, 0: Disable TCP */
+%endif
+#define TCP_TTL                      %>%'SymbolCol' %'tcpipCfg_TCP_TTL'                 %>%'CommentCol' /* TCP Time to live value */
+#define TCP_QUEUE_OOSEQ              %>%'SymbolCol' %'tcpipCfg_TCP_QUEUE_OOSEQ'         %>%'CommentCol' /* Controls if TCP should queue segments that arrive out of order.
+                                                                                        %>%'CommentCol'    Defines to 0 if your device is low on memory. */
+#define TCP_MSS                      %>%'SymbolCol' %'tcpipCfg_TCP_MSS'                 %>%'CommentCol' /* TCP Maximum segment size */
+#define TCP_SND_BUF                  %>%'SymbolCol' %'tcpipCfg_TCP_SND_BUF'             %>%'CommentCol' /* TCP sender buffer space (bytes). */
+
+/* TCP sender buffer space (pbufs). This must be at least = 2 *
+   TCP_SND_BUF/TCP_MSS for things to work. */
+#define TCP_SND_QUEUELEN             %>%'SymbolCol' (4 * TCP_SND_BUF/TCP_MSS)
+
+/* TCP writable space (bytes). This must be less than or equal
+   to TCP_SND_BUF. It is the amount of space which must be
+   available in the tcp snd_buf for select to return writable */
+#define TCP_SNDLOWAT                 %>%'SymbolCol' (TCP_SND_BUF/2)
+
+#define TCP_WND                      %>%'SymbolCol' %'tcpipCfg_TCP_WND'                 %>%'CommentCol' /* TCP receive window. */
+#define TCP_MAXRTX                   %>%'SymbolCol' %'tcpipCfg_TCP_MAXRTX'              %>%'CommentCol' /* Maximum number of retransmissions of data segments. */
+#define TCP_SYNMAXRTX                %>%'SymbolCol' %'tcpipCfg_TCP_SYNMAXRTX'           %>%'CommentCol' /* Maximum number of retransmissions of SYN segments. */
+
+%>1%sdk_briefStart UDP options of the module %sdk_commentEnd
+%if %get(tcpipCfg_UDP,Value) == 'yes'
+#define LWIP_UDP                     %>%'SymbolCol' 1                                   %>%'CommentCol' /* 1: Enable UDP, 0: Disable UDP */
+%else
+#define LWIP_UDP                     %>%'SymbolCol' 0                                   %>%'CommentCol' /* 1: Enable UDP, 0: Disable UDP */
+%endif
+#define LWIP_UDPLITE                 %>%'SymbolCol' (LWIP_UDP)
+#define UDP_TTL                      %>%'SymbolCol' %'tcpipCfg_UDP_TTL'                 %>%'CommentCol' /* UDP Time to live value. */
+
+/****************************************************************************
+ * Debug, Statistics, PPP, Checksum
+ ****************************************************************************/
 %>1%sdk_briefStart Debugging options of the module %sdk_commentEnd
 #ifdef LWIP_DEBUG
 #define LWIP_DBG_MIN_LEVEL           %>%'SymbolCol' 0
@@ -242,7 +265,7 @@ a lot of data that needs to be copied, this should be set high. */
 #define LWIP_DBG_TYPES_ON            %>%'SymbolCol' (LWIP_DBG_ON|LWIP_DBG_TRACE|LWIP_DBG_STATE|LWIP_DBG_FRESH|LWIP_DBG_HALT)
 
 %>1%sdk_briefStart Statistics options of the module %sdk_commentEnd
-#define LWIP_STATS                   %>%'SymbolCol' %EXPR(1~%get(tcpipCfg_STATS,Value)) %>%'CommentCol' /* 1: collect statistics; 0: not collect statistics */
+#define LWIP_STATS                   %>%'SymbolCol' 1 %>%'CommentCol' /* 1: collect statistics; 0: not collect statistics */
 #define LWIP_STATS_DISPLAY           %>%'SymbolCol' 0
 
 #if LWIP_STATS
@@ -259,12 +282,10 @@ a lot of data that needs to be copied, this should be set high. */
 #define SYS_STATS                    %>%'SymbolCol' 1
 #endif /* LWIP_STATS */
 
-%>1%sdk_briefStart RAW API options of the module %sdk_commentEnd
-#define LWIP_RAW                     %>%'SymbolCol' 1
-
 %>1%sdk_briefStart PPP options of the module %sdk_commentEnd
 #define PPP_SUPPORT                  %>%'SymbolCol' 0
 
+%>1%sdk_briefStart Checksum options of the module %sdk_commentEnd
 #define LWIP_CHECKSUM_CTRL_PER_NETIF %>%'SymbolCol' 0
 #define CHECKSUM_GEN_IP              %>%'SymbolCol' 0
 #define CHECKSUM_GEN_UDP             %>%'SymbolCol' 0
@@ -278,8 +299,7 @@ a lot of data that needs to be copied, this should be set high. */
 #define CHECKSUM_CHECK_ICMP6         %>%'SymbolCol' LWIP_IPV6
 #define LWIP_CHECKSUM_ON_COPY        %>%'SymbolCol' 0
 
-%inclSUB genInterface()
-#endif /* ifndef %'ModuleName'_H */
+#endif /* ifndef LWIP_LWIPOPTS_H */
 %include Common\Header.end
 %- ****************************************************************************
 %- HEADER FILE END

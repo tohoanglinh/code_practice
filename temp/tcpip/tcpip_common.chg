@@ -11,10 +11,10 @@
 %-
 %- Perform default SDK support check and register help
 %inclSUB sdk_defaultAction()
-%-
-%- set the default name for header output config file
-%set DeviceName Text tcpipConfig
+
+%set DeviceName Text tcpip
 %set DeviceName ReadOnly True
+
 %------------------------------- Device allocation control ---------------------
 %- if not defined PeriphDeviceList, default PeriphDevice property will be used
 %if ndefined(PeriphDeviceList)

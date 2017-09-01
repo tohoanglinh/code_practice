@@ -33,6 +33,19 @@
                             </TBoolItem>
                         </GrupItem>
                         <GrupItem>
+                          <TStrgItem>
+                                <Name>Host Name</Name>
+                                <Symbol>tcpipCfg_USE_HOST_NAME</Symbol>
+                                <Hint>Host name setting.</Hint>
+                                <ItemLevel>BASIC</ItemLevel>
+                                <EditLine>true</EditLine>
+                                <DefaultValue>tcpipBoard1</DefaultValue>
+                                <ReadOnly>false</ReadOnly>
+                                <MinLength>1</MinLength>
+                                <MaxLength>-1</MaxLength>
+                          </TStrgItem>
+                        </GrupItem>
+                        <GrupItem>
                           <TIncludeItem>
                             <Name>Memory Options</Name>
                             <Symbol>MemCfg</Symbol>
@@ -55,18 +68,6 @@
                             <SetNumOfListItemsAfterLoad>1</SetNumOfListItemsAfterLoad>
                           </TIncludeItem>
                         </GrupItem>
-                        <GrupItem>
-                            <TBoolItem>
-                                <Name>Statistics:</Name>
-                                <Symbol>tcpipCfg_STATS</Symbol>
-                                <TypeSpec>typeYesNo</TypeSpec>
-                                <Hint>Statistics options.</Hint>
-                                <ItemLevel>BASIC</ItemLevel>
-                                <ReadOnly>true</ReadOnly>
-                                <DefaultValue>true</DefaultValue>
-                                <UI_BoolStyle>CHECKBOX</UI_BoolStyle>
-                            </TBoolItem>
-                        </GrupItem>
                       </Children>
                     </TGrupItem>
                   </GrupItem>
@@ -87,7 +88,8 @@
                                 <Symbol>tcpipCfg_MAC</Symbol>
                                 <Hint>The MAC address, 6 octets, is automatically and continuously get from the shared enet component. To change it, go to Referenced_Components-->enet-->Configurations-->MAC Address</Hint>
                                 <ItemLevel>BASIC</ItemLevel>
-                                <ReadOnly>true</ReadOnly>
+                                <ReadOnly>false</ReadOnly>
+                                <DefaultValue>11:22:33:44:55:66</DefaultValue>
                                 <MinLength>17</MinLength>
                                 <MaxLength>17</MaxLength>
                           </TStrgItem>
@@ -130,156 +132,16 @@
                       <Expanded>No</Expanded>
                       <Children>
                         <GrupItem>
-                            <TBoolItem>
-                                <Name>DHCP (Server)</Name>
-                                <Symbol>tcpipCfg_DHCP</Symbol>
-                                <TypeSpec>typeYesNo</TypeSpec>
-                                <Hint>Dynamic Host Configuration Protocol (DHCP) is controlled by a DHCP server (e.g. a router or a residential gateway). It enables computers to request IP addresses and networking parameters automatically, reducing the need for a network admin or a user to do those things manually.</Hint>
-                                <ItemLevel>BASIC</ItemLevel>
-                                <ReadOnly>false</ReadOnly>
-                                <DefaultValue>false</DefaultValue>
-                                <UI_BoolStyle>CHECKBOX</UI_BoolStyle>
-                            </TBoolItem>
-                        </GrupItem>
-                        <GrupItem>
-                            <TBoolItem>
-                                <Name>AUTOIP (Server-less)</Name>
-                                <Symbol>tcpipCfg_AUTOIP</Symbol>
-                                <TypeSpec>typeYesNo</TypeSpec>
-                                <Hint>Like DHCP, AUTOIP is a module that enables dynamic IPv4 addresses to be assigned to a device on startup. However, DHCP requires a DHCP server. AUTOIP is a server-less method of choosing an IP address. A host configured with AUTOIP will get an address with a 169.254/16 prefix (that is, 169.254.xxx.xxx).</Hint>
-                                <ItemLevel>BASIC</ItemLevel>
-                                <ReadOnly>false</ReadOnly>
-                                <DefaultValue>false</DefaultValue>
-                                <UI_BoolStyle>CHECKBOX</UI_BoolStyle>
-                            </TBoolItem>
-                        </GrupItem>
-                        <GrupItem>
-                          <TStrgItem>
-                                <Name>DHCP Discover->AUTOIP</Name>
-                                <Symbol>tcpipCfg_DHCP_AUTOIP_COOP_TRIES</Symbol>
-                                <Hint>Set to the number of DHCP DISCOVER probes that should be sent before falling back on AUTOIP (the DHCP client keeps running in this case). This can be set as low as 1 to get an AutoIP address very  quickly, but you should be prepared to handle a changing IP address when DHCP overrides AutoIP.</Hint>
-                                <ItemLevel>BASIC</ItemLevel>
-                                <EditLine>true</EditLine>
-                                <DefaultValue>3</DefaultValue>
-                                <ReadOnly>false</ReadOnly>
-                                <MinLength>1</MinLength>
-                                <MaxLength>2</MaxLength>
-                          </TStrgItem>
-                        </GrupItem>
-                        <GrupItem>
-                            <TBoolItem>
-                                <Name>IPv4 Support</Name>
-                                <Symbol>tcpipCfg_IPV4</Symbol>
-                                <TypeSpec>typeYesNo</TypeSpec>
-                                <Hint>IPv4 Support. To set the related IPv4 parameters manually, please uncheck both DHCP and AUTOIP.</Hint>
-                                <ItemLevel>BASIC</ItemLevel>
-                                <ReadOnly>true</ReadOnly>
-                                <DefaultValue>true</DefaultValue>
-                                <UI_BoolStyle>CHECKBOX</UI_BoolStyle>
-                            </TBoolItem>
-                        </GrupItem>
-                        <GrupItem>
-                          <TStrgItem>
-                                <Name>IPv4 Address</Name>
-                                <Symbol>tcpipCfg_IPV4ADDR</Symbol>
-                                <Hint>The IPv4 address, using the following format: 192.168.0.200.</Hint>
-                                <ItemLevel>BASIC</ItemLevel>
-                                <EditLine>true</EditLine>
-                                <DefaultValue>192.168.0.200</DefaultValue>
-                                <StrDefine>nothing</StrDefine>
-                                <ReadOnly>false</ReadOnly>
-                                <MinLength>7</MinLength>
-                                <MaxLength>16</MaxLength>
-                          </TStrgItem>
-                        </GrupItem>
-                        <GrupItem>
-                            <TStrgItem>
-                                <Name>IPv4 Subnet Mask</Name>
-                                <Symbol>tcpipCfg_IPV4SUBNETMASK</Symbol>
-                                <Hint>IPv4 Subnet Mask.</Hint>
-                                <ItemLevel>BASIC</ItemLevel>
-                                <EditLine>true</EditLine>
-                                <DefaultValue>255.255.255.0</DefaultValue>
-                                <StrDefine>nothing</StrDefine>
-                                <ReadOnly>false</ReadOnly>
-                                <MinLength>0</MinLength>
-                                <MaxLength>-1</MaxLength>
-                            </TStrgItem>
-                        </GrupItem>
-                        <GrupItem>
-                            <TStrgItem>
-                                <Name>IPv4 Default Gateway</Name>
-                                <Symbol>tcpipCfg_IPV4GW</Symbol>
-                                <Hint>IPv4 Gateway address.</Hint>
-                                <ItemLevel>BASIC</ItemLevel>
-                                <EditLine>true</EditLine>
-                                <DefaultValue>192.168.0.1</DefaultValue>
-                                <ReadOnly>false</ReadOnly>
-                                <StrDefine>nothing</StrDefine>
-                                <MinLength>0</MinLength>
-                                <MaxLength>-1</MaxLength>
-                            </TStrgItem>
-                        </GrupItem>
-                        <GrupItem>
-                            <TBoolItem>
-                                <Name>IPv6 Support</Name>
-                                <Symbol>tcpipCfg_IPV6</Symbol>
-                                <TypeSpec>typeYesNo</TypeSpec>
-                                <Hint>IPv6 Support.</Hint>
-                                <ItemLevel>BASIC</ItemLevel>
-                                <ReadOnly>true</ReadOnly>
-                                <DefaultValue>true</DefaultValue>
-                                <UI_BoolStyle>CHECKBOX</UI_BoolStyle>
-                            </TBoolItem>
-                        </GrupItem>
-                        <GrupItem>
-                          <TStrgItem>
-                                <Name>IPv6 Address</Name>
-                                <Symbol>tcpipCfg_IPV6ADDR</Symbol>
-                                <Hint>The IPv6 address, using the following format: fe80::dd4b:e69c:ccaf:7e4f.</Hint>
-                                <ItemLevel>BASIC</ItemLevel>
-                                <EditLine>true</EditLine>
-                                <DefaultValue>fe80::dd4b:e69c:ccaf:7e4f</DefaultValue>
-                                <StrDefine>nothing</StrDefine>
-                                <ReadOnly>false</ReadOnly>
-                                <MinLength>20</MinLength>
-                                <MaxLength>45</MaxLength>
-                          </TStrgItem>
-                        </GrupItem>
-                        <GrupItem>
                           <TIncludeItem>
-                            <Name>IGMP</Name>
-                            <Symbol>IGMPCfg</Symbol>
-                            <Hint>Includes IGMP configurations</Hint>
+                            <Name>IP</Name>
+                            <Symbol>IPCfg</Symbol>
+                            <Hint>Includes IP configurations</Hint>
                             <ItemLevel>BASIC</ItemLevel>
                             <ReadOnly>true</ReadOnly>
                             <EditLine>false</EditLine>
                             <Description/>
                             <Expanded>Always</Expanded>
-                            <ItemsType>Beans\tcpip\Items\tcpip_igmp.item</ItemsType>
-                            <ItemsTypeChangeAble>false</ItemsTypeChangeAble>
-                            <ItemsName/>
-                            <ItemsNameFrstIndx>0</ItemsNameFrstIndx>
-                            <ItemsHint/>
-                            <ItemsSymb/>
-                            <ItemsTypeSpec/>
-                            <MinItems>1</MinItems>
-                            <MaxItems>1</MaxItems>
-                            <MinItemsProtected>false</MinItemsProtected>
-                            <SetNumOfListItemsAfterLoad>1</SetNumOfListItemsAfterLoad>
-                          </TIncludeItem>
-                        </GrupItem>
-                        <GrupItem>
-                          <TIncludeItem>
-                            <Name>ICMP</Name>
-                            <Symbol>ICMPCfg</Symbol>
-                            <Hint>Includes ICMP configurations</Hint>
-                            <ItemLevel>BASIC</ItemLevel>
-                            <ReadOnly>true</ReadOnly>
-                            <EditLine>false</EditLine>
-                            <Description/>
-                            <Expanded>Always</Expanded>
-                            <ItemsType>Beans\tcpip\Items\tcpip_icmp.item</ItemsType>
+                            <ItemsType>Beans\tcpip\Items\tcpip_ip.item</ItemsType>
                             <ItemsTypeChangeAble>false</ItemsTypeChangeAble>
                             <ItemsName/>
                             <ItemsNameFrstIndx>0</ItemsNameFrstIndx>
@@ -307,140 +169,161 @@
                       <Expanded>No</Expanded>
                       <Children>
                         <GrupItem>
-                            <TBoolItem>
-                                <Name>TCP</Name>
-                                <Symbol>tcpipCfg_TCP</Symbol>
-                                <TypeSpec>typeYesNo</TypeSpec>
-                                <Hint>Connection-oriented TCP Option.</Hint>
-                                <ItemLevel>BASIC</ItemLevel>
-                                <ReadOnly>false</ReadOnly>
-                                <DefaultValue>true</DefaultValue>
-                                <UI_BoolStyle>CHECKBOX</UI_BoolStyle>
-                            </TBoolItem>
+                          <TBoolGrupItem>
+                            <Name>Transmission Control Protocol (TCP)</Name>
+                            <Symbol>tcpipCfg_TCP</Symbol>
+                            <TypeSpec>typeYesNo</TypeSpec>
+                            <Hint>Connection-oriented TCP Options.</Hint>
+                            <ItemLevel>BASIC</ItemLevel>
+                            <BoldName>true</BoldName>
+                            <EditLine>false</EditLine>
+                            <UI_DisplayIn>TABLE_AND_GRAPHICAL_VIEW</UI_DisplayIn>
+                            <UI_DisplayExtraText>DISPLAY_AUTO_POSITION</UI_DisplayExtraText>
+                            <Description>Enabled</Description>
+                            <Expanded>No</Expanded>
+                            <UI_GroupStyle>GROUP</UI_GroupStyle>
+                            <UI_NumColumnsInWrappedLayout>4</UI_NumColumnsInWrappedLayout>
+                            <UI_ValueSelectionStyle>CHECKBOX</UI_ValueSelectionStyle>
+                            <DefaultValue>true</DefaultValue>
+                            <DefineSymbol>YES_NO</DefineSymbol>
+                            <Children>
+                                <GrupItem>
+                                    <TStrgItem>
+                                        <Name>TCP_TTL</Name>
+                                        <Symbol>tcpipCfg_TCP_TTL</Symbol>
+                                        <Hint>TCP Time to live.</Hint>
+                                        <ItemLevel>BASIC</ItemLevel>
+                                        <EditLine>true</EditLine>
+                                        <DefaultValue>255</DefaultValue>
+                                        <StrDefine>nothing</StrDefine>
+                                        <ReadOnly>false</ReadOnly>
+                                        <MinLength>0</MinLength>
+                                        <MaxLength>-1</MaxLength>
+                                    </TStrgItem>
+                                </GrupItem>
+                                <GrupItem>
+                                    <TStrgItem>
+                                        <Name>TCP_QUEUE_OOSEQ</Name>
+                                        <Symbol>tcpipCfg_TCP_QUEUE_OOSEQ</Symbol>
+                                        <Hint>Controls if TCP should queue segments that arrive out of order. Define to 0 if your device is low on memory.</Hint>
+                                        <ItemLevel>BASIC</ItemLevel>
+                                        <EditLine>true</EditLine>
+                                        <DefaultValue>1</DefaultValue>
+                                        <StrDefine>nothing</StrDefine>
+                                        <ReadOnly>false</ReadOnly>
+                                        <MinLength>0</MinLength>
+                                        <MaxLength>-1</MaxLength>
+                                    </TStrgItem>
+                                </GrupItem>
+                                <GrupItem>
+                                    <TStrgItem>
+                                        <Name>TCP_MSS</Name>
+                                        <Symbol>tcpipCfg_TCP_MSS</Symbol>
+                                        <Hint>TCP Maximum segment size.</Hint>
+                                        <ItemLevel>BASIC</ItemLevel>
+                                        <EditLine>true</EditLine>
+                                        <DefaultValue>1460</DefaultValue>
+                                        <StrDefine>nothing</StrDefine>
+                                        <ReadOnly>false</ReadOnly>
+                                        <MinLength>0</MinLength>
+                                        <MaxLength>-1</MaxLength>
+                                    </TStrgItem>
+                                </GrupItem>
+                                <GrupItem>
+                                    <TStrgItem>
+                                        <Name>TCP_SND_BUF</Name>
+                                        <Symbol>tcpipCfg_TCP_SND_BUF</Symbol>
+                                        <Hint>TCP sender buffer space (bytes).</Hint>
+                                        <ItemLevel>BASIC</ItemLevel>
+                                        <EditLine>true</EditLine>
+                                        <DefaultValue>2920</DefaultValue>
+                                        <StrDefine>nothing</StrDefine>
+                                        <ReadOnly>false</ReadOnly>
+                                        <MinLength>0</MinLength>
+                                        <MaxLength>-1</MaxLength>
+                                    </TStrgItem>
+                                </GrupItem>
+                                <GrupItem>
+                                    <TStrgItem>
+                                        <Name>TCP_WND</Name>
+                                        <Symbol>tcpipCfg_TCP_WND</Symbol>
+                                        <Hint>TCP receive window.</Hint>
+                                        <ItemLevel>BASIC</ItemLevel>
+                                        <EditLine>true</EditLine>
+                                        <DefaultValue>65535</DefaultValue>
+                                        <StrDefine>nothing</StrDefine>
+                                        <ReadOnly>false</ReadOnly>
+                                        <MinLength>0</MinLength>
+                                        <MaxLength>-1</MaxLength>
+                                    </TStrgItem>
+                                </GrupItem>
+                                <GrupItem>
+                                    <TStrgItem>
+                                        <Name>TCP_MAXRTX</Name>
+                                        <Symbol>tcpipCfg_TCP_MAXRTX</Symbol>
+                                        <Hint>Maximum number of retransmissions of data segments.</Hint>
+                                        <ItemLevel>BASIC</ItemLevel>
+                                        <EditLine>true</EditLine>
+                                        <DefaultValue>12</DefaultValue>
+                                        <StrDefine>nothing</StrDefine>
+                                        <ReadOnly>false</ReadOnly>
+                                        <MinLength>0</MinLength>
+                                        <MaxLength>-1</MaxLength>
+                                    </TStrgItem>
+                                </GrupItem>
+                                <GrupItem>
+                                    <TStrgItem>
+                                        <Name>TCP_SYNMAXRTX</Name>
+                                        <Symbol>tcpipCfg_TCP_SYNMAXRTX</Symbol>
+                                        <Hint>Maximum number of retransmissions of SYN segments.</Hint>
+                                        <ItemLevel>BASIC</ItemLevel>
+                                        <EditLine>true</EditLine>
+                                        <DefaultValue>4</DefaultValue>
+                                        <StrDefine>nothing</StrDefine>
+                                        <ReadOnly>false</ReadOnly>
+                                        <MinLength>0</MinLength>
+                                        <MaxLength>-1</MaxLength>
+                                    </TStrgItem>
+                                </GrupItem>
+                            </Children>
+                          </TBoolGrupItem>
                         </GrupItem>
                         <GrupItem>
-                            <TStrgItem>
-                                <Name>TCP_TTL</Name>
-                                <Symbol>tcpipCfg_TCP_TTL</Symbol>
-                                <Hint>TCP Time to live.</Hint>
-                                <ItemLevel>BASIC</ItemLevel>
-                                <EditLine>true</EditLine>
-                                <DefaultValue>255</DefaultValue>
-                                <StrDefine>nothing</StrDefine>
-                                <ReadOnly>false</ReadOnly>
-                                <MinLength>0</MinLength>
-                                <MaxLength>-1</MaxLength>
-                            </TStrgItem>
-                        </GrupItem>
-                        <GrupItem>
-                            <TStrgItem>
-                                <Name>TCP_QUEUE_OOSEQ</Name>
-                                <Symbol>tcpipCfg_TCP_QUEUE_OOSEQ</Symbol>
-                                <Hint>Controls if TCP should queue segments that arrive out of order. Define to 0 if your device is low on memory.</Hint>
-                                <ItemLevel>BASIC</ItemLevel>
-                                <EditLine>true</EditLine>
-                                <DefaultValue>1</DefaultValue>
-                                <StrDefine>nothing</StrDefine>
-                                <ReadOnly>false</ReadOnly>
-                                <MinLength>0</MinLength>
-                                <MaxLength>-1</MaxLength>
-                            </TStrgItem>
-                        </GrupItem>
-                        <GrupItem>
-                            <TStrgItem>
-                                <Name>TCP_MSS</Name>
-                                <Symbol>tcpipCfg_TCP_MSS</Symbol>
-                                <Hint>TCP Maximum segment size.</Hint>
-                                <ItemLevel>BASIC</ItemLevel>
-                                <EditLine>true</EditLine>
-                                <DefaultValue>1460</DefaultValue>
-                                <StrDefine>nothing</StrDefine>
-                                <ReadOnly>false</ReadOnly>
-                                <MinLength>0</MinLength>
-                                <MaxLength>-1</MaxLength>
-                            </TStrgItem>
-                        </GrupItem>
-                        <GrupItem>
-                            <TStrgItem>
-                                <Name>TCP_SND_BUF</Name>
-                                <Symbol>tcpipCfg_TCP_SND_BUF</Symbol>
-                                <Hint>TCP sender buffer space (bytes).</Hint>
-                                <ItemLevel>BASIC</ItemLevel>
-                                <EditLine>true</EditLine>
-                                <DefaultValue>2920</DefaultValue>
-                                <StrDefine>nothing</StrDefine>
-                                <ReadOnly>false</ReadOnly>
-                                <MinLength>0</MinLength>
-                                <MaxLength>-1</MaxLength>
-                            </TStrgItem>
-                        </GrupItem>
-                        <GrupItem>
-                            <TStrgItem>
-                                <Name>TCP_WND</Name>
-                                <Symbol>tcpipCfg_TCP_WND</Symbol>
-                                <Hint>TCP receive window.</Hint>
-                                <ItemLevel>BASIC</ItemLevel>
-                                <EditLine>true</EditLine>
-                                <DefaultValue>65535</DefaultValue>
-                                <StrDefine>nothing</StrDefine>
-                                <ReadOnly>false</ReadOnly>
-                                <MinLength>0</MinLength>
-                                <MaxLength>-1</MaxLength>
-                            </TStrgItem>
-                        </GrupItem>
-                        <GrupItem>
-                            <TStrgItem>
-                                <Name>TCP_MAXRTX</Name>
-                                <Symbol>tcpipCfg_TCP_MAXRTX</Symbol>
-                                <Hint>Maximum number of retransmissions of data segments.</Hint>
-                                <ItemLevel>BASIC</ItemLevel>
-                                <EditLine>true</EditLine>
-                                <DefaultValue>12</DefaultValue>
-                                <StrDefine>nothing</StrDefine>
-                                <ReadOnly>false</ReadOnly>
-                                <MinLength>0</MinLength>
-                                <MaxLength>-1</MaxLength>
-                            </TStrgItem>
-                        </GrupItem>
-                        <GrupItem>
-                            <TStrgItem>
-                                <Name>TCP_SYNMAXRTX</Name>
-                                <Symbol>tcpipCfg_TCP_SYNMAXRTX</Symbol>
-                                <Hint>Maximum number of retransmissions of SYN segments.</Hint>
-                                <ItemLevel>BASIC</ItemLevel>
-                                <EditLine>true</EditLine>
-                                <DefaultValue>4</DefaultValue>
-                                <StrDefine>nothing</StrDefine>
-                                <ReadOnly>false</ReadOnly>
-                                <MinLength>0</MinLength>
-                                <MaxLength>-1</MaxLength>
-                            </TStrgItem>
-                        </GrupItem>
-                        <GrupItem>
-                            <TBoolItem>
-                                <Name>UDP</Name>
-                                <Symbol>tcpipCfg_UDP</Symbol>
-                                <TypeSpec>typeYesNo</TypeSpec>
-                                <Hint>Connectionless UDP Option.</Hint>
-                                <ItemLevel>BASIC</ItemLevel>
-                                <ReadOnly>false</ReadOnly>
-                                <DefaultValue>true</DefaultValue>
-                                <UI_BoolStyle>CHECKBOX</UI_BoolStyle>
-                            </TBoolItem>
-                        </GrupItem>
-                        <GrupItem>
-                            <TStrgItem>
-                                <Name>UDP_TTL</Name>
-                                <Symbol>tcpipCfg_UDP_TTL</Symbol>
-                                <Hint>UDP Time to live.</Hint>
-                                <ItemLevel>BASIC</ItemLevel>
-                                <EditLine>true</EditLine>
-                                <DefaultValue>255</DefaultValue>
-                                <StrDefine>nothing</StrDefine>
-                                <ReadOnly>false</ReadOnly>
-                                <MinLength>0</MinLength>
-                                <MaxLength>-1</MaxLength>
-                            </TStrgItem>
+                          <TBoolGrupItem>
+                            <Name>User Datagram Protocol (UDP)</Name>
+                            <Symbol>tcpipCfg_UDP</Symbol>
+                            <TypeSpec>typeYesNo</TypeSpec>
+                            <Hint>Connectionless TCP Options.</Hint>
+                            <ItemLevel>BASIC</ItemLevel>
+                            <BoldName>true</BoldName>
+                            <EditLine>false</EditLine>
+                            <UI_DisplayIn>TABLE_AND_GRAPHICAL_VIEW</UI_DisplayIn>
+                            <UI_DisplayExtraText>DISPLAY_AUTO_POSITION</UI_DisplayExtraText>
+                            <Description>Enabled</Description>
+                            <Expanded>No</Expanded>
+                            <UI_GroupStyle>GROUP</UI_GroupStyle>
+                            <UI_NumColumnsInWrappedLayout>4</UI_NumColumnsInWrappedLayout>
+                            <UI_ValueSelectionStyle>CHECKBOX</UI_ValueSelectionStyle>
+                            <DefaultValue>true</DefaultValue>
+                            <DefineSymbol>YES_NO</DefineSymbol>
+                            <IfDisabled>setNOTHING</IfDisabled>
+                            <Children>
+                                <GrupItem>
+                                    <TStrgItem>
+                                        <Name>UDP_TTL</Name>
+                                        <Symbol>tcpipCfg_UDP_TTL</Symbol>
+                                        <Hint>UDP Time to live.</Hint>
+                                        <ItemLevel>BASIC</ItemLevel>
+                                        <EditLine>true</EditLine>
+                                        <DefaultValue>255</DefaultValue>
+                                        <StrDefine>nothing</StrDefine>
+                                        <ReadOnly>false</ReadOnly>
+                                        <MinLength>0</MinLength>
+                                        <MaxLength>-1</MaxLength>
+                                    </TStrgItem>
+                                </GrupItem>
+                            </Children>
+                          </TBoolGrupItem>
                         </GrupItem>
                       </Children>
                     </TGrupItem>
@@ -623,6 +506,36 @@
                                 <DefaultValue>true</DefaultValue>
                                 <UI_BoolStyle>CHECKBOX</UI_BoolStyle>
                             </TBoolItem>
+                        </GrupItem>
+                      </Children>
+                    </TGrupItem>
+                  </GrupItem>
+                  <GrupItem>
+                    <TGrupItem>
+                      <Name>User Settings</Name>
+                      <Symbol>tcpipCfg_USER_SETTINGS</Symbol>
+                      <Hint>Additional User Settings</Hint>
+                      <ItemLevel>BASIC</ItemLevel>
+                      <BoldName>true</BoldName>
+                      <EditLine>false</EditLine>
+                      <Description/>
+                      <Expanded>No</Expanded>
+                      <Children>
+                        <GrupItem>
+                          <TStrgListItem>
+                            <Name>Definitions</Name>
+                            <Symbol>tcpipCfg_USER_DEFINES</Symbol>
+                            <Hint>Other user defined values placed into lwipcfg.h</Hint>
+                            <ItemLevel>BASIC</ItemLevel>
+                            <EditLine>false</EditLine>
+                            <DefaultValue>(string list)</DefaultValue>
+                            <DefineList>false</DefineList>
+                            <ExternEditorEnabled>false</ExternEditorEnabled>
+                            <AcceptNonPrintChars>false</AcceptNonPrintChars>
+                            <DefaultStrgList lines_count="1">
+                              <Line>/* Additional settings can be defined in the Properties &gt; User Settings &gt; Definitions of the tcpip component */</Line>
+                            </DefaultStrgList>
+                          </TStrgListItem>
                         </GrupItem>
                       </Children>
                     </TGrupItem>

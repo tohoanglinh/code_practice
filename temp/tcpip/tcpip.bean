@@ -27,6 +27,7 @@
     <BeanStatus>RELEASE</BeanStatus>
     <Category>Software - Communication</Category>
     <DemoDriver>no</DemoDriver>
+    <NotGenerateBeanModule>yes</NotGenerateBeanModule>
     <DriverContainsInfoAboutSupportedProcessors>yes</DriverContainsInfoAboutSupportedProcessors>
     <Licence>Basic beans</Licence>
     <GroupCategory>Communications</GroupCategory>
@@ -46,9 +47,9 @@
         <Symbol>DeviceName</Symbol>
         <Hint>Name of the component.</Hint>
         <ItemLevel>BASIC</ItemLevel>
-        <EditLine>true</EditLine>
+        <EditLine>false</EditLine>
         <ReadOnly>true</ReadOnly>
-        <DefaultValue>tcpipConfig</DefaultValue>
+        <DefaultValue>tcpip</DefaultValue>
       </TCompNameItem>
     </Property>
     <Property>

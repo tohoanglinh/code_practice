@@ -95,13 +95,14 @@
 %SUBROUTINE_END
 %-
 %if Language='ANSIC'
-%INTERFACE
-%if %sys_file_exists(Beans\tcpip\Drivers\%CompVersion\tcpip_header.drv) = 'yes'
-  %include %CompVersion\tcpip_header.drv
+%if %sys_file_exists(Beans\tcpip\Drivers\%CompVersion\lwipcfg.drv) = 'yes'
+  %include %CompVersion\lwipcfg.drv
 %endif
-%IMPLEMENTATION
-%if %sys_file_exists(Beans\tcpip\Drivers\%CompVersion\tcpip_source.drv) = 'yes'
-  %include %CompVersion\tcpip_source.drv
+%if %sys_file_exists(Beans\tcpip\Drivers\%CompVersion\lwipopts.drv) = 'yes'
+  %include %CompVersion\lwipopts.drv
+%endif
+%if %sys_file_exists(Beans\tcpip\Drivers\%CompVersion\lwippools.drv) = 'yes'
+  %include %CompVersion\lwippools.drv
 %endif
 %-
 %else %- Language (& Compiler)

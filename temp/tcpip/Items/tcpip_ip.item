@@ -1,0 +1,254 @@
+<ListItem>
+  <TInPEinvisibleGroup>
+    <Name>IPSettings</Name>
+    <Symbol>IPSettingsGrp</Symbol>
+    <Hint>IPSettings.</Hint>
+    <ItemLevel>BASIC</ItemLevel>
+    <BoldName>true</BoldName>
+    <EditLine>false</EditLine>
+    <Description/>
+    <Expanded>Always</Expanded>
+           <Children>
+                 <GrupItem>
+                   <TBoolGrupItem>
+                      <Name>Internet Protocol version 4 (IPv4)</Name>
+                      <Symbol>tcpipCfg_IPV4</Symbol>
+                      <TypeSpec>type_tcpip_ConfigParams</TypeSpec>
+                      <Hint>IPv4 Support.</Hint>
+                      <ItemLevel>BASIC</ItemLevel>
+                      <BoldName>true</BoldName>
+                      <EditLine>false</EditLine>
+                      <UI_DisplayIn>TABLE_AND_GRAPHICAL_VIEW</UI_DisplayIn>
+                      <UI_DisplayExtraText>DISPLAY_AUTO_POSITION</UI_DisplayExtraText>
+                      <Description>Enabled</Description>
+                      <Expanded>No</Expanded>
+                      <UI_GroupStyle>GROUP</UI_GroupStyle>
+                      <UI_NumColumnsInWrappedLayout>4</UI_NumColumnsInWrappedLayout>
+                      <UI_ValueSelectionStyle>CHECKBOX</UI_ValueSelectionStyle>
+                      <TypeSpecNameChangeAble>false</TypeSpecNameChangeAble>
+                      <DefaultIndex>0</DefaultIndex>
+                      <TextValueIndex>false</TextValueIndex>
+                      <DefaultValue>true</DefaultValue>
+                      <DefineSymbol>YES_NO</DefineSymbol>
+                      <IfDisabled>setNOTHING</IfDisabled>
+                      <Children>
+                          <GrupItem>
+                            <TGrupItem>
+                              <Name>Automatic IPv4 Address Configuration</Name>
+                              <Symbol>dynamicipCfgGrp</Symbol>
+                              <Hint>A dynamic IP address is an IP address that's automatically assigned to each connection or board (node).</Hint>
+                              <ItemLevel>BASIC</ItemLevel>
+                              <BoldName>true</BoldName>
+                              <EditLine>false</EditLine>
+                              <Description/>
+                              <Expanded>No</Expanded>
+                              <Children>
+                                <GrupItem>
+                                    <TBoolItem>
+                                        <Name>DHCP (Server)</Name>
+                                        <Symbol>tcpipCfg_DHCP</Symbol>
+                                        <TypeSpec>typeYesNo</TypeSpec>
+                                        <Hint>Dynamic Host Configuration Protocol (DHCP) is controlled by a DHCP server (e.g. a router or a residential gateway). It enables computers to request IP addresses and networking parameters automatically, reducing the need for a network admin or a user to do those things manually.</Hint>
+                                        <ItemLevel>BASIC</ItemLevel>
+                                        <ReadOnly>false</ReadOnly>
+                                        <DefaultValue>false</DefaultValue>
+                                        <UI_BoolStyle>CHECKBOX</UI_BoolStyle>
+                                    </TBoolItem>
+                                </GrupItem>
+                                <GrupItem>
+                                    <TBoolItem>
+                                        <Name>AUTOIP (Server-less)</Name>
+                                        <Symbol>tcpipCfg_AUTOIP</Symbol>
+                                        <TypeSpec>typeYesNo</TypeSpec>
+                                        <Hint>Like DHCP, AUTOIP is a module that enables dynamic IPv4 addresses to be assigned to a device on startup. However, DHCP requires a DHCP server. AUTOIP is a server-less method of choosing an IP address. A host configured with AUTOIP will get an address with a 169.254/16 prefix (that is, 169.254.xxx.xxx).</Hint>
+                                        <ItemLevel>BASIC</ItemLevel>
+                                        <ReadOnly>false</ReadOnly>
+                                        <DefaultValue>false</DefaultValue>
+                                        <UI_BoolStyle>CHECKBOX</UI_BoolStyle>
+                                    </TBoolItem>
+                                </GrupItem>
+                                <GrupItem>
+                                  <TStrgItem>
+                                        <Name>DHCP->AUTOIP tries</Name>
+                                        <Symbol>tcpipCfg_DHCP_AUTOIP_COOP_TRIES</Symbol>
+                                        <Hint>Set to the number of DHCP DISCOVER probes that should be sent before falling back on AUTOIP (the DHCP client keeps running in this case). This can be set as low as possible to get an AutoIP address very  quickly, but you should be prepared to handle a changing IP address when DHCP overrides AutoIP.</Hint>
+                                        <ItemLevel>BASIC</ItemLevel>
+                                        <EditLine>true</EditLine>
+                                        <DefaultValue>3</DefaultValue>
+                                        <ReadOnly>false</ReadOnly>
+                                        <MinLength>1</MinLength>
+                                        <MaxLength>2</MaxLength>
+                                  </TStrgItem>
+                                </GrupItem>
+                              </Children>
+                            </TGrupItem>
+                          </GrupItem>
+                          <GrupItem>
+                            <TGrupItem>
+                              <Name>Manual IPv4 Address Configuration</Name>
+                              <Symbol>staticipCfgGrp</Symbol>
+                              <Hint>A static IP address is an IP address that's manually configured.</Hint>
+                              <ItemLevel>BASIC</ItemLevel>
+                              <BoldName>true</BoldName>
+                              <EditLine>false</EditLine>
+                              <Description/>
+                              <Expanded>No</Expanded>
+                              <Children>
+                                <GrupItem>
+                                  <TStrgItem>
+                                        <Name>IPv4 Address</Name>
+                                        <Symbol>tcpipCfg_IPV4ADDR</Symbol>
+                                        <Hint>The IPv4 address, using the following format: 192.168.0.200.</Hint>
+                                        <ItemLevel>BASIC</ItemLevel>
+                                        <EditLine>true</EditLine>
+                                        <DefaultValue>192.168.0.200</DefaultValue>
+                                        <StrDefine>nothing</StrDefine>
+                                        <ReadOnly>false</ReadOnly>
+                                        <MinLength>7</MinLength>
+                                        <MaxLength>16</MaxLength>
+                                  </TStrgItem>
+                                </GrupItem>
+                                <GrupItem>
+                                    <TStrgItem>
+                                        <Name>IPv4 Subnet Mask</Name>
+                                        <Symbol>tcpipCfg_IPV4SUBNETMASK</Symbol>
+                                        <Hint>IPv4 Subnet Mask.</Hint>
+                                        <ItemLevel>BASIC</ItemLevel>
+                                        <EditLine>true</EditLine>
+                                        <DefaultValue>255.255.255.0</DefaultValue>
+                                        <StrDefine>nothing</StrDefine>
+                                        <ReadOnly>false</ReadOnly>
+                                        <MinLength>0</MinLength>
+                                        <MaxLength>-1</MaxLength>
+                                    </TStrgItem>
+                                </GrupItem>
+                                <GrupItem>
+                                    <TStrgItem>
+                                        <Name>IPv4 Default Gateway</Name>
+                                        <Symbol>tcpipCfg_IPV4GW</Symbol>
+                                        <Hint>IPv4 Gateway address.</Hint>
+                                        <ItemLevel>BASIC</ItemLevel>
+                                        <EditLine>true</EditLine>
+                                        <DefaultValue>192.168.0.1</DefaultValue>
+                                        <ReadOnly>false</ReadOnly>
+                                        <StrDefine>nothing</StrDefine>
+                                        <MinLength>0</MinLength>
+                                        <MaxLength>-1</MaxLength>
+                                    </TStrgItem>
+                                </GrupItem>
+                              </Children>
+                            </TGrupItem>
+                          </GrupItem>
+                          <GrupItem>
+                            <TBoolGrupItem>
+                              <Name>Internet Control Message Protocol (ICMP)</Name>
+                              <Symbol>tcpipCfg_ICMP</Symbol>
+                              <TypeSpec>type_tcpip_ConfigParams</TypeSpec>
+                              <Hint>Internet Control Message Protocol (ICMP) is used by network devices, including routers, to send error messages and operational information indicating, for example, that a requested service is not available or that a host or router could not be reached.</Hint>
+                              <ItemLevel>BASIC</ItemLevel>
+                              <BoldName>true</BoldName>
+                              <EditLine>false</EditLine>
+                              <UI_DisplayIn>TABLE_AND_GRAPHICAL_VIEW</UI_DisplayIn>
+                              <UI_DisplayExtraText>DISPLAY_AUTO_POSITION</UI_DisplayExtraText>
+                              <Description>Enabled</Description>
+                              <Expanded>No</Expanded>
+                              <UI_GroupStyle>GROUP</UI_GroupStyle>
+                              <UI_NumColumnsInWrappedLayout>4</UI_NumColumnsInWrappedLayout>
+                              <UI_ValueSelectionStyle>CHECKBOX</UI_ValueSelectionStyle>
+                              <TypeSpecNameChangeAble>false</TypeSpecNameChangeAble>
+                              <DefaultIndex>0</DefaultIndex>
+                              <TextValueIndex>false</TextValueIndex>
+                              <DefaultValue>true</DefaultValue>
+                              <DefineSymbol>YES_NO</DefineSymbol>
+                              <IfDisabled>setNOTHING</IfDisabled>
+                              <Children>
+                                <GrupItem>
+                                    <TStrgItem>
+                                        <Name>ICMP_TTL</Name>
+                                        <Symbol>tcpipCfg_ICMP_TTL</Symbol>
+                                        <Hint>ICMP Time to live.</Hint>
+                                        <ItemLevel>BASIC</ItemLevel>
+                                        <EditLine>true</EditLine>
+                                        <DefaultValue>255</DefaultValue>
+                                        <StrDefine>nothing</StrDefine>
+                                        <ReadOnly>false</ReadOnly>
+                                        <MinLength>1</MinLength>
+                                        <MaxLength>3</MaxLength>
+                                    </TStrgItem>
+                                </GrupItem>
+                              </Children>
+                            </TBoolGrupItem>
+                          </GrupItem>
+                          <GrupItem>
+                            <TBoolGrupItem>
+                              <Name>Internet Group Management Protocol (IGMP)</Name>
+                              <Symbol>tcpipCfg_IGMP</Symbol>
+                              <TypeSpec>typeYesNo</TypeSpec>
+                              <Hint>Internet Group Management Protocol (IGMP) is a communications protocol used by hosts and adjacent routers on IPv4 networks to establish multicast group memberships.</Hint>
+                              <ItemLevel>BASIC</ItemLevel>
+                              <BoldName>true</BoldName>
+                              <EditLine>false</EditLine>
+                              <UI_DisplayIn>TABLE_AND_GRAPHICAL_VIEW</UI_DisplayIn>
+                              <UI_DisplayExtraText>DISPLAY_AUTO_POSITION</UI_DisplayExtraText>
+                              <Description>Enabled</Description>
+                              <Expanded>No</Expanded>
+                              <UI_GroupStyle>GROUP</UI_GroupStyle>
+                              <UI_NumColumnsInWrappedLayout>4</UI_NumColumnsInWrappedLayout>
+                              <UI_ValueSelectionStyle>CHECKBOX</UI_ValueSelectionStyle>
+                              <DefaultValue>true</DefaultValue>
+                              <DefineSymbol>YES_NO</DefineSymbol>
+                              <IfDisabled>setNOTHING</IfDisabled>
+                              <Children>
+<!--
+                                <GrupItem>
+                                  <TEnumItem>
+                                    <Name>IGMP version</Name>
+                                    <Symbol>tcpipCfg_IGMPVERSION</Symbol>
+                                    <TypeSpec>type_tcpip_ConfigIGMPversion</TypeSpec>
+                                    <Hint>There are three versions of IGMP[6], as defined by Request for Comments (RFC) documents of the Internet Engineering Task Force (IETF).</Hint>
+                                    <ItemLevel>BASIC</ItemLevel>
+                                    <EditLine>true</EditLine>
+                                    <ReadOnly>true</ReadOnly>
+                                    <Description/>
+                                    <Expanded>Yes</Expanded>
+                                    <TextValueIndex>true</TextValueIndex>
+                                    <IconPopup>true</IconPopup>
+                                    <DefaultIndex>1</DefaultIndex>
+                                  </TEnumItem>
+                                </GrupItem>
+-->
+                              </Children>
+                            </TBoolGrupItem>
+                          </GrupItem>
+                      </Children>
+                   </TBoolGrupItem>
+                 </GrupItem>
+                 <GrupItem>
+                   <TBoolGrupItem>
+                      <Name>Internet Protocol version 6 (IPv6)</Name>
+                      <Symbol>tcpipCfg_IPV6</Symbol>
+                      <TypeSpec>type_tcpip_ConfigParams</TypeSpec>
+                      <Hint>IPv6 Support.</Hint>
+                      <ItemLevel>BASIC</ItemLevel>
+                      <BoldName>true</BoldName>
+                      <EditLine>false</EditLine>
+                      <UI_DisplayIn>TABLE_AND_GRAPHICAL_VIEW</UI_DisplayIn>
+                      <UI_DisplayExtraText>DISPLAY_AUTO_POSITION</UI_DisplayExtraText>
+                      <Description>Enabled</Description>
+                      <Expanded>No</Expanded>
+                      <UI_GroupStyle>GROUP</UI_GroupStyle>
+                      <UI_NumColumnsInWrappedLayout>4</UI_NumColumnsInWrappedLayout>
+                      <UI_ValueSelectionStyle>CHECKBOX</UI_ValueSelectionStyle>
+                      <TypeSpecNameChangeAble>false</TypeSpecNameChangeAble>
+                      <DefaultIndex>0</DefaultIndex>
+                      <TextValueIndex>false</TextValueIndex>
+                      <DefaultValue>true</DefaultValue>
+                      <DefineSymbol>YES_NO</DefineSymbol>
+                      <IfDisabled>setNOTHING</IfDisabled>
+                      <Children>
+                      </Children>
+                   </TBoolGrupItem>
+                 </GrupItem>
+            </Children>
+  </TInPEinvisibleGroup>
+</ListItem>

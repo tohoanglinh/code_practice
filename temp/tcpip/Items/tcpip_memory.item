@@ -21,17 +21,6 @@
                       <Expanded>No</Expanded>
                       <Children>
                         <GrupItem>
-                            <TBoolItem>
-                                <Name>Memory value edit</Name>
-                                <Symbol>tcpipCfg_MEM_EDIT</Symbol>
-                                <TypeSpec>typeYesNo</TypeSpec>
-                                <Hint>Click to edit the following related-memory fields.</Hint>
-                                <ItemLevel>BASIC</ItemLevel>
-                                <DefaultValue>false</DefaultValue>
-                                <UI_BoolStyle>CHECKBOX</UI_BoolStyle>
-                            </TBoolItem>
-                        </GrupItem>
-                        <GrupItem>
                           <TStrgItem>
                                 <Name>Memory alignment</Name>
                                 <Symbol>tcpipCfg_MEM_ALIGNMENT</Symbol>
