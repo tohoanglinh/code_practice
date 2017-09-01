@@ -21,7 +21,9 @@
 #define LWIP_DNS_APP                 %>%'SymbolCol' %EXPR(1~%get(tcpipCfg_DNS,Value))
 #define LWIP_HTTPD_APP               %>%'SymbolCol' %EXPR(1~%get(tcpipCfg_HTTPD,Value))
 #define LWIP_HTTPD_APP_NETCONN       %>%'SymbolCol' %EXPR(1~%get(tcpipCfg_HTTPD_NETCONN,Value)) %>%'CommentCol' /* 1: use NETCONN HTTP SERVER, 0: use RAW API HTTP SERVER */
-#define LWIP_NETBIOS_APP             %>%'SymbolCol' %EXPR(1~%get(tcpipCfg_NETBIOS,Value))
+#define LWIP_NETBIOS_APP             %>%'SymbolCol' %EXPR(1~%get(tcpipCfg_NETBIOS,Value))       %>%'CommentCol' /* NetBIOS name server. It responds to name queries for a 
+                                                                                                %>%'CommentCol' configurable name. Name resolving is not supported. Note that the
+                                                                                                %>%'CommentCol' device doesn't broadcast its own name so can't detect duplicate names! */
 #define LWIP_NETIO_APP               %>%'SymbolCol' %EXPR(1~%get(tcpipCfg_NETIO,Value))
 #define LWIP_RTP_APP                 %>%'SymbolCol' %EXPR(1~%get(tcpipCfg_RTP,Value))
 #define LWIP_SHELL_APP               %>%'SymbolCol' %EXPR(1~%get(tcpipCfg_SHELL,Value))

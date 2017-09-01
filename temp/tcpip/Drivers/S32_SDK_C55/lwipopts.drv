@@ -18,7 +18,7 @@
  * General: OS, Memory, etc.
  ****************************************************************************/
 #define LWIP_NETIF_HOSTNAME          %>%'SymbolCol' 1
-#define LWIP_NETIF_HOSTNAME_TEXT     %>%'SymbolCol' %'tcpipCfg_USE_HOST_NAME'
+#define LWIP_NETIF_HOSTNAME_TEXT     %>%'SymbolCol' ("%'tcpipCfg_USE_HOST_NAME'")
 
 #define TCPIP_MBOX_SIZE              %>%'SymbolCol' 10
 

@@ -356,7 +356,7 @@
                                 <Name>DNS</Name>
                                 <Symbol>tcpipCfg_DNS</Symbol>
                                 <TypeSpec>typeYesNo</TypeSpec>
-                                <Hint>Domain Name System Enable.</Hint>
+                                <Hint>A basic DNS client to allow other applications to resolve host names to addresses using the DNS (Domain Name System) protocol. If DHCP is used in conjuntion with lwIP DNS client, DNS will automatically be configured to use the offered DNS server (if the DHCP server offers one).</Hint>
                                 <ItemLevel>BASIC</ItemLevel>
                                 <ReadOnly>false</ReadOnly>
                                 <DefaultValue>false</DefaultValue>
@@ -392,10 +392,10 @@
                                 <Name>NETBIOS</Name>
                                 <Symbol>tcpipCfg_NETBIOS</Symbol>
                                 <TypeSpec>typeYesNo</TypeSpec>
-                                <Hint>Netbios App Enable.</Hint>
+                                <Hint>This is an example implementation of a NetBIOS name server. It responds to name queries for a configurable name. Name resolving is not supported. Note that the device doesn't broadcast it's own name so can't detect duplicate names!</Hint>
                                 <ItemLevel>BASIC</ItemLevel>
                                 <ReadOnly>false</ReadOnly>
-                                <DefaultValue>false</DefaultValue>
+                                <DefaultValue>true</DefaultValue>
                                 <UI_BoolStyle>CHECKBOX</UI_BoolStyle>
                             </TBoolItem>
                         </GrupItem>
