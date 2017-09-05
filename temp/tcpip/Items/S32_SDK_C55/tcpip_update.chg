@@ -1,6 +1,4 @@
-%------------------------------- LOGGING for DEBUG OUT  -------------------------------
-%-%log aaa %EXPR(1~%get(tcpipCfg_ARP,Value))
-%-launchExt parseFile.class,parsetxt,"LWIP_VERSION_MAJOR"
+%------------------------------- LOGGING for DEBUG PURPOSE  ---------------------------
 
 %------------------------------- General configuration  -------------------------------
 %- specify required FreeRTOS values for lwIP with FreeRTOS
@@ -12,6 +10,9 @@
 %endif
 
 %set tcpipCfg_FREERTOS ReadOnly true
+
+%- parse version of light weight Internet Protocol (lwIP)
+%launchExt parseVersion.class, parseVersionLWIP, S32_SDK_PATH
 
 %------------------------------- L2 Data Link configuration  --------------------------
 %- the following line can get MAC address from shared component.

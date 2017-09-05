@@ -55,7 +55,7 @@
     <Property>
       <TStrgItem>
         <Name>lwIP version</Name>
-        <Symbol>lwIPversion</Symbol>
+        <Symbol>LWIPVERSION</Symbol>
         <Hint>Specifies which lwIP version is being used.</Hint>
         <ItemLevel>BASIC</ItemLevel>
         <ReadOnly>true</ReadOnly>
