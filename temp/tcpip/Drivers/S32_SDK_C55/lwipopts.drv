@@ -6,19 +6,46 @@
 %INTERFACE
 %define! DirRel_Code_rep %str_replace(DirRel_Code,"\","/")
 %FILE %'DirRel_Code_rep'lwipopts.h
-%include Common\Header.h
-
+/*
+ * Copyright (c) 2001-2003 Swedish Institute of Computer Science.
+ * All rights reserved. 
+ * 
+ * Redistribution and use in source and binary forms, with or without modification, 
+ * are permitted provided that the following conditions are met:
+ *
+ * 1. Redistributions of source code must retain the above copyright notice,
+ *    this list of conditions and the following disclaimer.
+ * 2. Redistributions in binary form must reproduce the above copyright notice,
+ *    this list of conditions and the following disclaimer in the documentation
+ *    and/or other materials provided with the distribution.
+ * 3. The name of the author may not be used to endorse or promote products
+ *    derived from this software without specific prior written permission. 
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR IMPLIED 
+ * WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF 
+ * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT 
+ * SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, 
+ * EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT 
+ * OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS 
+ * INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN 
+ * CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING 
+ * IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY 
+ * OF SUCH DAMAGE.
+ *
+ * This file is part of the lwIP TCP/IP stack.
+ * 
+ * Author: Adam Dunkels <adam@sics.se>
+ *
+ */
 #ifndef LWIP_LWIPOPTS_H
 #define LWIP_LWIPOPTS_H
-/* FILE LWIPOPTS_H. */
 %:SymbolCol  = 38
 %:CommentCol = 66
 
 /****************************************************************************
  * General: OS, Memory, etc.
  ****************************************************************************/
-#define LWIP_NETIF_HOSTNAME          %>%'SymbolCol' 1
-#define LWIP_NETIF_HOSTNAME_TEXT     %>%'SymbolCol' ("%'tcpipCfg_USE_HOST_NAME'")
+#define LWIP_NETIF_HOSTNAME          %>%'SymbolCol' ("%'tcpipCfg_USE_HOST_NAME'")
 
 #define TCPIP_MBOX_SIZE              %>%'SymbolCol' 10
 
@@ -115,7 +142,12 @@ a lot of data that needs to be copied, this should be set high. */
  * Data Link Layer
  ****************************************************************************/
 %>1%sdk_briefStart MAC address of the module %sdk_commentEnd
+#ifndef LWIP_MAC_ADDR_BASE
 #define LWIP_MAC_ADDR_BASE            %>%'SymbolCol' 0x%str_replace(tcpipCfg_MAC,":",",0x")
+#endif /* ifndef LWIP_MAC_ADDR_BASE */
+
+%>1%sdk_briefStart (LWIP_ETHERNET == 1) Enable ETHERNET support even though ARP might be disabled %sdk_commentEnd
+#define LWIP_ETHERNET                 %>%'SymbolCol' 1
 
 %>1%sdk_briefStart ARP options %sdk_commentEnd
 %if %get(tcpipCfg_ARP,Value) == 'yes'
@@ -299,8 +331,7 @@ a lot of data that needs to be copied, this should be set high. */
 #define CHECKSUM_CHECK_ICMP6         %>%'SymbolCol' LWIP_IPV6
 #define LWIP_CHECKSUM_ON_COPY        %>%'SymbolCol' 0
 
-#endif /* ifndef LWIP_LWIPOPTS_H */
-%include Common\Header.end
+#endif /* LWIP_LWIPOPTS_H */
 %- ****************************************************************************
 %- HEADER FILE END
 %- ****************************************************************************

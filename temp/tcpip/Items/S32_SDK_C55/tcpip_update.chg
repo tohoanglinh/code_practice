@@ -11,8 +11,11 @@
 
 %set tcpipCfg_FREERTOS ReadOnly true
 
+%- parse version of FreeRTOS_C55
+%launchExt parseVersion.class, parseVersionFreertosC55, S32_SDK_PATH
+
 %- parse version of light weight Internet Protocol (lwIP)
-%launchExt parseVersion.class, parseVersionLWIP, S32_SDK_PATH
+%launchExt parseVersion.class, parseVersionLwip, S32_SDK_PATH
 
 %------------------------------- L2 Data Link configuration  --------------------------
 %- the following line can get MAC address from shared component.
