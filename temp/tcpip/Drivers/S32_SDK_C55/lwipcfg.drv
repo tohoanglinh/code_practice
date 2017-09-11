@@ -67,7 +67,7 @@
  ****************************************************************************/
 %if defined(tcpipCfg_USER_DEFINES) 
   %if %tcpipCfg_USER_DEFINESLines>.'0'
-    %for var from [1..%tcpipCfg_USER_DEFINESLines]
+    %for var from [4..%tcpipCfg_USER_DEFINESLines]
       %if %[%var,tcpipCfg_USER_DEFINESLen]>.'0'
 %[%var,tcpipCfg_USER_DEFINES]
       %endif

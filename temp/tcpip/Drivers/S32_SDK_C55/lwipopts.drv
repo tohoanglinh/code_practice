@@ -45,7 +45,12 @@
 /****************************************************************************
  * General: OS, Memory, etc.
  ****************************************************************************/
-#define LWIP_NETIF_HOSTNAME          %>%'SymbolCol' ("%'tcpipCfg_USE_HOST_NAME'")
+%if %get(tcpipCfg_HOST_NAME_ENABLE,Value) == 'yes'
+#define LWIP_NETIF_HOSTNAME          %>%'SymbolCol' 1
+#define LWIP_NETIF_HOSTNAME_TEXT     %>%'SymbolCol' ("%'tcpipCfg_HOST_NAME_TEXT'")
+%else
+#define LWIP_NETIF_HOSTNAME          %>%'SymbolCol' 0
+%endif
 
 #define TCPIP_MBOX_SIZE              %>%'SymbolCol' 10
 
@@ -60,7 +65,11 @@
 #define MEM_USE_POOLS                %>%'SymbolCol' 0
 
 %>1%sdk_briefStart OS options of the module %sdk_commentEnd
-#define NO_SYS                       %>%'SymbolCol' %get(tcpipCfg_FREERTOS,Value) %>%'CommentCol' /* 0: using OS with multi-thread --> use netconn API; 1: not using OS --> use Raw API */
+%if %get(tcpipCfg_FREERTOS,Value) == 'yes'
+#define NO_SYS                       %>%'SymbolCol' 0 %>%'CommentCol' /* 0: using OS with multi-thread --> use netconn API*/
+%else
+#define NO_SYS                       %>%'SymbolCol' 1 %>%'CommentCol' /* 1: not using OS --> use Raw API */
+%endif
 #define LWIP_SOCKET                  %>%'SymbolCol' (NO_SYS==0)
 #define LWIP_NETCONN                 %>%'SymbolCol' (NO_SYS==0)
 
@@ -152,11 +161,11 @@ a lot of data that needs to be copied, this should be set high. */
 %>1%sdk_briefStart ARP options %sdk_commentEnd
 %if %get(tcpipCfg_ARP,Value) == 'yes'
 #define LWIP_ARP                      %>%'SymbolCol' 1                                 %>%'CommentCol' /* 1: Enable ARP, 0: Disable ARP */
+#define ARP_TABLE_SIZE                %>%'SymbolCol' %'tcpipCfg_ARP_TABLE_SIZE'        %>%'CommentCol' /* ARP Table size */
+#define ARP_QUEUEING                  %>%'SymbolCol' %'tcpipCfg_ARP_QUEUEING'          %>%'CommentCol' /* ARP Queueing */
 %else
 #define LWIP_ARP                      %>%'SymbolCol' 0                                 %>%'CommentCol' /* 1: Enable ARP, 0: Disable ARP */
 %endif
-#define ARP_TABLE_SIZE                %>%'SymbolCol' %'tcpipCfg_ARP_TABLE_SIZE'        %>%'CommentCol' /* ARP Table size */
-#define ARP_QUEUEING                  %>%'SymbolCol' %'tcpipCfg_ARP_QUEUEING'          %>%'CommentCol' /* ARP Queueing */
 
 /****************************************************************************
  * IP Network Layer
@@ -164,10 +173,6 @@ a lot of data that needs to be copied, this should be set high. */
 %>1%sdk_briefStart IPv4 options of the module %sdk_commentEnd
 %if %get(tcpipCfg_IPV4,Value) == 'yes'
 #define LWIP_IPV4                     %>%'SymbolCol' 1                                    %>%'CommentCol' /* 1: Enable IPv4, 0: Disable IPv4 */
-%else
-#define LWIP_IPV4                     %>%'SymbolCol' 0                                    %>%'CommentCol' /* 1: Enable IPv4, 0: Disable IPv4 */
-%endif
-
 %>1%sdk_briefStart Dynamic IP address settings of the module %sdk_commentEnd
 #define LWIP_DHCP                     %>%'SymbolCol' %EXPR(1~%get(tcpipCfg_DHCP,Value))   %>%'CommentCol' /* 1: Enable DHCP, 0: Disable DHCP */
 #define DHCP_DOES_ARP_CHECK           %>%'SymbolCol' (LWIP_DHCP)                          %>%'CommentCol' /* 1: Do an ARP check on the offered address (recommended) */
@@ -215,6 +220,9 @@ a lot of data that needs to be copied, this should be set high. */
 %else
 #define LWIP_IGMP                    %>%'SymbolCol' 0
 %endif
+%else
+#define LWIP_IPV4                     %>%'SymbolCol' 0                                    %>%'CommentCol' /* 1: Enable IPv4, 0: Disable IPv4 */
+%endif
 
 %>1%sdk_briefStart IPv6 options of the module %sdk_commentEnd
 %if %get(tcpipCfg_IPV6,Value) == 'yes'
@@ -229,9 +237,6 @@ a lot of data that needs to be copied, this should be set high. */
 %>1%sdk_briefStart TCP options of the module %sdk_commentEnd
 %if %get(tcpipCfg_TCP,Value) == 'yes'
 #define LWIP_TCP                     %>%'SymbolCol' 1                                   %>%'CommentCol' /* 1: Enable TCP, 0: Disable TCP */
-%else
-#define LWIP_TCP                     %>%'SymbolCol' 0                                   %>%'CommentCol' /* 1: Enable TCP, 0: Disable TCP */
-%endif
 #define TCP_TTL                      %>%'SymbolCol' %'tcpipCfg_TCP_TTL'                 %>%'CommentCol' /* TCP Time to live value */
 #define TCP_QUEUE_OOSEQ              %>%'SymbolCol' %'tcpipCfg_TCP_QUEUE_OOSEQ'         %>%'CommentCol' /* Controls if TCP should queue segments that arrive out of order.
                                                                                         %>%'CommentCol'    Defines to 0 if your device is low on memory. */
@@ -250,15 +255,18 @@ a lot of data that needs to be copied, this should be set high. */
 #define TCP_WND                      %>%'SymbolCol' %'tcpipCfg_TCP_WND'                 %>%'CommentCol' /* TCP receive window. */
 #define TCP_MAXRTX                   %>%'SymbolCol' %'tcpipCfg_TCP_MAXRTX'              %>%'CommentCol' /* Maximum number of retransmissions of data segments. */
 #define TCP_SYNMAXRTX                %>%'SymbolCol' %'tcpipCfg_TCP_SYNMAXRTX'           %>%'CommentCol' /* Maximum number of retransmissions of SYN segments. */
+%else
+#define LWIP_TCP                     %>%'SymbolCol' 0                                   %>%'CommentCol' /* 1: Enable TCP, 0: Disable TCP */
+%endif
 
 %>1%sdk_briefStart UDP options of the module %sdk_commentEnd
 %if %get(tcpipCfg_UDP,Value) == 'yes'
 #define LWIP_UDP                     %>%'SymbolCol' 1                                   %>%'CommentCol' /* 1: Enable UDP, 0: Disable UDP */
+#define LWIP_UDPLITE                 %>%'SymbolCol' (LWIP_UDP)
+#define UDP_TTL                      %>%'SymbolCol' %'tcpipCfg_UDP_TTL'                 %>%'CommentCol' /* UDP Time to live value. */
 %else
 #define LWIP_UDP                     %>%'SymbolCol' 0                                   %>%'CommentCol' /* 1: Enable UDP, 0: Disable UDP */
 %endif
-#define LWIP_UDPLITE                 %>%'SymbolCol' (LWIP_UDP)
-#define UDP_TTL                      %>%'SymbolCol' %'tcpipCfg_UDP_TTL'                 %>%'CommentCol' /* UDP Time to live value. */
 
 /****************************************************************************
  * Debug, Statistics, PPP, Checksum

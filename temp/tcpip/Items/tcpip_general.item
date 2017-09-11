@@ -21,29 +21,43 @@
                       <Expanded>No</Expanded>
                       <Children>
                         <GrupItem>
-                            <TBoolItem>
-                                <Name>FreeRTOS</Name>
-                                <Symbol>tcpipCfg_FREERTOS</Symbol>
-                                <TypeSpec>typeYesNo</TypeSpec>
-                                <Hint>Check: using Netconn API (multi-thread with OS); Uncheck: using Raw/Native API (required callback functions) </Hint>
-                                <ItemLevel>BASIC</ItemLevel>
-                                <ReadOnly>false</ReadOnly>
-                                <DefaultValue>true</DefaultValue>
-                                <UI_BoolStyle>CHECKBOX</UI_BoolStyle>
-                            </TBoolItem>
-                        </GrupItem>
-                        <GrupItem>
-                          <TStrgItem>
-                                <Name>Host Name</Name>
-                                <Symbol>tcpipCfg_USE_HOST_NAME</Symbol>
-                                <Hint>Host name setting.</Hint>
-                                <ItemLevel>BASIC</ItemLevel>
-                                <EditLine>true</EditLine>
-                                <DefaultValue>tcpipBoard1</DefaultValue>
-                                <ReadOnly>false</ReadOnly>
-                                <MinLength>1</MinLength>
-                                <MaxLength>-1</MaxLength>
-                          </TStrgItem>
+                          <TBoolGrupItem>
+                              <Name>Use host name</Name>
+                              <Symbol>tcpipCfg_HOST_NAME_ENABLE</Symbol>
+                              <TypeSpec>type_tcpip_ConfigParams</TypeSpec>
+                              <Hint>Host name enable/disable.</Hint>
+                              <ItemLevel>BASIC</ItemLevel>
+                              <BoldName>true</BoldName>
+                              <EditLine>false</EditLine>
+                              <UI_DisplayIn>TABLE_AND_GRAPHICAL_VIEW</UI_DisplayIn>
+                              <UI_DisplayExtraText>DISPLAY_AUTO_POSITION</UI_DisplayExtraText>
+                              <Description>Enabled</Description>
+                              <Expanded>No</Expanded>
+                              <UI_GroupStyle>GROUP</UI_GroupStyle>
+                              <UI_NumColumnsInWrappedLayout>4</UI_NumColumnsInWrappedLayout>
+                              <UI_ValueSelectionStyle>CHECKBOX</UI_ValueSelectionStyle>
+                              <TypeSpecNameChangeAble>false</TypeSpecNameChangeAble>
+                              <DefaultIndex>0</DefaultIndex>
+                              <TextValueIndex>false</TextValueIndex>
+                              <DefaultValue>true</DefaultValue>
+                              <DefineSymbol>YES_NO</DefineSymbol>
+                              <IfDisabled>setNOTHING</IfDisabled>
+                              <Children>
+                                <GrupItem>
+                                  <TStrgItem>
+                                        <Name>Enter host name:</Name>
+                                        <Symbol>tcpipCfg_HOST_NAME_TEXT</Symbol>
+                                        <Hint>Please enter a desired host name.</Hint>
+                                        <ItemLevel>BASIC</ItemLevel>
+                                        <EditLine>true</EditLine>
+                                        <DefaultValue>tcpipBoard1</DefaultValue>
+                                        <ReadOnly>false</ReadOnly>
+                                        <MinLength>1</MinLength>
+                                        <MaxLength>-1</MaxLength>
+                                  </TStrgItem>
+                                </GrupItem>
+                              </Children>
+                          </TBoolGrupItem>
                         </GrupItem>
                         <GrupItem>
                           <TIncludeItem>
@@ -68,6 +82,93 @@
                             <SetNumOfListItemsAfterLoad>1</SetNumOfListItemsAfterLoad>
                           </TIncludeItem>
                         </GrupItem>
+                        <GrupItem>
+                          <TBoolGrupItem>
+                              <Name>FreeRTOS</Name>
+                              <Symbol>tcpipCfg_FREERTOS</Symbol>
+                              <TypeSpec>type_tcpip_ConfigParams</TypeSpec>
+                              <Hint>Check: using FreeRTOS and lwIP Netconn API (multi-thread with OS);&#xD;&#xA; Uncheck: no OS, using lwIP Raw/Native API</Hint>
+                              <ItemLevel>BASIC</ItemLevel>
+                              <BoldName>true</BoldName>
+                              <EditLine>false</EditLine>
+                              <UI_DisplayIn>TABLE_AND_GRAPHICAL_VIEW</UI_DisplayIn>
+                              <UI_DisplayExtraText>DISPLAY_AUTO_POSITION</UI_DisplayExtraText>
+                              <Description>Enabled</Description>
+                              <Expanded>No</Expanded>
+                              <UI_GroupStyle>GROUP</UI_GroupStyle>
+                              <UI_NumColumnsInWrappedLayout>4</UI_NumColumnsInWrappedLayout>
+                              <UI_ValueSelectionStyle>CHECKBOX</UI_ValueSelectionStyle>
+                              <TypeSpecNameChangeAble>false</TypeSpecNameChangeAble>
+                              <DefaultIndex>0</DefaultIndex>
+                              <TextValueIndex>false</TextValueIndex>
+                              <DefaultValue>true</DefaultValue>
+                              <DefineSymbol>YES_NO</DefineSymbol>
+                              <IfDisabled>setNOTHING</IfDisabled>
+                              <Children>
+                                <GrupItem>
+                                    <TEnumItem>
+                                        <Name>Using following values</Name>
+                                        <Symbol>tcpipCfg_FREERTOS_DEFAULT</Symbol>
+                                        <TypeSpec>typeYesNo</TypeSpec>
+                                        <Hint>yes: copy the following values to freertos shared component and lock them;&#xD;&#xA; no: you can change those values in freertos shared component.</Hint>
+                                        <ItemLevel>BASIC</ItemLevel>
+                                        <EditLine>true</EditLine>
+                                        <TypeSpecNameChangeAble>false</TypeSpecNameChangeAble>
+                                        <DefaultIndex>0</DefaultIndex>
+                                        <TextValueIndex>true</TextValueIndex>
+                                        <RuntimeProperty>false</RuntimeProperty>
+                                        <CanDelete>false</CanDelete>
+                                        <IconPopup>false</IconPopup>
+                                        <TypeAssignment>BEAN_FILE</TypeAssignment>
+                                        <UI_EnumStyle>BUTTON</UI_EnumStyle>
+                                        <UI_DisplayExtraText>DISPLAY_IN_TOOLTIP</UI_DisplayExtraText>
+                                    </TEnumItem>
+                                </GrupItem>
+                                <GrupItem>
+                                    <TStrgItem>
+                                        <Name>Cpu clock[Hz]</Name>
+                                        <Symbol>tcpipCfg_FREERTOS_CPU_CLOCK_HZ</Symbol>
+                                        <Hint>CPU clock in Hz.</Hint>
+                                        <ItemLevel>BASIC</ItemLevel>
+                                        <EditLine>true</EditLine>
+                                        <DefaultValue>40000000</DefaultValue>
+                                        <StrDefine>nothing</StrDefine>
+                                        <ReadOnly>false</ReadOnly>
+                                        <MinLength>0</MinLength>
+                                        <MaxLength>-1</MaxLength>
+                                    </TStrgItem>
+                                </GrupItem>
+                                <GrupItem>
+                                    <TStrgItem>
+                                        <Name>Minimal stack size[bytes]</Name>
+                                        <Symbol>tcpipCfg_FREERTOS_MINIMAL_STACK_SIZE</Symbol>
+                                        <Hint>Minimal stack size.</Hint>
+                                        <ItemLevel>BASIC</ItemLevel>
+                                        <EditLine>true</EditLine>
+                                        <DefaultValue>512</DefaultValue>
+                                        <StrDefine>nothing</StrDefine>
+                                        <ReadOnly>false</ReadOnly>
+                                        <MinLength>0</MinLength>
+                                        <MaxLength>-1</MaxLength>
+                                    </TStrgItem>
+                                </GrupItem>
+                                <GrupItem>
+                                    <TStrgItem>
+                                        <Name>Total heap size[bytes]</Name>
+                                        <Symbol>tcpipCfg_FREERTOS_TOTAL_HEAP_SIZE</Symbol>
+                                        <Hint>Total heap size.</Hint>
+                                        <ItemLevel>BASIC</ItemLevel>
+                                        <EditLine>true</EditLine>
+                                        <DefaultValue>49152</DefaultValue>
+                                        <StrDefine>nothing</StrDefine>
+                                        <ReadOnly>false</ReadOnly>
+                                        <MinLength>0</MinLength>
+                                        <MaxLength>-1</MaxLength>
+                                    </TStrgItem>
+                                </GrupItem>
+                              </Children>
+                          </TBoolGrupItem>
+                        </GrupItem>
                       </Children>
                     </TGrupItem>
                   </GrupItem>
@@ -86,7 +187,7 @@
                           <TStrgItem>
                                 <Name>MAC Address:</Name>
                                 <Symbol>tcpipCfg_MAC</Symbol>
-                                <Hint>The MAC address, 6 octets, is automatically and continuously get from the shared enet component. To change it, go to Referenced_Components-->enet-->Configurations-->MAC Address</Hint>
+                                <Hint>The MAC address, 6 octets, with format 11:22:33:44:55:66</Hint>
                                 <ItemLevel>BASIC</ItemLevel>
                                 <ReadOnly>false</ReadOnly>
                                 <DefaultValue>11:22:33:44:55:66</DefaultValue>
@@ -161,7 +262,7 @@
                     <TGrupItem>
                       <Name>Transport</Name>
                       <Symbol>TransCfgGrp</Symbol>
-                      <Hint>[Segment/Datagram] Reliable transmission of data segments between points on a network, including segmentation, acknowledgement and multiplexing.</Hint>
+                      <Hint>[Segment/Datagram] Reliable transmission of data segments between points on a network;&#xD;&#xA; including segmentation, acknowledgement and multiplexing.</Hint>
                       <ItemLevel>BASIC</ItemLevel>
                       <BoldName>true</BoldName>
                       <EditLine>false</EditLine>
@@ -173,7 +274,7 @@
                             <Name>Transmission Control Protocol (TCP)</Name>
                             <Symbol>tcpipCfg_TCP</Symbol>
                             <TypeSpec>typeYesNo</TypeSpec>
-                            <Hint>Connection-oriented TCP Options.</Hint>
+                            <Hint>[Reliability] Connection-oriented transmission model.&#xD;&#xA; TCP provides reliable, ordered, and error-checked delivery of a stream of octets between applications running on hosts communicating by an IP network. Major Internet applications such as the World Wide Web, email, remote administration, and file transfer rely on TCP.</Hint>
                             <ItemLevel>BASIC</ItemLevel>
                             <BoldName>true</BoldName>
                             <EditLine>false</EditLine>
@@ -293,7 +394,7 @@
                             <Name>User Datagram Protocol (UDP)</Name>
                             <Symbol>tcpipCfg_UDP</Symbol>
                             <TypeSpec>typeYesNo</TypeSpec>
-                            <Hint>Connectionless TCP Options.</Hint>
+                            <Hint>[Latency] Connection-less transmission model.&#xD;&#xA; UDP is suitable for purposes where error checking and correction are either not necessary or are performed in the application; UDP avoids the overhead of such processing at the level of the network interface. Time-sensitive applications like video streaming, online gaming, video conference often use UDP.</Hint>
                             <ItemLevel>BASIC</ItemLevel>
                             <BoldName>true</BoldName>
                             <EditLine>false</EditLine>
@@ -332,7 +433,7 @@
                     <TGrupItem>
                       <Name>Applications</Name>
                       <Symbol>AppCfgGrp</Symbol>
-                      <Hint>[Data] High-level APIs, including resource sharing, remote file access.</Hint>
+                      <Hint>[Data] Demo apps and protocols that are supported by the stack;&#xD;&#xA; e.g., echo, web-server, netbios, resource sharing, remote file access, etc.&#xD;&#xA; The list is extensible by adding new apps in tcpip_stack/apps folder.</Hint>
                       <ItemLevel>BASIC</ItemLevel>
                       <BoldName>true</BoldName>
                       <EditLine>false</EditLine>
@@ -514,7 +615,7 @@
                     <TGrupItem>
                       <Name>User Settings</Name>
                       <Symbol>tcpipCfg_USER_SETTINGS</Symbol>
-                      <Hint>Additional User Settings</Hint>
+                      <Hint>Additional user settings</Hint>
                       <ItemLevel>BASIC</ItemLevel>
                       <BoldName>true</BoldName>
                       <EditLine>false</EditLine>
@@ -525,15 +626,17 @@
                           <TStrgListItem>
                             <Name>Definitions</Name>
                             <Symbol>tcpipCfg_USER_DEFINES</Symbol>
-                            <Hint>Other user defined values placed into lwipcfg.h</Hint>
+                            <Hint>Additional user defined values placed into lwipcfg.h</Hint>
                             <ItemLevel>BASIC</ItemLevel>
                             <EditLine>false</EditLine>
                             <DefaultValue>(string list)</DefaultValue>
                             <DefineList>false</DefineList>
                             <ExternEditorEnabled>false</ExternEditorEnabled>
                             <AcceptNonPrintChars>false</AcceptNonPrintChars>
-                            <DefaultStrgList lines_count="1">
-                              <Line>/* Additional settings can be defined in the Properties &gt; User Settings &gt; Definitions of the tcpip component */</Line>
+                            <DefaultStrgList lines_count="3">
+                              <Line>/* FreeRTOS additional settings. If General &gt; Using following values == yes, the following FreeRTOS configurations will be copied into FreeRTOSConfig.h in Generated Code folder.*/</Line>
+                              <Line>#define configNUM_THREAD_LOCAL_STORAGE_POINTERS  2</Line>
+                              <Line>/* TCPIP additional settings. The rest of following lines will be placed into lwipcfg.h in Generated Code folder */</Line>
                             </DefaultStrgList>
                           </TStrgListItem>
                         </GrupItem>

@@ -1,21 +1,28 @@
 %------------------------------- LOGGING for DEBUG PURPOSE  ---------------------------
 
 %------------------------------- General configuration  -------------------------------
-%- specify required FreeRTOS values for lwIP with FreeRTOS
-%if %get(tcpipCfg_FREERTOS,Value) == '0'
-%set @Link1@configCPU_CLOCK_HZ Value 40000000
-%set @Link1@configMINIMAL_STACK_SIZE Value 512
-%set @Link1@configTOTAL_HEAP_SIZE Value 49152
-%set @Link1@FreeRtosUserDefinitions Line[2] #define configNUM_THREAD_LOCAL_STORAGE_POINTERS  2
-%endif
-
 %set tcpipCfg_FREERTOS ReadOnly true
 
+%- default FreeRTOS values for lwIP
+%if %get(tcpipCfg_FREERTOS_DEFAULT,Value) == '0'
+%set tcpipCfg_FREERTOS_CPU_CLOCK_HZ ReadOnly false
+%set tcpipCfg_FREERTOS_MINIMAL_STACK_SIZE ReadOnly false
+%set tcpipCfg_FREERTOS_TOTAL_HEAP_SIZE ReadOnly false
+%set @Link1@configCPU_CLOCK_HZ Value %'tcpipCfg_FREERTOS_CPU_CLOCK_HZ'
+%set @Link1@configMINIMAL_STACK_SIZE Value %'tcpipCfg_FREERTOS_MINIMAL_STACK_SIZE'
+%set @Link1@configTOTAL_HEAP_SIZE Value %'tcpipCfg_FREERTOS_TOTAL_HEAP_SIZE'
+%set @Link1@FreeRtosUserDefinitions Line[2] %get(tcpipCfg_USER_DEFINES, Line[2])
+%else
+%set tcpipCfg_FREERTOS_CPU_CLOCK_HZ ReadOnly true
+%set tcpipCfg_FREERTOS_MINIMAL_STACK_SIZE ReadOnly true
+%set tcpipCfg_FREERTOS_TOTAL_HEAP_SIZE ReadOnly true
+%endif
+
 %- parse version of FreeRTOS_C55
-%launchExt parseVersion.class, parseVersionFreertosC55, S32_SDK_PATH
+%launchExt ParseVersionClass.class, parseVersion, S32_SDK_PATH>>>/rtos/FreeRTOS_C55/Source/include/task.h>>>tskKERNEL_VERSION_MAJOR>>>tskKERNEL_VERSION_MINOR>>>tskKERNEL_VERSION_BUILD>>>@Link1@FreeRtosVersion
 
 %- parse version of light weight Internet Protocol (lwIP)
-%launchExt parseVersion.class, parseVersionLwip, S32_SDK_PATH
+%launchExt ParseVersionClass.class, parseVersion, S32_SDK_PATH>>>/middleware/tcpip/lwip/src/include/lwip/init.h>>>LWIP_VERSION_MAJOR>>>LWIP_VERSION_MINOR>>>LWIP_VERSION_REVISION>>>LWIPVERSION
 
 %------------------------------- L2 Data Link configuration  --------------------------
 %- the following line can get MAC address from shared component.

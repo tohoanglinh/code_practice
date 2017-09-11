@@ -11,9 +11,9 @@
            <Children>
                   <GrupItem>
                     <TGrupItem>
-                      <Name>Memory Options</Name>
+                      <Name>Memory options</Name>
                       <Symbol>memoryCfgGrp</Symbol>
-                      <Hint>Memory Options.</Hint>
+                      <Hint>Memory options.</Hint>
                       <ItemLevel>BASIC</ItemLevel>
                       <BoldName>true</BoldName>
                       <EditLine>false</EditLine>
