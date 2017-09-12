@@ -1,0 +1,20 @@
+# jemdoc: menu{MENU}{400hzsvm.html}, nofooter
+# jemdoc: title{Hoang-Linh TO @Inje}
+# jemdoc: analytics{UA-50706531-1}
+= 400Hz-SVM (+undergraduate-thesis+)
+
+~~~
+{Notes}
+- MATLAB version: beginning on R14 (2009), and revising on R2013A (2014)
+~~~
+
+- Full name: 400Hz 3-Phase Voltage Source
+- Developer: Hoang-Linh TO and Van-Hai TRAN
+- Year: 2009
+- Summary:
+-- 400Hz is a special frequency and widely used in airline's applications. Using space vector modulation (SVM) and cascade control method, we transform system coordinate from ab to dq and develop a simulator for 400Hz source in MATLAB. Then, we build an emulator based on _dsPIC30F4011_ to emit 400Hz AC signals. Results in our simulator and emulator match on this special frequency. Further improvement should concentrate on the emulator part because the noises of small electric signals cause unstable.
+- Download: [software/400hz-svm/400hz-svm-matlab.zip MATLAB-code], [software/400hz-svm/400hz-svm-mplab.zip MPLAB-code], [software/400hz-svm/400hz-svm-orcad.zip OrCAD-drawing], [software/400hz-svm/400hz-svm-autocad.zip AutoCAD-drawing], [software/400hz-svm/400hz-svm-thesis.pdf Bachelor-Thesis] (in _Vietnamese_)
+ 
+~~~
+{}{img_left}{software/400hz-svm/400hz-svm-matlab-result.png}{MATLAB}{500px}{337px}{software/400hz-svm/400hz-svm-matlab-result.png}
+~~~

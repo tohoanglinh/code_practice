@@ -1,0 +1,427 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<meta name="generator" content="jemdoc, see http://jemdoc.jaboc.net/" />
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<link rel="stylesheet" href="jemdoc.css" type="text/css" />
+<link rel="stylesheet" href="jemdoc.css" type="text/css" />
+<link rel="stylesheet" href="bibover.css" type="text/css" />
+<title>Bibover Example</title>
+<script type="text/javascript" src="bibover.js">
+</script>
+</head>
+<body>
+<div id="layout-content">
+<div id="toptitle">
+<h1>Bibover Example</h1>
+</div>
+<p><a href="http://bibover.polytekniker.dk" target=&ldquo;blank&rdquo;>Bibover</a> is a bibtex extension for
+<a href="http://jemdoc.jaboc.net" target=&ldquo;blank&rdquo;>Jemdoc</a>, which provides &ldquo;floating&rdquo;
+references. Bibover is heavily inspired by and borrows from Truong
+X. Nghiem's <a href="http://www.seas.upenn.edu/~nghiem/software.html" target=&ldquo;blank&rdquo;>Jemdoc
+export filter for JabRef</a>.</p>
+<h2>Examples </h2>
+<p>A few example references, e.g. my PhD
+thesis<a href="javascript:cite('grunnet:PhD')" target=&ldquo;blank&rdquo;>[Grunnet 2009]</a> or an article
+about control theory <a href="javascript:cite('mld')" target=&ldquo;blank&rdquo;>[Bemporad and Morari
+1999]</a> and maybe even the trusty old dog book
+<a href="javascript:cite('latexbook')" target=&ldquo;blank&rdquo;>\(\textrm{\LaTeX}\)</a>. <a href="javascript:cite('radwan-sp-2016')" target=&ldquo;blank&rdquo;>ARADWAN 2016</a></p>
+<h2>Usage</h2>
+<p>In order to use Bibover you need <a href="http://jabref.sourceforge.net/" target=&ldquo;blank&rdquo;>Jabref</a>, which is a BibTex reference database, and of course the
+Bibover package.</p>
+<ol>
+<li><p>Before you get started you need to add the JabRef export filter named
+<tt>bibover.layout</tt> to JabRef. Please refer to the JabRef manual for help
+on this step, but I recommend that you chose <tt>.jeminc</tt> as the file
+extension.</p>
+</li>
+<li><p>Export the references you want available in your Jemdoc document.</p>
+</li>
+<li><p>Copy <tt>bibover.css</tt> to your html folder.</p>
+</li>
+<li><p>Make sure <tt>bibover.conf</tt> is somwhere in Jemdoc's search path e.g. in the same directory as your source files.</p>
+</li>
+<li><p>Add <tt>#jemdoc: addcss{bibover.css}</tt> to your document.</p>
+</li>
+<li><p>Add <tt>#include{exbib.jeminc}</tt> to your document, where <tt>exbib.jeminc</tt> is the filename of your exportet BibTex entries.</p>
+</li>
+<li><p>Add any citations you want as <tt>[javascript:cite('bibkey&rsquo;) mark]</tt> where <tt>bibkey</tt> is the BibTex key of the entry you want to refer to and <tt>mark</tt> is what you want the reference to appear as in your document.</p>
+</li>
+<li><p>Compile your jemdoc file with <tt>jemdoc -c bibover.conf file.jemdoc</tt>.</p>
+</li>
+</ol>
+<p>For an example, see the source of this page.</p>
+<div class="bibover noshow" id="bibover_mld" onmousedown="javascript:lockMouse(event,'mld')" onmouseup="javascript:unLockMouse(event,'mld')">
+<div class="cross"><a href="javascript:closeCite('mld')">X</a></div>
+<p>
+<p><i>Control of systems integrating logic, dynamics, and constraints</i><br />
+Bemporad, A. and Morari, M.<br />
+Automatica, 1999, Vol. 35, pp. 407-427<br />
+<a href="javascript:toggleBibtex('mld')" target=&ldquo;blank&rdquo;>[BibTeX]</a></p>
+</p>
+<div id="bib_mld" class="bibtex noshow" onmousedown="event.stopPropagation()" onmouseup="event.stopPropagation()">
+<pre>
+@article{mld,
+  author = {Alberto Bemporad and Manfred Morari},
+  title = {Control of systems integrating logic, dynamics, and constraints},
+  journal = {Automatica},
+  year = {1999},
+  volume = {35},
+  pages = {407-427}
+}
+</pre></div>
+</div>
+<div class="bibover noshow" id="bibover_grunnet:PhD" onmousedown="javascript:lockMouse(event,'grunnet:PhD')" onmouseup="javascript:unLockMouse(event,'grunnet:PhD')">
+<div class="cross"><a href="javascript:closeCite('grunnet:PhD')">X</a></div>
+<p>
+<p><i>Automated Controller Synthesis for non-Deterministic Piecewise-Affine Hybrid Systems</i><br />
+Grunnet, J.D.<br />
+The Doctoral School of Engineering, Science and Medicine, Aalborg University, 2009<br />
+<a href="javascript:toggleBibtex('grunnet:PhD')" target=&ldquo;blank&rdquo;>[BibTeX]</a></p>
+</p>
+<div id="bib_grunnet:PhD" class="bibtex noshow" onmousedown="event.stopPropagation()" onmouseup="event.stopPropagation()">
+<pre>
+@phdthesis{grunnet:PhD,
+  author = {Jacob Deleuran Grunnet},
+  title = {Automated Controller Synthesis for non-Deterministic Piecewise-Affine Hybrid Systems},
+  school = {The Doctoral School of Engineering, Science and Medicine, Aalborg University},
+  year = {2009}
+}
+</pre></div>
+</div>
+<div class="bibover noshow" id="bibover_latexbook" onmousedown="javascript:lockMouse(event,'latexbook')" onmouseup="javascript:unLockMouse(event,'latexbook')">
+<div class="cross"><a href="javascript:closeCite('latexbook')">X</a></div>
+<p>
+<p><i>LaTeX  A Document Preparation System</i><br />
+Lamport, L.<br />
+Addison-Wesley, 1986<br />
+<a href="javascript:toggleBibtex('latexbook')" target=&ldquo;blank&rdquo;>[BibTeX]</a></p>
+</p>
+<div id="bib_latexbook" class="bibtex noshow" onmousedown="event.stopPropagation()" onmouseup="event.stopPropagation()">
+<pre>
+@book{latexbook,
+  author = {Leslie Lamport},
+  title = {LaTeX  A Document Preparation System},
+  publisher = {Addison-Wesley},
+  year = {1986}
+}
+</pre></div>
+</div>
+<div class="bibover noshow" id="bibover_qpham-comnet-2015-multi_timescale" onmousedown="javascript:lockMouse(event,'qpham-comnet-2015-multi_timescale')" onmouseup="javascript:unLockMouse(event,'qpham-comnet-2015-multi_timescale')">
+<div class="cross"><a href="javascript:closeCite('qpham-comnet-2015-multi_timescale')">X</a></div>
+<p>
+<p><i>A Multi-Timescale Cross-Layer Approach for Wireless Ad Hoc Networks</i><br />
+Pham, Q.-V., To, H.-L. and Hwang, W.-J.<br />
+Computer Networks, November, 2015, Vol. 91, pp. 471-482<br />
+<a href="javascript:toggleBibtex('qpham-comnet-2015-multi_timescale')" target=&ldquo;blank&rdquo;>[BibTeX]</a> <a href="http://dx.doi.org/10.1016/j.comnet.2015.08.007" target=&ldquo;blank&rdquo;>[DOI]</a></p>
+</p>
+<div id="bib_qpham-comnet-2015-multi_timescale" class="bibtex noshow" onmousedown="event.stopPropagation()" onmouseup="event.stopPropagation()">
+<pre>
+@article{qpham-comnet-2015-multi_timescale,
+  author = {Quoc-Viet Pham and Hoang-Linh To and Won-Joo Hwang},
+  title = {A Multi-Timescale Cross-Layer Approach for Wireless Ad Hoc Networks},
+  journal = {Computer Networks},
+  year = {2015},
+  volume = {91},
+  pages = {471-482},
+  doi = {http://dx.doi.org/10.1016/j.comnet.2015.08.007}
+}
+</pre></div>
+</div>
+<div class="bibover noshow" id="bibover_radwan-sp-2016" onmousedown="javascript:lockMouse(event,'radwan-sp-2016')" onmouseup="javascript:unLockMouse(event,'radwan-sp-2016')">
+<div class="cross"><a href="javascript:closeCite('radwan-sp-2016')">X</a></div>
+<p>
+<p><i>Optimal Control for Bufferbloat Queue Management using Indirect Method with Parametric Optimization</i><br />
+Radwan, A., To, H.-L., Kim, K.-H. and Hwang, W.-J.<br />
+Scientific Programming, 2016 (Article ID 4180817)<br />
+<a href="javascript:toggleBibtex('radwan-sp-2016')" target=&ldquo;blank&rdquo;>[BibTeX]</a></p>
+</p>
+<div id="bib_radwan-sp-2016" class="bibtex noshow" onmousedown="event.stopPropagation()" onmouseup="event.stopPropagation()">
+<pre>
+@article{radwan-sp-2016,
+  author = {Amr Radwan and Hoang-Linh To and Ku-Hwan Kim and Won-Joo Hwang},
+  title = {Optimal Control for Bufferbloat Queue Management using Indirect Method with Parametric Optimization},
+  journal = {Scientific Programming},
+  year = {2016},
+  number = {Article ID 4180817},
+  note = {Accepted}
+}
+</pre></div>
+</div>
+<div class="bibover noshow" id="bibover_hto-phdthesis-2016" onmousedown="javascript:lockMouse(event,'hto-phdthesis-2016')" onmouseup="javascript:unLockMouse(event,'hto-phdthesis-2016')">
+<div class="cross"><a href="javascript:closeCite('hto-phdthesis-2016')">X</a></div>
+<p>
+<p><i>Control Frameworks for Queue Management in Bufferbloated Networks</i><br />
+To, H.-L.<br />
+Inje University, August, 2016<br />
+<a href="javascript:toggleBibtex('hto-phdthesis-2016')" target=&ldquo;blank&rdquo;>[BibTeX]</a></p>
+</p>
+<div id="bib_hto-phdthesis-2016" class="bibtex noshow" onmousedown="event.stopPropagation()" onmouseup="event.stopPropagation()">
+<pre>
+@phdthesis{hto-phdthesis-2016,
+  author = {Hoang-Linh To},
+  title = {Control Frameworks for Queue Management in Bufferbloated Networks},
+  school = {Inje University},
+  year = {2016}
+}
+</pre></div>
+</div>
+<div class="bibover noshow" id="bibover_hto-msthesis-2013" onmousedown="javascript:lockMouse(event,'hto-msthesis-2013')" onmouseup="javascript:unLockMouse(event,'hto-msthesis-2013')">
+<div class="cross"><a href="javascript:closeCite('hto-msthesis-2013')">X</a></div>
+<p>
+<p><i>Burst Traffic Management Schemes for Quality of Service in Optical Burst Switching Network</i><br />
+To, H.-L.<br />
+Inje University, August, 2013<br />
+<a href="javascript:toggleBibtex('hto-msthesis-2013')" target=&ldquo;blank&rdquo;>[BibTeX]</a></p>
+</p>
+<div id="bib_hto-msthesis-2013" class="bibtex noshow" onmousedown="event.stopPropagation()" onmouseup="event.stopPropagation()">
+<pre>
+@mastersthesis{hto-msthesis-2013,
+  author = {Hoang-Linh To},
+  title = {Burst Traffic Management Schemes for Quality of Service in Optical Burst Switching Network},
+  school = {Inje University},
+  year = {2013},
+  url = {http://www.dcollection.net/handler/inje/000000008236}
+}
+</pre></div>
+</div>
+<div class="bibover noshow" id="bibover_hto-kmms-proc-spring2012" onmousedown="javascript:lockMouse(event,'hto-kmms-proc-spring2012')" onmouseup="javascript:unLockMouse(event,'hto-kmms-proc-spring2012')">
+<div class="cross"><a href="javascript:closeCite('hto-kmms-proc-spring2012')">X</a></div>
+<p>
+<p><i>Evaluation of Packet Loss Rate in Optical Burst Switching equipped with Optic Delay Lines Buffer</i><br />
+To, H.-L., Bui, D.-Q. and Hwang, W.-J.<br />
+In Proceedings of The 2012 Spring Conference of KMMS (Korea Multimedia Society), May, 2012, Vol. 15 (1), pp. 166-167<br />
+<a href="javascript:toggleBibtex('hto-kmms-proc-spring2012')" target=&ldquo;blank&rdquo;>[BibTeX]</a></p>
+</p>
+<div id="bib_hto-kmms-proc-spring2012" class="bibtex noshow" onmousedown="event.stopPropagation()" onmouseup="event.stopPropagation()">
+<pre>
+@inproceedings{hto-kmms-proc-spring2012,
+  author = {Hoang-Linh To and Dang-Quang Bui and Won-Joo Hwang},
+  title = {Evaluation of Packet Loss Rate in Optical Burst Switching equipped with Optic Delay Lines Buffer},
+  booktitle = {Proceedings of The 2012 Spring Conference of KMMS (Korea Multimedia Society)},
+  year = {2012},
+  volume = {15},
+  number = {1},
+  pages = {166-167}
+}
+</pre></div>
+</div>
+<div class="bibover noshow" id="bibover_hto-kmms-proc-fall2011" onmousedown="javascript:lockMouse(event,'hto-kmms-proc-fall2011')" onmouseup="javascript:unLockMouse(event,'hto-kmms-proc-fall2011')">
+<div class="cross"><a href="javascript:closeCite('hto-kmms-proc-fall2011')">X</a></div>
+<p>
+<p><i>A Queuing Model for Single-Wavelength Fiber Delay Lines Buffer</i><br />
+To, H.-L., Bui, D.-Q. and Hwang, W.-J.<br />
+In Proceedings of The 2011 Fall Conference of KMMS (Korea Multimedia Society), November, 2011, Vol. 14 (2), pp. 167-168<br />
+<a href="javascript:toggleBibtex('hto-kmms-proc-fall2011')" target=&ldquo;blank&rdquo;>[BibTeX]</a></p>
+</p>
+<div id="bib_hto-kmms-proc-fall2011" class="bibtex noshow" onmousedown="event.stopPropagation()" onmouseup="event.stopPropagation()">
+<pre>
+@inproceedings{hto-kmms-proc-fall2011,
+  author = {Hoang-Linh To and Dang-Quang Bui and Won-Joo Hwang},
+  title = {A Queuing Model for Single-Wavelength Fiber Delay Lines Buffer},
+  booktitle = {Proceedings of The 2011 Fall Conference of KMMS (Korea Multimedia Society)},
+  year = {2011},
+  volume = {14},
+  number = {2},
+  pages = {167-168}
+}
+</pre></div>
+</div>
+<div class="bibover noshow" id="bibover_hto-kmms-proc-fall2013" onmousedown="javascript:lockMouse(event,'hto-kmms-proc-fall2013')" onmouseup="javascript:unLockMouse(event,'hto-kmms-proc-fall2013')">
+<div class="cross"><a href="javascript:closeCite('hto-kmms-proc-fall2013')">X</a></div>
+<p>
+<p><i>A Study of Downlink Throughput in Video Transmission over Cellular Networks</i><br />
+To, H.-L., Enkhbat, R. and Hwang, W.-J.<br />
+In Proceedings of The 2013 Fall Conference of KMMS (Korea Multimedia Society), November, 2013, Vol. 16 (2)<br />
+<a href="javascript:toggleBibtex('hto-kmms-proc-fall2013')" target=&ldquo;blank&rdquo;>[BibTeX]</a></p>
+</p>
+<div id="bib_hto-kmms-proc-fall2013" class="bibtex noshow" onmousedown="event.stopPropagation()" onmouseup="event.stopPropagation()">
+<pre>
+@inproceedings{hto-kmms-proc-fall2013,
+  author = {Hoang-Linh To and Rentsen Enkhbat and Won-Joo Hwang},
+  title = {A Study of Downlink Throughput in Video Transmission over Cellular Networks},
+  booktitle = {Proceedings of The 2013 Fall Conference of KMMS (Korea Multimedia Society)},
+  year = {2013},
+  volume = {16},
+  number = {2},
+  note = {Poster}
+}
+</pre></div>
+</div>
+<div class="bibover noshow" id="bibover_hto-jkccs-proc-fall2014" onmousedown="javascript:lockMouse(event,'hto-jkccs-proc-fall2014')" onmouseup="javascript:unLockMouse(event,'hto-jkccs-proc-fall2014')">
+<div class="cross"><a href="javascript:closeCite('hto-jkccs-proc-fall2014')">X</a></div>
+<p>
+<p><i>A Bufferbloat Management Scheme using Two-Loop Control under Mixed Bursty Traffic</i><br />
+To, H.-L. and Hwang, W.-J.<br />
+In Proceedings of 3rd Japan-Korea Joint Workshop on Complex Communication Sciences (JKCCS&rsquo;14), October, 2014<br />
+<a href="javascript:toggleBibtex('hto-jkccs-proc-fall2014')" target=&ldquo;blank&rdquo;>[BibTeX]</a></p>
+</p>
+<div id="bib_hto-jkccs-proc-fall2014" class="bibtex noshow" onmousedown="event.stopPropagation()" onmouseup="event.stopPropagation()">
+<pre>
+@inproceedings{hto-jkccs-proc-fall2014,
+  author = {Hoang-Linh To and Won-Joo Hwang},
+  title = {A Bufferbloat Management Scheme using Two-Loop Control under Mixed Bursty Traffic},
+  booktitle = {Proceedings of 3rd Japan-Korea Joint Workshop on Complex Communication Sciences (JKCCS'14)},
+  year = {2014},
+  note = {Best Student Paper Award}
+}
+</pre></div>
+</div>
+<div class="bibover noshow" id="bibover_hto-kmms-proc-fall2012" onmousedown="javascript:lockMouse(event,'hto-kmms-proc-fall2012')" onmouseup="javascript:unLockMouse(event,'hto-kmms-proc-fall2012')">
+<div class="cross"><a href="javascript:closeCite('hto-kmms-proc-fall2012')">X</a></div>
+<p>
+<p><i>A Novel Burst Assembler Algorithm to Reduce Packet Waiting Time in Optical Burst Switching</i><br />
+To, H.-L. and Hwang, W.-J.<br />
+In Proceedings of The 2012 Fall Conference of KMMS (Korea Multimedia Society), November, 2012, Vol. 15 (2), pp. 133-134<br />
+<a href="javascript:toggleBibtex('hto-kmms-proc-fall2012')" target=&ldquo;blank&rdquo;>[BibTeX]</a></p>
+</p>
+<div id="bib_hto-kmms-proc-fall2012" class="bibtex noshow" onmousedown="event.stopPropagation()" onmouseup="event.stopPropagation()">
+<pre>
+@inproceedings{hto-kmms-proc-fall2012,
+  author = {Hoang-Linh To and Won-Joo Hwang},
+  title = {A Novel Burst Assembler Algorithm to Reduce Packet Waiting Time in Optical Burst Switching},
+  booktitle = {Proceedings of The 2012 Fall Conference of KMMS (Korea Multimedia Society)},
+  year = {2012},
+  volume = {15},
+  number = {2},
+  pages = {133-134}
+}
+</pre></div>
+</div>
+<div class="bibover noshow" id="bibover_hto-ijcs-2015-odl_ic" onmousedown="javascript:lockMouse(event,'hto-ijcs-2015-odl_ic')" onmouseup="javascript:unLockMouse(event,'hto-ijcs-2015-odl_ic')">
+<div class="cross"><a href="javascript:closeCite('hto-ijcs-2015-odl_ic')">X</a></div>
+<p>
+<p><i>A burst loss probability model with impatient customer feature for optical burst switching networks</i><br />
+To, H.-L., Lee, S.-H. and Hwang, W.-J.<br />
+International Journal of Communication Systems, July, 2015, Vol. 28 (11), pp. 1729-1740<br />
+<a href="javascript:toggleBibtex('hto-ijcs-2015-odl_ic')" target=&ldquo;blank&rdquo;>[BibTeX]</a> <a href="http://dx.doi.org/10.1002/dac.2772" target=&ldquo;blank&rdquo;>[DOI]</a></p>
+</p>
+<div id="bib_hto-ijcs-2015-odl_ic" class="bibtex noshow" onmousedown="event.stopPropagation()" onmouseup="event.stopPropagation()">
+<pre>
+@article{hto-ijcs-2015-odl_ic,
+  author = {Hoang-Linh To and Suk-Hwan Lee and Won-Joo Hwang},
+  title = {A burst loss probability model with impatient customer feature for optical burst switching networks},
+  journal = {International Journal of Communication Systems},
+  year = {2015},
+  volume = {28},
+  number = {11},
+  pages = {1729-1740},
+  url = {http://onlinelibrary.wiley.com/doi/10.1002/dac.2772/abstract},
+  doi = {http://dx.doi.org/10.1002/dac.2772}
+}
+</pre></div>
+</div>
+<div class="bibover noshow" id="bibover_hto-kmms-proc-fall2015" onmousedown="javascript:lockMouse(event,'hto-kmms-proc-fall2015')" onmouseup="javascript:unLockMouse(event,'hto-kmms-proc-fall2015')">
+<div class="cross"><a href="javascript:closeCite('hto-kmms-proc-fall2015')">X</a></div>
+<p>
+<p><i>Simulation of Stochastic Flow Queue CoDel in Single-Bottleneck Network</i><br />
+To, H.-L., Radwan, A. and Hwang, W.-J.<br />
+In Proceedings of The 2015 Fall Conference of KMMS (Korea Multimedia Society), November, 2015, Vol. 18 (2)<br />
+<a href="javascript:toggleBibtex('hto-kmms-proc-fall2015')" target=&ldquo;blank&rdquo;>[BibTeX]</a></p>
+</p>
+<div id="bib_hto-kmms-proc-fall2015" class="bibtex noshow" onmousedown="event.stopPropagation()" onmouseup="event.stopPropagation()">
+<pre>
+@inproceedings{hto-kmms-proc-fall2015,
+  author = {Hoang-Linh To and Amr Radwan and Won-Joo Hwang},
+  title = {Simulation of Stochastic Flow Queue CoDel in Single-Bottleneck Network},
+  booktitle = {Proceedings of The 2015 Fall Conference of KMMS (Korea Multimedia Society)},
+  year = {2015},
+  volume = {18},
+  number = {2},
+  note = {Poster}
+}
+</pre></div>
+</div>
+<div class="bibover noshow" id="bibover_hto-kmms-proc-spring2015" onmousedown="javascript:lockMouse(event,'hto-kmms-proc-spring2015')" onmouseup="javascript:unLockMouse(event,'hto-kmms-proc-spring2015')">
+<div class="cross"><a href="javascript:closeCite('hto-kmms-proc-spring2015')">X</a></div>
+<p>
+<p><i>A Large-queue Stabilization Scheme for Bufferbloat Networks</i><br />
+To, H.-L., Radwan, A. and Hwang, W.-J.<br />
+In Proceedings of The 2015 Spring Conference of KMMS (Korea Multimedia Society), May, 2015, Vol. 18 (1)<br />
+<a href="javascript:toggleBibtex('hto-kmms-proc-spring2015')" target=&ldquo;blank&rdquo;>[BibTeX]</a></p>
+</p>
+<div id="bib_hto-kmms-proc-spring2015" class="bibtex noshow" onmousedown="event.stopPropagation()" onmouseup="event.stopPropagation()">
+<pre>
+@inproceedings{hto-kmms-proc-spring2015,
+  author = {Hoang-Linh To and Amr Radwan and Won-Joo Hwang},
+  title = {A Large-queue Stabilization Scheme for Bufferbloat Networks},
+  booktitle = {Proceedings of The 2015 Spring Conference of KMMS (Korea Multimedia Society)},
+  year = {2015},
+  volume = {18},
+  number = {1},
+  note = {Poster}
+}
+</pre></div>
+</div>
+<div class="bibover noshow" id="bibover_hto-mpe-2015-cpc_bufferbloat_wired" onmousedown="javascript:lockMouse(event,'hto-mpe-2015-cpc_bufferbloat_wired')" onmouseup="javascript:unLockMouse(event,'hto-mpe-2015-cpc_bufferbloat_wired')">
+<div class="cross"><a href="javascript:closeCite('hto-mpe-2015-cpc_bufferbloat_wired')">X</a></div>
+<p>
+<p><i>Cascade Probability Control to Mitigate Bufferbloat under Multiple Real-World TCP Stacks</i><br />
+To, H.-L., Thi, T.M. and Hwang, W.-J.<br />
+Mathematical Problems in Engineering, 2015 (Article ID 628583)<br />
+<a href="javascript:toggleBibtex('hto-mpe-2015-cpc_bufferbloat_wired')" target=&ldquo;blank&rdquo;>[BibTeX]</a></p>
+</p>
+<div id="bib_hto-mpe-2015-cpc_bufferbloat_wired" class="bibtex noshow" onmousedown="event.stopPropagation()" onmouseup="event.stopPropagation()">
+<pre>
+@article{hto-mpe-2015-cpc_bufferbloat_wired,
+  author = {Hoang-Linh To and Thuyen Minh Thi and Won-Joo Hwang},
+  title = {Cascade Probability Control to Mitigate Bufferbloat under Multiple Real-World TCP Stacks},
+  journal = {Mathematical Problems in Engineering},
+  year = {2015},
+  number = {Article ID 628583},
+  note = {Online.},
+  url = {http://www.hindawi.com/journals/mpe/aa/628583/}
+}
+</pre></div>
+</div>
+<div class="bibover noshow" id="bibover_hto-kmms-2013-feedbackcontrol" onmousedown="javascript:lockMouse(event,'hto-kmms-2013-feedbackcontrol')" onmouseup="javascript:unLockMouse(event,'hto-kmms-2013-feedbackcontrol')">
+<div class="cross"><a href="javascript:closeCite('hto-kmms-2013-feedbackcontrol')">X</a></div>
+<p>
+<p><i>Feedback Burst Loss Ratio Control for Link Performance Improvement in Optical Burst Switching Networks</i><br />
+To, H.-L., Yoon, G.-O., Nam, J.-H., Solongo, G. and Hwang, W.-J.<br />
+Journal of Korea Multimedia Society, September, 2013, Vol. 16 (9), pp. 1067-1076<br />
+<a href="javascript:toggleBibtex('hto-kmms-2013-feedbackcontrol')" target=&ldquo;blank&rdquo;>[BibTeX]</a> <a href="http://dx.doi.org/10.9717/kmms.2013.16.9.1067" target=&ldquo;blank&rdquo;>[DOI]</a></p>
+</p>
+<div id="bib_hto-kmms-2013-feedbackcontrol" class="bibtex noshow" onmousedown="event.stopPropagation()" onmouseup="event.stopPropagation()">
+<pre>
+@article{hto-kmms-2013-feedbackcontrol,
+  author = {Hoang-Linh To and Gwi-Ok Yoon and Jae-Hyun Nam and Ganbold Solongo and Won-Joo Hwang},
+  title = {Feedback Burst Loss Ratio Control for Link Performance Improvement in Optical Burst Switching Networks},
+  journal = {Journal of Korea Multimedia Society},
+  year = {2013},
+  volume = {16},
+  number = {9},
+  pages = {1067-1076},
+  url = {http://koreascience.or.kr/article/ArticleFullRecord.jsp?cn=MTMDCW_2013_v16n9_1067},
+  doi = {http://dx.doi.org/10.9717/kmms.2013.16.9.1067}
+}
+</pre></div>
+</div>
+<div id="footer">
+<div id="footer-text">
+Page generated 2016-08-05 22:31:43 KST, by <a href="https://github.com/wsshin/jemdoc_mathjax" target="blank">jemdoc+MathJax</a>.
+(<a href="example.jemdoc">source</a>)
+</div>
+</div>
+</div>
+<script type="text/javascript">
+<!--
+//Get array of all anchors in the layout-content table cell
+var td=document.getElementById('layout-content');
+var anchs=td.getElementsByTagName('a');
+//Setup the regex pattern for finding cites
+var patt1 = /javascript:cite\(\'.*\'\)/;
+//Loop through all anchors
+for(var	i=0;i<anchs.length;i++) {
+    a=anchs[i];
+    //If the anchor contains a cite add event listeners
+    if(a.href.search(patt1)!=-1) {
+       a.addEventListener('mouseover',bibshow,false);
+       a.addEventListener('mouseout',bibhide,false);
+    }
+}
+-->
+</script>
+</body>
+</html>

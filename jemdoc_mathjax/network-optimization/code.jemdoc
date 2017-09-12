@@ -1,0 +1,69 @@
+# jemdoc: menu{MENU}{code.html}, nofooter
+# jemdoc: title{Network Otimization @CNL}
+= Code
+T.A. [../index.html Hoang-Linh TO], [http://cnl.inje.ac.kr Computer Network Lab]
+
+== MATLAB
+~~~
+{Note}
+- Most of the following were taken from other lectures and books (/detail in the code file/).
+- Only the main code (loop) are presented here; +full-code+ can be downloaded at each code title.
+- All of them are for tutorial purpose only, hence at very *basic* level.
+~~~
+
+=== Flow Control: Source-Link Algorithms
+
+~~~
+{Flow Control: [/code/flowcontrol.m full-code], +free+}{}
+% Main loop
+for i=1:end_sim
+	p = p + stepsize * (A*x - c); % Link Price Algorithm
+	p = max(p,0);
+	
+	x = 1./(A'*p); % Source Algorithm
+	
+	x_hist(i,:) = x'; % Update row i (x1, x2, x3) by transpose x value from algorithm.
+	p_hist(i,:) = p';
+end
+~~~
+
+~~~
+{}{img_left}{code/flowcontrol_sourcerate.png}{Source Rate}{300px}{220px}{code/flowcontrol_sourcerate.png}
+~~~
+
+~~~
+{}{img_left}{code/flowcontrol_linkprice.png}{Link Price}{300px}{220px}{code/flowcontrol_linkprice.png}
+~~~
+
+=== Sytem of Linear Equation: Iterative Algorithms
+
+~~~
+{Jacobi Algorithm: [/code/jacobi.m full-code], +free+}{}
+% Main loop
+while max_iteration > 0
+   x(t+1) = -1/a11 * (a12 * y(t) - b1);
+   y(t+1) = -1/a22 * (a21 * x(t) - b2);
+   if abs(x(t+1) - x(t)) < tolerance
+       t = t + 1;
+       break;
+   end
+   t = t + 1;
+   max_iteration = max_iteration - 1;
+end
+~~~
+
+~~~
+{Jacobi Algorithm: Result}{}
+>> Number of Iterations:    9 
+>> Solution (x, y) = (0.01,0.01) 
+~~~
+
+== License
+A software with tag +free+ means that you are free to use it. You may redistribute it. You may modify it to suit your need.
+
+If you redistribute or derive your work from my softwares, it is a pleasure if you give me credit by including my name and a link to my website in your work or on your webpage.
+
+I would appreciate if you notify me any bugs you might find or fix, any suggestions you might have or any enhancement you might make.
+
+*Disclaimer*: ALL OF THE SOFTWARES ARE DISTRIBUTED WITHOUT ANY WARRANTY. THE AUTHOR MAKES NO EXPRESS OR IMPLIED WARRANTIES OR CONDITIONS INCLUDING, WITHOUT LIMITATION, THE WARRANTIES OF MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE WITH RESPECT TO THE SOFTWARE. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, INCIDENTAL, INDIRECT OR CONSEQUENTIAL DAMAGES CAUSED BY USING THE SOFTWARE.
+

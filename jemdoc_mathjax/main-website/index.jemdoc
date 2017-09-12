@@ -1,0 +1,32 @@
+# jemdoc: addcss{jemdoc.css}, showsource
+# jemdoc: menu{MENU}{index.html}, nofooter
+# jemdoc: title{Hoang-Linh TO @Ph.D.}
+# jemdoc: addcss{bibover.css}
+# jemdoc: analytics{UA-50706531-1}
+= Hoang-Linh TO, Ph.D.
+
+~~~
+{}{img_left}{pictures/avatar-suwon.jpg}{Hoang-Linh TO}{250px}{255px}{pictures/avatar-suwon.jpg}
+== Summary
+- To Hoang Linh([img{18px}{12px}{Vietnam} pictures/vnflag.jpg]).
+- C Professional.
+- [CV_Hoang-Linh_TO.pdf C.V] (last updated since 2017-06)
+~~~
+
+== Education
+- Ph.D., Network, [http://www.inje.ac.kr Inje University], 2013-2016.
+- M.Eng., Network, [http://www.inje.ac.kr Inje University], 2011-2013.
+-- Supervisor: Prof. [http://cnl.inje.ac.kr/people/professor-index.htm Won-Joo HWANG] ({{<span lang="ko" xml:lang="ko">}}황원주{{</span>}}).
+-- [http://cnl.inje.ac.kr Computer Network Laboratory].
+-- [http://infocom.inje.ac.kr/ Department of Information and Communication System].
+-- [http://www.inje.ac.kr Inje University] ({{<span lang="ko" xml:lang="ko">}}인제대학교{{</span>}}) (Korea ranking: 28).
+- B.Eng., Control and Automation, [http://en.hust.edu.vn/home Hanoi University of Science and Technology], 2004-2009.
+
+== Contact
+- 3Q8, Nguyen An Ninh, Ha Noi, Viet Nam.
+- Email: [tohoanglinh@gmail.com]
+- [http://www.linkedin.com/in/tohoanglinh LinkedIn]
+- [https://scholar.google.co.kr/citations?user=GVOTthgAAAAJ&hl=en Google Scholar]
+
+#include{test.jeminc}
+#include{exbib.jeminc}

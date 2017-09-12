@@ -1,0 +1,17 @@
+# jemdoc: menu{MENU}{overview.html}, nofooter
+# jemdoc: title{Hoang-Linh TO @Inje}
+# jemdoc: analytics{UA-50706531-1}
+= Overview
+
+== Research Interest
+- [http://www.bufferbloat.net/ Bufferbloat] phenomenon in router/host devices.
+- Optical Burst Switching networks.
+
+== Research Methods
+- Primal-Dual Decomposition.
+- Cascade Control and Model Predictive Control.
+- Queuing Theory.
+
+== Teaching Assistant
+- Course [network-optimization/home.html Network Optimization] at [http://cnl.inje.ac.kr CNL - Inje University], Spring 2014.
+

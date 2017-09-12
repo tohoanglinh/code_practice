@@ -1,0 +1,13 @@
+# jemdoc: menu{MENU}{home.html}, nofooter
+# jemdoc: title{Network Otimization @CNL}
+# jemdoc: addcss{bibtex.css}
+= Home
+T.A. [../index.html Hoang-Linh TO], [http://cnl.inje.ac.kr Computer Network Lab]
+
+- Professor [ichwang@inje.ac.kr Won-Joo HWANG].
+- Thursday 1 pm, Room 517, E Building, Inje University.
+- Period: Spring 2014.
+- T.A. [tohoanglinh@gmail.com Hoang-Linh TO].
+
+== Textbooks
+#includeraw{html/n.o-books.html}
