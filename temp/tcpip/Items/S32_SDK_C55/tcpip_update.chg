@@ -18,11 +18,9 @@
 %set tcpipCfg_FREERTOS_TOTAL_HEAP_SIZE ReadOnly true
 %endif
 
-%- parse version of FreeRTOS_C55
-%launchExt ParseVersionClass.class, parseVersion, S32_SDK_PATH>>>/rtos/FreeRTOS_C55/Source/include/task.h>>>tskKERNEL_VERSION_MAJOR>>>tskKERNEL_VERSION_MINOR>>>tskKERNEL_VERSION_BUILD>>>@Link1@FreeRtosVersion
-
 %- parse version of light weight Internet Protocol (lwIP)
-%launchExt ParseVersionClass.class, parseVersion, S32_SDK_PATH>>>/middleware/tcpip/lwip/src/include/lwip/init.h>>>LWIP_VERSION_MAJOR>>>LWIP_VERSION_MINOR>>>LWIP_VERSION_REVISION>>>LWIPVERSION
+%define LwipVersionPath %'SdkSourceFilesDirectory'\middleware\tcpip\lwip\src\include\lwip\init.h
+%launchExt ..\_SDK\FileParser.class, parseCDefines, %'LwipVersionPath'>>>LWIPVERSION>>>.>>>LWIP_VERSION_MAJOR>>>LWIP_VERSION_MINOR>>>LWIP_VERSION_REVISION
 
 %------------------------------- L2 Data Link configuration  --------------------------
 %- the following line can get MAC address from shared component.
