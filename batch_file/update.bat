@@ -8,3 +8,4 @@ ECHO Updating Git Repos: %1...
 cd /D D:\gitworks\%1
 git fetch && git pull
 git add . && git commit -m 'update' && git push
+PAUSE
