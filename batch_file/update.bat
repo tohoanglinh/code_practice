@@ -8,5 +8,5 @@ ECHO -----------------------------------------------
 ECHO Updating Git Repos: %1...
 cd /D D:\gitworks\%1
 git fetch && git pull
-git add . && git commit -m '%2' && git push
+git add . && git commit -m %2 && git push
 PAUSE
