@@ -1,2 +1,2 @@
-# hackerrank_linhto
-Study on HackerRank
+# Code_Practice
+Hackerrank
