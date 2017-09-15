@@ -23,12 +23,12 @@ IF "%1"=="anfc_codebase" SET gitfolder=3
 
 IF %gitfolder%==1 (
   IF "%2" == "" (
-    ECHO empty
+    git fetch && git pull
+    git add . && git commit -m 'update' && git push
   ) ELSE (
-    ECHO %2
+    git fetch && git pull
+    git add . && git commit -m %2 && git push
   )
-  git fetch && git pull
-  git add . && git commit -m %2 && git push
 )
 
 IF %gitfolder%==2 (
