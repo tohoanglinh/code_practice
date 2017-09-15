@@ -22,11 +22,10 @@ IF "%1"=="tcpip_stack" SET gitfolder=3
 IF "%1"=="anfc_codebase" SET gitfolder=3
 
 IF %gitfolder%==1 (
+  git fetch && git pull
   IF "%2" == "" (
-    git fetch && git pull
-    git add . && git commit -m 'update' && git push
+    git add . && git commit -m update && git push
   ) ELSE (
-    git fetch && git pull
     git add . && git commit -m %2 && git push
   )
 )
