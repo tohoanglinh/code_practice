@@ -1,2 +1,4 @@
 # Code_Practice
-Hackerrank
+Hackerrank (C)
+Fresher C+Embedded (Fsoft)
+Other languages' tutorials
