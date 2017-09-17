@@ -1,2 +1,4 @@
-# hackerrank_linhto
-Study on HackerRank
+# Code_Practice
+Hackerrank (C)
+Fresher C+Embedded (Fsoft)
+Other languages' tutorials

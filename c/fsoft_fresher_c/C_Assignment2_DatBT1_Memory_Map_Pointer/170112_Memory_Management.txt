@@ -1,0 +1,22 @@
+12/1 - Memory Management. (DatBT)
+A. Memory Management
+- Casting
+- C Program structure in memory
+- Allocate dynamic
+void *malloc(size_t*size)
+success: the pointer point to allocated memory
+fail: null (not enough memory)
+int *p = (int *)malloc(10*sizeof(int)); //sizeof(int)=4 --> 40bytes, se tra ve dia chi cua vung
+nho day, luu dia chi trong con tro p.
+if (p==NULL) printf("Not enough memory");
+
+calloc(10,sizeof(int)): cap phat 10 phan tu, voi kick thuoc la sizeof(int), tra ve phan tu voi dia chi la
+con tro p
+
+calloc: vung nho se duoc xoa ve 0 sau khi cap phat xong. Cap phat vung A, xoa gia tri trong vung nho A
+malloc: ko quan tam gia tri vung nho. Cap phat vung A, ko quan tam gia tri vung nho A.
+
+free(p) --> xoa vung nho tro den boi con tro p.
+- Manipulate in memory
+
+B. Pointers
