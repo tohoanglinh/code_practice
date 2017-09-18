@@ -1,0 +1,9 @@
+set terminal epslatex standalone color colortext 20
+set output 'test.tex'
+set border lw 2
+set xlabel '$x$'
+set ylabel '$y$'
+set style line 1 lc rgb 'blue' lt 1 lw 5
+f(x) = sin(x)
+plot f(x) title '$\beta$' with lines ls 1
+set output

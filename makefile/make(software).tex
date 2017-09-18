@@ -1,0 +1,128 @@
+\documentclass[10pt,a4paper,draft,onecolumn]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\author{LinhTo}
+\title{Make(software) \& G++ Compiler}
+\begin{document}
+\maketitle
+
+\section{Introduction}
+In software development, \textbf{Make} is a utility that automatically builds executable programs (*.exe) and libraries from source code (*.cc, *.h) by reading files called \textbf{makefiles} which specify how to derive the target program. Though IDE and some compiler features can also be used to manage a build process, Make remains widely used, especially in \textbf{Unix}.
+
+In OMNeT++ and inet, ``make makefiles'' and ``make'' will create makefiles which tell how to build the target executable program and make will create according to how-to from makefiles.
+
+\begin{itemize}
+\item \textbf{Compiler}: source files (*.cc) $\rightarrow$ object files (*.o)
+\item \textbf{Linker}: object files (*.o) $\rightarrow$ executable files (*.exe in windows)
+\end{itemize}
+
+The trivial (shortcut) way to compile all the files and obtain an executable is by running the following command
+\begin{verbatim}
+$ g++ main_test.cc function.cc -o main_test
+\end{verbatim}
+
+We will learn how to write makefile to do the above job in automatic and faster way.
+
+\section{Tutorial-Make}
+
+\begin{verbatim}
+Make's used to build executable programs & libraries from source.
+Make searches the current directory for the makefile to use.
+\end{verbatim}
+
+Compiling your source code files can be tedious, especially when you want to include several source files and have to type the compiling command everytime you want to do it. Compile $\rightarrow$ Build almost over. Noew you will learn how to write Makefiles. Makefiles are special format files that together with the \textit{make} utility will help you to automatically build and manage your projects.
+
+\begin{verbatim}
+Note: I use g++ for compiling.
+Note: You can change to others.
+\end{verbatim}
+
+\paragraph{What-if-run-make:} If you run \textbf{make}, this program will look for a file named \textit{makefile} in your current directory, and then execute that \textit{makefile}.
+
+\subsection{Syntax}
+\label{sec_syntax}
+
+\begin{verbatim}
+target: dependencies
+[tab] system command
+\end{verbatim}
+
+\paragraph{Example:} we wrote a makefile with content as
+
+\begin{verbatim}
+all: 
+     g++ main_test.cc function.cc -o main_test
+\end{verbatim}
+
+Then put it in the directory with *.cc files and call it from terminal with
+
+\begin{verbatim}
+$ make -f makefile
+or
+$ make all -f makefile
+\end{verbatim}
+
+If you only type \textsc{make}, Unix searches for default file name \textsc{makefile}.
+
+If you add the option \textsc{-f} and \textsc{makefile\_name}, then unix only executes commands of the \textsc{makefile\_name}. \textsf{-f} means file
+
+\begin{itemize}
+\item Target is \textsc{all}, default target for all kind of makefiles.
+\item No dependencies for target \textit{all}
+\item \textsc{make} executes the system command specified.
+\end{itemize}
+
+\subsection{Target: Clean}
+
+\begin{verbatim}
+clean:
+     rm -rf *o test
+\end{verbatim}
+
+Then call it from terminal by
+
+\begin{verbatim}
+$ make clean
+\end{verbatim}
+
+The final argument ``test'' is just the name of executable file.
+
+\subsection{Using dependencies}
+
+Dependencies can be useful when you want to track, cooperate all the files. In the section \ref{sec_syntax}, the result is only executable file, but you did not notice any object (*.o) files as output. What happened? The reason is the difference between
+
+\begin{verbatim}
+$ g++ *.cc -o test --> create *.exe
+and
+$ g++ *.o -o test --> create *.exe
+and
+$ g++ -c *.cc --> create *.o
+\end{verbatim}
+
+Depend on what you want to track, you can use different commands.
+
+\section{Tutorial-G++}
+
+G++ is a script to call gcc with options to recognize C++. GCC processes input files through one or more of four stages
+
+\begin{itemize}
+\item pre-processing
+\item compilation
+\item assembly
+\item linking
+\end{itemize}
+
+\subsection{Syntax}
+\begin{verbatim}
+   g++ [option | filename] ...
+\end{verbatim}
+
+\subsection{Options}
+
+
+
+\section{Conclusions}
+
+\end{document}

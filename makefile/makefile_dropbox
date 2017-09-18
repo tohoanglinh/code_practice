@@ -1,0 +1,23 @@
+# basic makefile is composed of
+# 	target: dependencies
+# 	[tab]	system command
+
+# let's name the variable CC as the compiler we want to use
+CC=g++
+# let's name the variable CFLAGS as the options we pass to the compiler
+CFLAGS=-c -Wall
+
+all: test
+
+test: test.o basic_function.o
+#	g++ test.o basic_function.o -o test
+	$(CC) test.o basic_function.o -o test	
+	
+test.o: test.cc
+#	g++ -c test.cc
+	$(CC) $(CFLAGS) test.cc
+basic_function.o: basic_function.cc
+	$(CC) $(CFLAGS) basic_function.cc
+
+clean:
+	rm -rf *o test
