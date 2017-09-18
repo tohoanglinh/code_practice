@@ -1,9 +1,9 @@
 /**HEADER********************************************************************
 * Copyright (c) Freescale Semiconductor, Inc. All rights reserved.
-* 
+*
 * Freescale Semiconductor, Inc.
 * Proprietary & Confidential
-* 
+*
 * This source code and the algorithms implemented therein constitute
 * confidential information and may comprise trade secrets of Freescale Semiconductor, Inc.
 * or its associates, and any use thereof is subject to the terms and
@@ -14,7 +14,7 @@
 * $Version : 3.8.1.0$
 * $Date    : Sept-12-2011$
 *
-* Comments: Memory management and profiling for WL Module 
+* Comments: Memory management and profiling for WL Module
 *END************************************************************************/
 #ifndef _mem_management_h_
 #define _mem_management_h_
@@ -37,7 +37,7 @@ typedef uint32_t _mem_size;
 extern "C" {
 #endif /* __cplusplus */
 
-    extern void * mm_alloc(_mem_size request_size, const char * file_name, 
+    extern void * mm_alloc(_mem_size request_size, const char * file_name,
     int file_loc, bool isZero, bool is_from_operator);
     extern uint32_t mm_free(void * buf);
     extern void mm_display(void);

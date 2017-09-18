@@ -94,7 +94,7 @@ void * mm_alloc
     /*
     if (NULL == g_mem_allocation_table.buf_ptr[idx])
     {
-    	while (1);
+        while (1);
 
     }
     */

@@ -3,10 +3,10 @@
  * Mentor: @anhnn14
  * Topic: Linked List - Data Structure
  * LINKED LIST FUNCTIONS:
- * 		studentAddData(name)
- *		studentRemoveName(name)
- *		studentPrintList()
- *		studentFindName(name)
+ *      studentAddData(name)
+ *      studentRemoveName(name)
+ *      studentPrintList()
+ *      studentFindName(name)
  ******************************************************************************/
 #include <stdio.h>
 #include <stdlib.h>
@@ -15,8 +15,8 @@
 #include <stdbool.h>
 #include "header.h"
 
-extern struct student *head;		/* external pointer head from other source *.c (main.c) */
-extern struct student *current;		/* external pointer current from other source *.c (main.c) */
+extern struct student *head;        /* external pointer head from other source *.c (main.c) */
+extern struct student *current;     /* external pointer current from other source *.c (main.c) */
 
 /*-------------------------------------------------------------------------------*/
 /*!
@@ -85,16 +85,16 @@ struct student* studentFindName(char name[])
     * if different --> check if here is the last node (student) -->(Y) --> NULL
     * if different --> .........................................-->(N) --> move to the next node (student)
     * until string compare is satisfied (found student with that name)
-	*/   
+    */
    while(strcmp(current->name, name)!=0)
    {
       /* if this is the last student */
       if(current->next == NULL)
-	  {
+      {
          return NULL;
       }
-	  else 
-	  {
+      else
+      {
          /* move to next student */
          current = current->next;
       }
@@ -129,16 +129,16 @@ struct student* studentRemoveName(char name[])
     * if different --> check if here is the last node (student) -->(Y) --> NULL
     * if different --> .........................................-->(N) --> move to the next node (student)
     * until string compare is satisfied (found student with that name)
-	*/
+    */
    while(strcmp(current->name, name)!=0)
    {
       /* if here is the last student */
       if(current->next == NULL)
-	  {
+      {
          return NULL;
       }
-	  else 
-	  {
+      else
+      {
          /* save the current student to temporarily previous student*/
          previous = current;
          /* move to next student*/
@@ -147,12 +147,12 @@ struct student* studentRemoveName(char name[])
    }
 
    /* update pointer of student */
-   if(current == head) 
+   if(current == head)
    {
       /* change head (first) point to next student*/
       head = head->next;
    }
-   else 
+   else
    {
       /* skip the current student (current is the removed), move to next */
       previous->next = current->next;

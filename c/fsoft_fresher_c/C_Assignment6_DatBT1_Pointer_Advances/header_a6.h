@@ -45,7 +45,7 @@ void FresherAdd(char name[], char account[], float gpa);
  *
  * @return void.
  */
- 
+
 void FresherPrintList();
 /*!
  * @brief Print student list
@@ -54,16 +54,16 @@ void FresherPrintList();
  *
  * @return void.
  */
- 
+
 void FresherArrangeList();
 /*!
  * @brief Arrange list according to GPA (descending, max --> min)
- *		  Compare two consecutive gpa --> swap positions.
+ *        Compare two consecutive gpa --> swap positions.
  * @param void.
  *
  * @return void.
  */
- 
+
 int FresherLengthList();
 /*!
  * @brief Return length of record list
@@ -72,7 +72,7 @@ int FresherLengthList();
  *
  * @return void.
  */
- 
+
 struct student* FresherDeleteAcc(char account[]);
 /*!
  * @brief Delete a student with known account
@@ -82,7 +82,7 @@ struct student* FresherDeleteAcc(char account[]);
  * @return NULL if no student has that account,
  * @return !NULL if exists student with that account.
  */
- 
+
 struct student* FresherFindAcc(char account[]);
 /*!
  * @brief Find a student with known account

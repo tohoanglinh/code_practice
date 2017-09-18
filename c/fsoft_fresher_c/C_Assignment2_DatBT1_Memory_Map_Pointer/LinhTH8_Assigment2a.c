@@ -4,11 +4,11 @@
  * Mentor: DatBT1
  * Dev: LinhTH8
  * Assignment 2: Memory Management and Pointer
- 2a. Viết một chương trình C để đảo một mảng ký tự bằng cách sử dụng con trỏ và 
- hàm cấp phát bộ nhớ động. Cho phép người dùng nhập số phần tử của mảng và các 
+ 2a. Viết một chương trình C để đảo một mảng ký tự bằng cách sử dụng con trỏ và
+ hàm cấp phát bộ nhớ động. Cho phép người dùng nhập số phần tử của mảng và các
  phần tử của mảng. Tổ chức chương trình thành các chương trình con.
  ******************************************************************************/
- 
+
  /*******************************************************************************
  * Coding Conventions
  * Không tab, trailing space
@@ -24,7 +24,7 @@
  2.1. Mang 1 chieu (array)
  Input: User inputs no of elements of the array and elements.
  Output: dao 1 mang ky tu
- Requirement: 
+ Requirement:
      + Su dung pointer va dynamic memory allocation functions (malloc, calloc)
      + Viet thanh cac chuong trinh con (function)
  No of elements = 5;
@@ -35,7 +35,7 @@
  Element 5 = e;
  --> Mảng đó là abcde --> Đảo ngược lại là edcba
  ******************************************************************************/
- 
+
 /*******************************************************************************
  * Definitions
  ******************************************************************************/
@@ -50,7 +50,7 @@ static void swap(int *a, int *b); /*Doi cho 2 so cho nhau*/
 
 /*******************************************************************************
  * Variables (Global)
- ******************************************************************************/  
+ ******************************************************************************/
     int g_num; /*so luong phan tu cua chuoi ky tu*/
     int *p; /*con tro de quan ly truy cap den tung phan tu trong chuoi ky tu*/
 
@@ -60,33 +60,33 @@ static void swap(int *a, int *b); /*Doi cho 2 so cho nhau*/
 static void swap(int *a, int *b)
 {
     int tmp;
-    
+
     tmp = *b;
     *b  = *a;
     *a  = tmp;
 }
- 
+
 static void reverse(void)
 {
     char i;
     int tmp;
-    
+
     printf("Before reversing...\n");
-    for ( i = 0; i < g_num; i++ ) 
+    for ( i = 0; i < g_num; i++ )
     {
       printf("%c ", *(p+i) );
     }
-    
+
     printf("\nAfter reversing...\n");
-    
+
     /*Tim kiem tu dau day --> 1/2 day, dao so dau voi so cuoi*/
     for ( i = 0; i < g_num/2; i++)
     {
         swap(p+i, p+g_num-i-1);
     }
-    
+
     /*Output to screen*/
-    for ( i = 0; i < g_num; i++ ) 
+    for ( i = 0; i < g_num; i++ )
     {
       printf("%c ", *(p+i) );
     }
@@ -95,14 +95,14 @@ static void reverse(void)
 static void input(void)
 {
     int i;
-    
+
     do{
     printf("Input no of elements: ");
-    scanf("%d",&g_num);   
+    scanf("%d",&g_num);
     } while((g_num>MAX) || (g_num<=0));
 
     p = (int*)malloc(g_num*sizeof(int));
-      
+
     printf("Input each element value: \n");
     for (i=0;i<g_num;i++)
     {
@@ -111,7 +111,7 @@ static void input(void)
 }
 
 int main(void)
-{       
+{
     input();
     reverse();
 

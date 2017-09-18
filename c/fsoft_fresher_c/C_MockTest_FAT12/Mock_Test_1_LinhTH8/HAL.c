@@ -23,8 +23,8 @@ FILE *file;
 /* read one sector index into buff */
 uint32_t kmc_read_sector (uint32_t indexSector, uint8_t *buff)
 {
-	uint32_t byte_read;
-	
+    uint32_t byte_read;
+
     /* open file image in binary read mode */
     file = fopen(FILE_PATH, "rb");
 
@@ -33,9 +33,9 @@ uint32_t kmc_read_sector (uint32_t indexSector, uint8_t *buff)
 
     /* read a sector (512 bytes) into buff*/
     byte_read = fread(buff, sizeof(uint8_t), SIZE_SECTOR, file);
-    
+
     return byte_read;
-    
+
     /* close file */
     fclose(file);
 }
@@ -44,8 +44,8 @@ uint32_t kmc_read_sector (uint32_t indexSector, uint8_t *buff)
 /* read num sector contiguously, start from sector index, into array pointer buff */
 uint32_t kmc_read_multi_sector (uint32_t indexSector, uint16_t num, uint8_t *buff)
 {
-	uint32_t byte_read;
-	
+    uint32_t byte_read;
+
     /* open file image in binary read mode */
     file = fopen(FILE_PATH, "rb");
 

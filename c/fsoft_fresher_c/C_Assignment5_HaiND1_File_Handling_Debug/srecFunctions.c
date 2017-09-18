@@ -24,7 +24,7 @@ uint8_t srecChecksumGet(char *tmp_line)
 {
     uint32_t get_checksum;
     uint8_t i = 0;
-    
+
     /* get length of string tmp_line */
     while (tmp_line[i]!='\0')
     {
@@ -33,10 +33,10 @@ uint8_t srecChecksumGet(char *tmp_line)
 
     /* get checksum from tmp_line */
     get_checksum = hexToDec(tmp_line[i-2], tmp_line[i-1]);
-    
+
     printf("Get Checksum = 0x%X\n", get_checksum);
-    
-	return get_checksum;
+
+    return get_checksum;
 }
 
 /*!
@@ -51,36 +51,36 @@ uint8_t srecChecksumCal(char *tmp_line)
 {
     uint32_t cal_checksum = 0;
     uint8_t length=0, i;
-    
+
     /* get length of string tmp_line */
     while (tmp_line[length]!='\0')
     {
         length++;
     }
-    
+
     /* byte count */
     g_srecByteCount = hexToDec(tmp_line[2], tmp_line[3]);
     printf("Byte Count = 0x%X\n", g_srecByteCount);
-    
+
     /* Add: add each byte */
     cal_checksum = g_srecByteCount;
-    
+
     for ( i = 4 ; i < (length-2) ; i++ )
     {
         cal_checksum = cal_checksum + hexToDec(tmp_line[i], tmp_line[i+1]);
         i++;
     }
-    
+
     /* Mask: keep the least significant byte of the total */
     cal_checksum = cal_checksum & 0x00FF;
-    
+
     /* Complement: compute ones' complement of the least significant byte */
     cal_checksum = 0xFF - cal_checksum;
-    
+
     printf("Cal Checksum = 0x%X\n", cal_checksum);
 
     printf("Line  Length = %d\n", length);
-    
+
     return cal_checksum;
 }
 
@@ -104,7 +104,7 @@ void srecDisplayAddressData(char *tmp_line, uint8_t type)
     {
         length++;
     }
-    
+
     if (type == 2)
     {
         printf("Address (%d bytes):\t", type);
@@ -149,7 +149,7 @@ void srecDisplayAddressData(char *tmp_line, uint8_t type)
         }
         printf("\n");
         fprintf(g_fsrec_out, "\n");
-        
+
     }
 
     if (type == 4)
@@ -198,17 +198,17 @@ uint8_t srecGetType(char *tmp_line)
     {
         return 2; /* 2 bytes address field (S0-S1-S5-S9) */
     }
-    
+
     if (tmp_line[1]=='2' || tmp_line[1]=='6' || tmp_line[1]=='8')
     {
         return 3; /* 3 bytes address field (S2-S6-S8) */
     }
-    
+
     if (tmp_line[1]=='3' || tmp_line[1]=='7')
     {
         return 4; /* 4 bytes address field (S3-S7) */
     }
-    
+
     return 0;
 }
 
@@ -248,7 +248,7 @@ uint8_t charToNum(char c)
     {
         c = c - '0'; /* '0' --> 0 */
     }
-    
+
     if ( c >= 'A' && c <= 'F')
     {
         c = c - 'A' + 10; /* 'A' --> 10 */

@@ -126,7 +126,7 @@ void matrix_display(int row, int col, int a[MAX][MAX])
     int i;
     int j;
     printf("Size: [%d, %d]\n", row, col);
-    
+
     for (i= 0;i<row;i++) {
       for (j=0;j<col;j++) {
          printf("%d\t", a[i][j]);
@@ -225,7 +225,7 @@ int main(void)
         printf("Please re-input row and column\n");
         matrix_input_row_col();
     }
-    
+
     matrix_input_elements();
 
     if (matrix_check_add_condition()==1)

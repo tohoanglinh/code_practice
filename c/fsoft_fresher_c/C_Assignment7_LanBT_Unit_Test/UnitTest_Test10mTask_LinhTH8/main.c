@@ -5,7 +5,7 @@
  @dat: 13-02-2017
  @req: test function Mod1_test10mTask
  *****************************************************************************************/
- 
+
   /*---------------------------------FUNCTION DESCRIPTION---------------------------------
   @Func: Mod1_Test10mTask
   @Description:
@@ -22,7 +22,7 @@
   - AVGDATA (after SORTDATA)
   - DIAGNOSIS (each 10x10 timer)
   -----------------------------------------------------------------------------------------*/
-  
+
   /*---------------------------------BUGS REPORT-------------------------------------------
   @Bug 1: TestMod1.c, Line 70: sortdata need to be allocated heap memory (malloc), otherwise
   program is buggy (suspended) at tmpdata += sortdata[].
@@ -39,7 +39,7 @@
   @Bug 4: TestMod1.c, Line 135: incorrect partitioning based on decision comment
   Solution 4:  if((gu8LowAveTurnData >=  LOWTHHOLD) || (gu8HighAveTurnData <= HITHHOLD))
     --> if((gu8LowAveTurnData <=  LOWTHHOLD) || (gu8HighAveTurnData >= HITHHOLD))
-    
+
   @Bug 5: TestMod1.c: there is no statement case to switch to DIAGNOSIS
   -----------------------------------------------------------------------------------------*/
 #include <stdio.h>
@@ -85,12 +85,12 @@ U8 TC_Mod1_Test10mTask_001(void)
     for (i = 0; i < 121; i++)
     {
         Mod1_Test10mTask();
-        
+
         if (i == 10)
         {
             /* expect 'A' */
             printData(i);
-            
+
             checkData(i);
         }
 
@@ -98,7 +98,7 @@ U8 TC_Mod1_Test10mTask_001(void)
         {
             /* expect 'AA' */
             printData(i);
-            
+
             checkData(i);
         }
 
@@ -106,19 +106,19 @@ U8 TC_Mod1_Test10mTask_001(void)
         {
             /* expect 'AAAAAAAAAA' */
             printData(i);
-            
+
             checkData(i);
         }
-        
+
         if (i == 120)
         {
             /* expect 'AAAAAAAAAA' */
             printData(i);
-            
+
             checkData(i);
         }
     }
-    
+
     return test_result;
 }
 
@@ -143,9 +143,9 @@ U8 checkData(U8 index)
 void printData(U8 index)
 {
     U8 j;
-    
+
     printf("Turn Data at %d: ", index);
-    
+
     for (j = 0 ; j < sizeof(gu8TurnData); j++)
     {
         printf("%c", *(gu8TurnData+j));
@@ -176,7 +176,7 @@ void printData(U8 index)
 BOOL TC_Mod1_Test10mTask_002(BYTE data)
 {
     BOOL bErrFlag = FALSE;
-    
+
     // If the data is from 0 to 255, set data
     if((data >= LOWLIMIT) && (data <= HIGHLIMIT)) // LinhTH8 fixes bug2
     {
@@ -186,7 +186,7 @@ BOOL TC_Mod1_Test10mTask_002(BYTE data)
     {
         bErrFlag = TRUE;                        // set ErrFlag to true
     }
-    
+
     return bErrFlag;
 }
 
@@ -208,7 +208,7 @@ int main()
     }
 
     getchar();
-    
+
     /* Test case 002 */
     data = -1;
     printf("Data = %d --> Overflow --> Error ? %d\n", data, TC_Mod1_Test10mTask_002(data));

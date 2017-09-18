@@ -7,8 +7,8 @@
 #define MAX_NAME_LENGTH 50
 
 struct student{
-	char name[MAX_NAME_LENGTH];
-	struct student *next;
+    char name[MAX_NAME_LENGTH];
+    struct student *next;
 };
 
 /*******************************************************************************

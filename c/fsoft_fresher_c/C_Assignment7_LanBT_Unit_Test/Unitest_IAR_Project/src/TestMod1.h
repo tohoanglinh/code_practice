@@ -8,7 +8,7 @@
 #define HIGHLIMIT   255
 #define LOWTHHOLD   25
 #define HITHHOLD    198
-    
+
 #define CNT10M      10
 
 extern  BYTE gu8TurnData[MAXDATA];

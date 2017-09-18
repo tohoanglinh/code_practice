@@ -8,7 +8,7 @@
 #define HIGHLIMIT   255
 #define LOWTHHOLD   25
 #define HITHHOLD    195 // LinhTH8 fixes bug3
-    
+
 #define CNT10M      10
 
 extern  BYTE gu8TurnData[MAXDATA];

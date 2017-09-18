@@ -5,11 +5,11 @@
  * @FR_EMB_HN17_01
  * File: linked_list.c
  * Description: containt linked list functions
-	- FresherAdd(name, account, gpa);
-	- FresherPrintList();
-	- FresherArrangeList();
-	- FresherDeleteAcc(account);
-	- FresherFindAcc(account);
+    - FresherAdd(name, account, gpa);
+    - FresherPrintList();
+    - FresherArrangeList();
+    - FresherDeleteAcc(account);
+    - FresherFindAcc(account);
 ************************************************/
 #include <stdio.h>
 #include <stdlib.h>
@@ -20,8 +20,8 @@
 #include "header_a6.h"
 #include "memory checking\mem_management.h"
 
-extern struct student *head;		/* extern pointer head from main.c */
-extern struct student *current;		/* extern pointer current from main.c */
+extern struct student *head;        /* extern pointer head from main.c */
+extern struct student *current;     /* extern pointer current from main.c */
 extern uint8_t noOfFresher;
 
 /*!
@@ -93,7 +93,7 @@ int FresherLengthList() {
 
 /*!
  * @brief Arrange list according to GPA (descending, max --> min)
- *		  Compare two consecutive gpa --> swap positions.
+ *        Compare two consecutive gpa --> swap positions.
  * @param void.
  *
  * @return void.

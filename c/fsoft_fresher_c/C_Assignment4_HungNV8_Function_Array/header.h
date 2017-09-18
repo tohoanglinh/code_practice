@@ -12,7 +12,7 @@
 /*******************************************************************************
  * Definitions
  ******************************************************************************/
-#define MAX 10		/* max elements of row and col */
+#define MAX 10      /* max elements of row and col */
 
 /*******************************************************************************
  * API
@@ -26,8 +26,8 @@ float rectangle_area(float perimeter, float diagonal);
  *
  * @return area: dien tich hinh chu nhat.
  */
- 
-int isRectangle(float perimeter, float diagonal); 
+
+int isRectangle(float perimeter, float diagonal);
 /*!
  * @brief Kiem tra dieu kien la hinh chu nhat hay khong
  *
@@ -45,7 +45,7 @@ void matrix_input_row_col(void);
  *
  * @return void
  */
- 
+
 int matrix_check_add_condition(void);
 /*!
  * @brief Kiem tra dieu kien co the cong ma tran
@@ -54,7 +54,7 @@ int matrix_check_add_condition(void);
  *
  * @return 0 neu khong cong duoc, 1 neu cong duoc.
  */
- 
+
 int matrix_check_mul_condition(void);
 /*!
  * @brief Kiem tra dieu kien co the nhan ma tran
@@ -63,7 +63,7 @@ int matrix_check_mul_condition(void);
  *
  * @return 0 neu khong nhan duoc, 1 neu nhan duoc.
  */
- 
+
 void matrix_input_elements(void);
 void matrix_display(int row, int col, int a[MAX][MAX]);
 void matrix_add(int a[MAX][MAX], int b[MAX][MAX]);

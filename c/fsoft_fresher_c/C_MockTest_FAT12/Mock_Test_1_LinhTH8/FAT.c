@@ -284,7 +284,7 @@ void FAT_readFile(FAT12BootSector_t *bootSector, uint16_t cluster)
 
             /* reallocate buff_file */
             realloc(buff_file, sizeSector);
-        } 
+        }
 
         printf("\nFile Size = %d (bytes)", fileSize);
 

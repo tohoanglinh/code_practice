@@ -29,20 +29,20 @@ int **SUM;
 static void nhap_ma_tran(int row, int col)
 {
     int i, j;
-    
+
     /*Cap phat bo nho cho hai ma tran A va B*/
     A = (int**)malloc(row*sizeof(int));
     for (i=0;i<row;i++)
     {
         *(A+i) = (int*)malloc(col*sizeof(int));
     }
-    
+
     B = (int**)malloc(row*sizeof(int));
     for (i=0;i<row;i++)
     {
         *(B+i) = (int*)malloc(col*sizeof(int));
     }
-    
+
     /*Nhap cac phan tu cua 2 ma tran*/
     printf("Enter elements of the 1st matrix \n");
     for (i=0;i<row;i++)
@@ -50,7 +50,7 @@ static void nhap_ma_tran(int row, int col)
        {
         scanf("%d",&*(*(A+i)+j));
        }
-    
+
     printf("Enter elements of the 2nd matrix \n");
     for (i=0;i<row;i++)
     {
@@ -71,7 +71,7 @@ static void cong_ma_tran(int **A, int **B)
     {
         SUM[i] = (int*)malloc(g_col*sizeof(int));
     }
-    
+
     for (i= 0;i<g_row;i++) {
       for (j=0;j<g_col;j++) {
          *(*(SUM+i)+j)=*(*(A+i)+j)+*(*(B+i)+j);
@@ -97,13 +97,13 @@ int main(void)
     printf("Enter no of rows and columns of two matrices : \n");
     scanf("%d", &g_row);
     scanf("%d", &g_col);
-    
+
     nhap_ma_tran(g_row, g_col);
     cong_ma_tran(A, B);
-    
+
     free_pointers(A,g_row);
     free_pointers(B,g_row);
     free_pointers(SUM,g_row);
-    
+
     return 0;
 }

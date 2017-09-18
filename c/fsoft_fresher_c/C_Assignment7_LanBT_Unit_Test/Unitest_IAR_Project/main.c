@@ -10,18 +10,18 @@
 
   /*
   @ID TC_Mod1_Init_001
-  @detail This test to verify that Mod1_Init will initialize global variables:  
+  @detail This test to verify that Mod1_Init will initialize global variables:
   gu8HighAveTurnData, gu8LowAveTurnData to 0
-  
+
   @Expected result lobal variables:  gu8HighAveTurnData, gu8LowAveTurnData to 0
-  
+
   @Actual result
   @Test step
   1. Set one of these global variables to non zero
   2. Call function Mod1_Init()
   3. Check value of these global veriables
   @Note
-  
+
   */
 U8 TC_Mod1_Init_001()
 {
