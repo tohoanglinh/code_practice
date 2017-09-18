@@ -468,7 +468,7 @@ def doincludes(f, l):
   ir = 'includeraw{'
   i = 'include{'
   if l.startswith(ir):
-    nf = io.open(l[len(ir):-2], 'rb')
+    nf = io.open(l[len(ir):-2], 'r')
     f.outf.write(nf.read())
     nf.close()
   elif l.startswith(i):
