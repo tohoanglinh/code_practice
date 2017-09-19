@@ -1,0 +1,30 @@
+# depslib dependency file v1.0
+1505790307 source:d:\gitworks\code_practice\c\fsoft_fresher_c\c_mocktest_fat12\mock_test_1_linhth8\fat.c
+	<stdio.h>
+	<stdlib.h>
+	<stdint.h>
+	<string.h>
+	"FAT.h"
+	"HAL.h"
+
+1505791244 d:\gitworks\code_practice\c\fsoft_fresher_c\c_mocktest_fat12\mock_test_1_linhth8\fat.h
+	"config.h"
+
+1505791236 d:\gitworks\code_practice\c\fsoft_fresher_c\c_mocktest_fat12\mock_test_1_linhth8\config.h
+
+1505790564 d:\gitworks\code_practice\c\fsoft_fresher_c\c_mocktest_fat12\mock_test_1_linhth8\hal.h
+	"config.h"
+
+1505791067 source:d:\gitworks\code_practice\c\fsoft_fresher_c\c_mocktest_fat12\mock_test_1_linhth8\hal.c
+	<stdio.h>
+	<stdint.h>
+	"HAL.h"
+
+1505790934 source:d:\gitworks\code_practice\c\fsoft_fresher_c\c_mocktest_fat12\mock_test_1_linhth8\main.c
+	<stdio.h>
+	<stdlib.h>
+	<stdint.h>
+	<inttypes.h>
+	"FAT.h"
+	"HAL.h"
+

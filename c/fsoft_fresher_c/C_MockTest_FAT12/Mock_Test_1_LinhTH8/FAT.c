@@ -148,8 +148,7 @@ FAT12DirEntry_t *FAT_readRootDir(FAT12BootSector_t *bootSector)
 {
     uint8_t *buff_rootdir;
     uint32_t buff_root_memory;
-    uint16_t sizeRootDir;
-    uint8_t i;
+    uint32_t sizeRootDir;
 
     uint16_t sizeSector = bootSector->BytesPerSector;
     uint16_t fatOffset = bootSector->NoOfReservedSectors;
@@ -175,6 +174,9 @@ FAT12DirEntry_t *FAT_readRootDir(FAT12BootSector_t *bootSector)
     {
         /* read multi sectors of root dir entries into buff */
         sizeRootDir = kmc_read_multi_sector(rootOffset, buff_root_memory/sizeSector, buff_rootdir);
+
+        /* display number of read byte */
+        printf("Number of read byte = %d.\n", sizeRootDir);
 
         /* casting buff_rootdir to struct FAT12DirEntry */
         return ((FAT12DirEntry_t *) buff_rootdir);
@@ -298,7 +300,6 @@ uint16_t FAT_readFolder(FAT12BootSector_t *bootSector, uint16_t cluster, uint32_
 
     uint32_t offset;
     uint16_t i;
-    uint16_t j;
     uint16_t fFolderCount=0;
 
     /* extract some offset information for later usage */
@@ -372,6 +373,7 @@ uint16_t FAT_readFolder(FAT12BootSector_t *bootSector, uint16_t cluster, uint32_
         return fFolderCount;
     }
     free(buff_folder);
+    return 0;
 }
 
 /*******************************************************************************
@@ -379,7 +381,7 @@ uint16_t FAT_readFolder(FAT12BootSector_t *bootSector, uint16_t cluster, uint32_
  *  timeExtract
  *  dateExtract
  ******************************************************************************/
-static void FAT_timeExtract(uint16_t time)
+void FAT_timeExtract(uint16_t time)
 {
     /* sec: 5 bits lsb, shift left << 1 because 2-second resolution (fatgen103.doc, page 25) */
     uint8_t seconds = (0b0000000000011111 & time) << 1;
@@ -402,7 +404,7 @@ static void FAT_timeExtract(uint16_t time)
     }
 }
 
-static void FAT_dateExtract(uint16_t date)
+void FAT_dateExtract(uint16_t date)
 {
     /* days: 5 bits lsb */
     uint8_t days = (0b0000000000011111 & date);

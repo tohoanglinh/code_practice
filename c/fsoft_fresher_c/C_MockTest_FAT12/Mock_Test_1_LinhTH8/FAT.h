@@ -10,6 +10,8 @@
 #ifndef _FAT_H_
 #define _FAT_H_
 
+#include "config.h"
+
 /*******************************************************************************
  * Definitions
  ******************************************************************************/
@@ -47,8 +49,6 @@
 
 #define BEEP_SOUND 7
 #define TRAILING_SPACE 0
-
-#define SEPARATE_LINE() printf("----------------------------------------------------------------------------\n")
 
 /*******************************************************************************
  * These structs are derived from FAT12Description.pdf
@@ -178,7 +178,7 @@ uint16_t FAT_readFolder(FAT12BootSector_t *bootSector, uint16_t cluster, uint32_
  *
  * @return Time format (00:00:10).
  */
-static void FAT_timeExtract(uint16_t time);
+void FAT_timeExtract(uint16_t time);
 
 /*!
  * @brief Extract date information from dirEntry
@@ -187,6 +187,6 @@ static void FAT_timeExtract(uint16_t time);
  *
  * @return Date format (1/1/2008).
  */
-static void FAT_dateExtract(uint16_t date);
+void FAT_dateExtract(uint16_t date);
 
 #endif /* _FAT_H_ */

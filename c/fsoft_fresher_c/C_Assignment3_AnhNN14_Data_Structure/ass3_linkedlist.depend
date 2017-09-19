@@ -1,0 +1,19 @@
+# depslib dependency file v1.0
+1505701698 source:d:\gitworks\code_practice\c\fsoft_fresher_c\c_assignment3_anhnn14_data_structure\linked_list.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<stdint.h>
+	<stdbool.h>
+	"header.h"
+
+1505701603 d:\gitworks\code_practice\c\fsoft_fresher_c\c_assignment3_anhnn14_data_structure\header.h
+
+1505701692 source:d:\gitworks\code_practice\c\fsoft_fresher_c\c_assignment3_anhnn14_data_structure\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<stdint.h>
+	<stdbool.h>
+	"header.h"
+

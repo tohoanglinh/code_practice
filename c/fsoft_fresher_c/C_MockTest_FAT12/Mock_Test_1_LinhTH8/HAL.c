@@ -26,7 +26,8 @@ uint32_t kmc_read_sector (uint32_t indexSector, uint8_t *buff)
     uint32_t byte_read;
 
     /* open file image in binary read mode */
-    file = fopen(FILE_PATH, "rb");
+    //file = fopen(g_filepath, "rb");
+    file = fopen("D:/floopy.img", "rb");
 
     /* start, seek to position of sector index */
     fseek(file, SIZE_SECTOR * indexSector, SEEK_SET);
@@ -47,7 +48,7 @@ uint32_t kmc_read_multi_sector (uint32_t indexSector, uint16_t num, uint8_t *buf
     uint32_t byte_read;
 
     /* open file image in binary read mode */
-    file = fopen(FILE_PATH, "rb");
+    file = fopen("D:/floopy.img", "rb");
 
     /* start from position of sector index */
     fseek(file, SIZE_SECTOR * indexSector, SEEK_SET);

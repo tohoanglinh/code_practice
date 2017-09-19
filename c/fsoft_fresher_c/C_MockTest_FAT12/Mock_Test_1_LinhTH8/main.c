@@ -12,6 +12,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdint.h>
+#include <inttypes.h>
 
 #include "FAT.h"
 #include "HAL.h"
@@ -26,16 +27,17 @@
 /*******************************************************************************
  * Main
  ******************************************************************************/
-uint8_t main(void)
+int main(void)
 {
     /*================================================================================*/
+    g_filepath = malloc(sizeof(char)*100);
+
     /* Temp array to store: ID, Attributes */
     uint32_t firstClusterID[MAX_ENTRIES];
     uint32_t attributes[MAX_ENTRIES];
 
     /* Count/Temp var */
     uint16_t id;
-    uint16_t i;
     uint16_t entryCount;
 
     /* Struct var */
@@ -44,7 +46,9 @@ uint8_t main(void)
     /*================================================================================*/
     printf("****************************************************************************\n");
     printf("MOCK TEST 1 - FAT12.\n");
-    printf("Parsing file path: %s\n", FILE_PATH);
+    printf("Please enter full path to img file:");
+    scanf("%s", g_filepath);
+    printf("Parsing file path: %s\n", g_filepath);
     SEPARATE_LINE();
     /*================================================================================*/
     /* read boot sector information */
@@ -66,7 +70,7 @@ uint8_t main(void)
 
     CMD();
 
-    scanf("%d", &id);
+    scanf("%" SCNd16, &id);
 
     /* check id is quit or not */
     while ( id != ID_QUIT )
@@ -120,9 +124,10 @@ uint8_t main(void)
             SEPARATE_LINE();
             printf("Invalid ID. Again.\n");
         }
-        scanf("%d", &id);
+        scanf("%" SCNd16, &id);
     }
     printf("****************************************************************************\n");
     /*================================================================================*/
+    free(g_filepath);
     return 0;
 }

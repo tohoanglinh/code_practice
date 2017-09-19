@@ -1,38 +1,30 @@
-[Editors]
-Order=0,4,3,2,1
-Focused=4
-[Editor_0]
-CursorCol=1
-CursorRow=82
-TopLine=92
-LeftChar=1
-[Editor_1]
-CursorCol=18
-CursorRow=62
-TopLine=21
-LeftChar=1
-[Editor_2]
-CursorCol=8
-CursorRow=22
-TopLine=3
-LeftChar=1
-[Editor_3]
-CursorCol=28
-CursorRow=181
-TopLine=167
-LeftChar=1
-[Editor_4]
-CursorCol=14
-CursorRow=280
-TopLine=257
-LeftChar=1
-[Editor_5]
-CursorCol=25
-CursorRow=23
-TopLine=2
-LeftChar=1
-[Editor_6]
-CursorCol=52
-CursorRow=32
-TopLine=9
-LeftChar=1
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_layout_file>
+	<FileVersion major="1" minor="0" />
+	<ActiveTarget name="Debug" />
+	<File name="HAL.h" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="467" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="HAL.c" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1345" topLine="15" />
+		</Cursor>
+	</File>
+	<File name="main.c" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="2080" topLine="15" />
+		</Cursor>
+	</File>
+	<File name="FAT.h" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="361" topLine="54" />
+		</Cursor>
+	</File>
+	<File name="FAT.c" open="1" top="1" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="402" topLine="63" />
+		</Cursor>
+	</File>
+</CodeBlocks_layout_file>
