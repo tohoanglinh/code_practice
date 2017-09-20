@@ -17,7 +17,8 @@
 /*******************************************************************************
  * Definitions
  ******************************************************************************/
-#define MAX_CNT 200
+#define MAX_L 1000
+#define MAX_R 1000
 
 /*******************************************************************************
  * Prototypes
@@ -63,11 +64,11 @@ int main(void)
     int R;
     L = 0;
     R = 0;
-    while (L < 1 || L > 1000)
+    while (L < 1 || L > MAX_L)
     {
         scanf("%d", &L);
     }
-    while (R < 1 || R > 1000)
+    while (R < 1 || R > MAX_R)
     {
         scanf("%d", &R);
     }
@@ -79,24 +80,20 @@ int main(void)
     int total_num;
     int xor_arr_index;
 
+    xor_arr_index = 0;
     total_num = func_TotalCases(R - L + 1);
     xor_arr = malloc(sizeof(int)*total_num);
 
-    xor_arr_index = 0;
-    for (A = L; A < R; A++)
+    for (A = L; A <= R; A++)
     {
-        for (B = A; B < R; B++)
+        for (B = A; B <= R; B++)
         {
-            xor_arr[xor_arr_index] = A ^ B;
-            //printf("%d", xor_arr[xor_arr_index]);
-            printf("%d", 15 ^ 21);
-            getchar();
+            xor_arr[xor_arr_index] = A^B;
             xor_arr_index++;
         }
-        xor_arr_index++;
     }
 
-    //printf("%d", func_Max(xor_arr, total_num));
+    printf("%d", func_Max(xor_arr, total_num));
 
     free(xor_arr);
     return 0;

@@ -2,29 +2,29 @@
 <CodeBlocks_project_file>
 	<FileVersion major="1" minor="6" />
 	<Project>
-		<Option title="ass6_pointeradvances" />
+		<Option title="ass7_unittest" />
 		<Option pch_mode="2" />
 		<Option compiler="gcc" />
 		<Build>
 			<Target title="default">
-				<Option output="ass6_pointeradvances" prefix_auto="1" extension_auto="1" />
+				<Option output="ass7_unittest" prefix_auto="1" extension_auto="1" />
 				<Option type="1" />
 				<Option compiler="gcc" />
 			</Target>
 		</Build>
-		<Unit filename="header_a6.h">
+		<Unit filename="Stub.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="linked_list.c">
+		<Unit filename="TestMod1.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="TestMod1.h">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="common.h">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="main.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="memory checking/mem_management.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="memory checking/mem_management.h">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Extensions>

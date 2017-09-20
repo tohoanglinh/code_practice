@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_workspace_file>
+	<Workspace title="Workspace">
+		<Project filename="C_Assignment2_DatBT1_Memory_Map_Pointer/ass2_memorymap.cbp" />
+		<Project filename="C_Assignment3_AnhNN14_Data_Structure/ass3_linkedlist.cbp" />
+		<Project filename="C_Assignment4_HungNV8_Function_Array/ass4_functionarray.cbp" />
+		<Project filename="C_Assignment5_HaiND1_File_Handling_Debug/ass5_filehandlingsrec.cbp" />
+		<Project filename="C_Assignment6_DatBT1_Pointer_Advances/ass6_pointeradvances.cbp" />
+		<Project filename="C_Assignment7_LanBT_Unit_Test/UnitTest_Test10mTask_LinhTH8/ass7_unittest.cbp" />
+		<Project filename="C_MockTest_FAT12/Mock_Test_1_LinhTH8/MockTest1_FAT12.cbp" />
+	</Workspace>
+</CodeBlocks_workspace_file>
