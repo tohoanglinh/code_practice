@@ -3,7 +3,8 @@ xampp_path="C:/xampp/htdocs/"
 
 # start compiling
 echo "[1].Compiling mysite... :-)"
-../jemdoc -c googleanalytics.conf -o html/ *.jemdoc && ../jemdoc -c mathjax.conf -o html/ *.jemdoc && ../jemdoc -c bibover.conf -o html/ *.jemdoc
+../jemdoc -c mathjax.conf -o html/ *.jemdoc
+# ../jemdoc -c googleanalytics.conf -o html/ *.jemdoc && ../jemdoc -c bibover.conf -o html/ *.jemdoc
 
 # remove contents of htdocs folder?
 if [ "$(ls -A $xampp_path)" ]; then

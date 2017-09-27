@@ -1,0 +1,68 @@
+# jemdoc: menu{MENU}{index.html}
+# jemdoc: title{HINTS}
+# jemdoc: addcss{jemdoc.css}
+# jemdoc: analytics{UA-50706531-1}
+= [Hints]
+
+== Convex Optimization
+
+=== Conjugate function
+==== Read more:
+- Section 3.3 The conjugate function ([http://standford.edu/~boyd/cvxbook/bv_cvxbook.pdf CVX_Textbook])
+
+==== Background:
+- The conjugate function of $f$ is defined as follows:
+
+\(
+f^* (y) = sup_{x\in dom f} (y^T x - f(x))
+\)
+
+- $f^*$ is always _convex_ even if $f$ is non-convex.
+
+==== Example: $f(x) = - log(x)$
+
+\(
+\begin{aligned}
+f^*(y) &= sup_{x>0} (xy + log(x)) \\
+       &= \left\{
+\begin{array}{ll}
+-1-log(-y), & y < 0 \\
+\infty, & otherwise \\
+\end{array}\right.
+\end{aligned}
+\)
+
+=== Composition Operation and Convexity
+==== Read more:
+- Section 3.2.4 Composition ([http://standford.edu/~boyd/cvxbook/bv_cvxbook.pdf CVX_Textbook])
+
+====  Summary:
+- We want to discover convexity of $f = h \circ g$
+\(
+f(x) = h(g(x))
+\)
+- Assume $h$ and $g$ are twice differentiable
+\(
+f''(x) = h''(g) g'(x)^2 + h'(g) g''(x)
+\)
+- We only conclude about convexity of 4 cases as the following table
+~~~
+{}{table}{Composition and Convexity}
+*$f^{\prime \prime}$* | $h^{\prime \prime}$ | $h^{\prime}$  | $g^{\prime \prime}$ ||
+$\geq 0$ | $\geq 0$ | $\geq 0$ | $\geq 0$ ||
+$\geq 0$ | $\geq 0$ | $\leq 0$ | $\leq 0$ ||
+$\leq 0$ | $\geq 0$ | $\geq 0$ | $\leq 0$ ||
+$\leq 0$ | $\leq 0$ | $\geq 0$ | $\geq 0$ 
+~~~
+
+- Other cases we should find other methods to prove convexity.
+
+==== Example:
+
+== Cross-Layer Design
+
+=== Lagrange Relaxation
+
+=== Decomposition Methods
+
+=== Iterative Algorithms

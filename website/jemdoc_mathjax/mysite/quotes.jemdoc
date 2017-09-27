@@ -1,11 +1,12 @@
-# jemdoc: menu{MENU}{quotes.html}, nofooter
-# jemdoc: title{Hoang-Linh TO @Inje}
+# jemdoc: menu{MENU}{quotes.html}
+# jemdoc: title{QUOTES}
+# jemdoc: addcss{jemdoc.css}
 # jemdoc: analytics{UA-50706531-1}
 = Quotes
 
 ~~~
 {}{img_left}{pictures/avatar-jemdoc.jpg}{Hoang-Linh TO}{100px}{90px}{pictures/avatar-jemdoc.jpg}
-== [index.html H.TO]
+== [index.html L.TO]
 
 "...everything has its own cause..."
 ~~~

@@ -16,7 +16,7 @@ Publication-quality figure tools
 - [http://www.gnuplot.info gnuplot]: gnuplot is highly recommended to draw publication-quality figures. One of its advantages is the performance, it can draw multiple points fast.
 - [http://matplotlib.org/ matplotlib]: A MATLAB-like drawing tool for making publication-quality figures. (by John Hunter, 1968-2012)
 - [http://www.texample.net/tikz/ TikZ]: Let's "draw" best figures by *programming* LaTeX.
-- [https://github.com/nschloe/matlab2tikz matlab2tikz]: A converter that takes a MATLAB(R) figure and spits out a TikZ (Pgfplots) figure for smooth integration into LaTeX. (by Nico Schlömer)
+- [https://github.com/nschloe/matlab2tikz matlab2tikz]: A converter that takes a MATLAB(R) figure and spits out a TikZ (Pgfplots) figure for smooth integration into LaTeX. (by Nico Schlomer)
 
 ~~~
 {}{}
