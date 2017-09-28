@@ -1,25 +1,20 @@
-CC=gcc
-CFLAGS=-c -Wall -I$(HEADERDIR)
-LFLAGS=
+# Declaration of variables
+CC = gcc
+CC_FLAGS = -w -Iheader/
 
-SOURCEDIR=source/
-HEADERDIR=header/
-OUTPUTDIR=out/
+# File names
+EXEC = out/test
+SOURCES = source/$(wildcard *.c)
+OBJECTS = $(SOURCES:.c=.o)
 
-SOURCEFILES=$(SOURCEDIR)hello.c $(SOURCEDIR)mathlib.c
-HEADERFILES=$(HEADERDIR)hello.h $(HEADERDIR)mathlib.h
-OBJS=$(SOURCEFILES:.c=.o)
-EXE=$(OUTPUTDIR)test
+# Main target
+$(EXEC): $(OBJECTS)
+	$(CC) $(OBJECTS) -o $(EXEC)
 
-all: $(EXE)
+# To obtain object files
+%.o: %.c
+	$(CC) -c $(CC_FLAGS) $< -o $@
 
-$(EXE): $(OBJS)
-	$(CC) $(LFLAGS) $(OBJS) -o $@
-
-$(OBJS): $(SOURCEFILES) $(HEADERFILES)
-	$(CC) $(CFLAGS) $< -o $@
-
-.PHONY: clean
-
+# To remove generated files
 clean:
-	rm -f source/*.o out/*.exe
+	rm -f $(EXEC) $(OBJECTS)
