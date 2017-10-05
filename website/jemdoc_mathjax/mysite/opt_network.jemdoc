@@ -1,0 +1,29 @@
+# jemdoc: menu{MENU}{opt_network.html}
+# jemdoc: title{NETWORKS OPTIMIZATION}
+# jemdoc: addcss{jemdoc.css}
+# jemdoc: analytics{UA-50706531-1}
+= [Network-Optimization]
+
+== Flow Control: Source-Link Algorithms
+
+~~~
+{Flow Control: [archives/projects/convex-optimization/flowcontrol.m full-code], +free+}{}
+% Main loop
+for i=1:end_sim
+    p = p + stepsize * (A*x - c); % Link Price Algorithm
+    p = max(p,0);
+    
+    x = 1./(A'*p); % Source Algorithm
+    
+    x_hist(i,:) = x'; % Update row i (x1, x2, x3) by transpose x value from algorithm.
+    p_hist(i,:) = p';
+end
+~~~
+
+~~~
+{}{img_left}{archives/projects/convex-optimization/flowcontrol_sourcerate.png}{Source Rate}{300px}{220px}{archives/projects/convex-optimization/flowcontrol_sourcerate.png}
+~~~
+
+~~~
+{}{img_left}{archives/projects/convex-optimization/flowcontrol_linkprice.png}{Link Price}{300px}{220px}{archives/projects/convex-optimization/flowcontrol_linkprice.png}
+~~~

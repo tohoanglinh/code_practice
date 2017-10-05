@@ -1,8 +1,8 @@
-# jemdoc: menu{MENU}{test.html}
-# jemdoc: title{TEST}
+# jemdoc: menu{MENU}{html.html}
+# jemdoc: title{HTML}
 # jemdoc: addcss{jemdoc.css}
 # jemdoc: analytics{UA-50706531-1}
-= TEST
+= HTML
 
 == A HTML page
 

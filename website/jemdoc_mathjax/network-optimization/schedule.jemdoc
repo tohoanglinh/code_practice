@@ -1,9 +1,0 @@
-# jemdoc: menu{MENU}{schedule.html}, nofooter
-# jemdoc: title{Network Otimization @CNL}
-= Schedule
-T.A. [../index.html Hoang-Linh TO], [http://cnl.inje.ac.kr Computer Network Lab]
-
-- 01-05-2014: Decomposition Methods: taxonomy and examples.
-- 14-05-2014: Gauss-Seidel/Jacobi iterative algorithms and applications.
-
-
