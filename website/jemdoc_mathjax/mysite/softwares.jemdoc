@@ -1,0 +1,21 @@
+# jemdoc: menu{MENU}{softwares.html}
+# jemdoc: title{SOFTWARES}
+# jemdoc: addcss{jemdoc.css}
+# jemdoc: analytics{UA-50706531-1}
+= [Softwares]
+
+== Using dsPIC30F4011 to emulate 400-Hz sine wave
+
+== Modeling burst loss probability with impatient customer feature in OBS
+
+== Developing cascade probability control algorithm to mitigate bufferbloat
+
+== Extract FAT12 data table
+
+== Bootloader for KL46Z
+
+== Test IPv4 for tcp/ip stack
+
+== Design a user processor expert configuration for tcp/ip stack
+
+== Test simple NDEF exchange protocol (SNEP) in NFC

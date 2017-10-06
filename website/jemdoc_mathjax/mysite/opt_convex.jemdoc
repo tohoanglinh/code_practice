@@ -6,7 +6,7 @@
 
 == Conjugate function
 === Read more:
-- Section 3.3 The conjugate function ([http://standford.edu/~boyd/cvxbook/bv_cvxbook.pdf CVX_Textbook])
+- Section 3.3 The conjugate function ([https://web.stanford.edu/~boyd/cvxbook/bv_cvxbook.pdf CVX_Textbook])
 
 === Background:
 - The conjugate function of $f$ is defined as follows:
@@ -32,7 +32,7 @@ f^*(y) &= sup_{x>0} (xy + log(x)) \\
 
 == Composition Operation and Convexity
 === Read more:
-- Section 3.2.4 Composition ([http://standford.edu/~boyd/cvxbook/bv_cvxbook.pdf CVX_Textbook])
+- Section 3.2.4 Composition ([https://web.stanford.edu/~boyd/cvxbook/bv_cvxbook.pdf CVX_Textbook])
 
 ===  Summary:
 - We want to discover convexity of $f = h \circ g$
@@ -50,7 +50,7 @@ f''(x) = h''(g) g'(x)^2 + h'(g) g''(x)
 $\geq 0$ | $\geq 0$ | $\geq 0$ | $\geq 0$ ||
 $\geq 0$ | $\geq 0$ | $\leq 0$ | $\leq 0$ ||
 $\leq 0$ | $\geq 0$ | $\geq 0$ | $\leq 0$ ||
-$\leq 0$ | $\leq 0$ | $\geq 0$ | $\geq 0$ 
+$\leq 0$ | $\leq 0$ | $\geq 0$ | $\geq 0$
 ~~~
 
 - Other cases we should find other methods to prove convexity.
@@ -76,6 +76,6 @@ end
 
 ~~~
 {Jacobi Algorithm: Result}{}
->> Number of Iterations:    9 
->> Solution (x, y) = (0.01,0.01) 
+>> Number of Iterations:    9
+>> Solution (x, y) = (0.01,0.01)
 ~~~
