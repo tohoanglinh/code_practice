@@ -60,7 +60,7 @@ $\leq 0$ | $\leq 0$ | $\geq 0$ | $\geq 0$
 - Example with system of linear equations:
 
 ~~~
-{Jacobi Algorithm: [archives/projects/convex-optimization/jacobi.m full-code], +free+}{}
+{Jacobi Algorithm: [archives/projects/convex-optimization/jacobi.m Matlab], [archives/projects/convex-optimization/jacobi.c C], +free+}{}
 % Main loop
 while max_iteration > 0
    x(t+1) = -1/a11 * (a12 * y(t) - b1);

@@ -19,7 +19,7 @@
 /*******************************************************************************
  * Definitions
  ******************************************************************************/
-#define MAX_CNT 200
+#define DEBUG 1
 
 /*******************************************************************************
  * Code
@@ -61,19 +61,25 @@ int main(void)
     {
         x[t+1] = (-1/(float)a11) * ((float)a12 * y[t] - (float)b1);
         y[t+1] = (-1/(float)a22) * ((float)a21 * x[t] - (float)b2);
-        if ((float)(abs(x[t+1] - x[t])) < tolerance)
+        max_iteration = max_iteration - 1;
+        #if (DEBUG)
+        printf("x[%d] = %f, x[%d] = %f\n", t, x[t], t+1, x[t+1]);
+        printf("y[%d] = %f, y[%d] = %f\n", t, y[t], t+1, y[t+1]);
+        printf("eps = %f\n", fabs(x[t+1] - x[t]));
+        printf("iteration = %d\n", 50-max_iteration);
+        #endif
+        if (fabs(x[t+1] - x[t]) < tolerance)
         {
             t = t + 1;
             break;
         }
         t = t + 1;
-        max_iteration = max_iteration - 1;
     }
 
     /* Display results */
     printf("System of Linear Equations: Jacobi Iterative Method\n");
-    printf("Number of Iterations: %4.0f \n", 50-max_iteration);
-    printf("Solution (x, y) = (%4.2f,%4.2f) \n", x[t], y[t]);
+    printf("Number of Iterations: %d \n", 50-max_iteration);
+    printf("Solution (x, y) = (%4.4f,%4.4f) \n", x[t], y[t]);
 
     free(x);
     free(y);
