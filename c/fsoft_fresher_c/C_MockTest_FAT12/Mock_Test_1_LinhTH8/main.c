@@ -16,6 +16,7 @@
 
 #include "FAT.h"
 #include "HAL.h"
+#include "config.h"
 
 /*******************************************************************************
  * Definitions
