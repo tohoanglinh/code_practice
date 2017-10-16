@@ -27,7 +27,12 @@
 	struct date lastpayment;
   }customer;
   int tl,sl,ts;
- void main()
+ void clrscr()
+ {
+     system("cls");
+ }
+
+ int main()
 	{
 	  int i,n;
 	  char ch;
@@ -76,6 +81,7 @@
 			delay(1500);
 			exit(1);
 	  }
+	  return 0;
  }
 
 
@@ -183,8 +189,6 @@
 	      return;
 	 }
 
-
-
    void output()
 	 {
 	   printf("\n\n    Customer no    :%d\n",customer.number);
@@ -216,17 +220,3 @@
 	      textcolor(WHITE);
 	      return;
 	   }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
