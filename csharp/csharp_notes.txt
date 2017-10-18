@@ -1,0 +1,5 @@
+New Project --> Visual C# --> WPF Application
+
+WPF: Windows Presentation Foundation is Microsoft's latest approach to a GUI framework, used with .NET framework
+WPF newer than Windows Forms
+WPF more flexible
