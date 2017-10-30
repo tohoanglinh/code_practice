@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Diagnostics;
 
 namespace HelloWPF
 {
@@ -23,6 +24,24 @@ namespace HelloWPF
         public Greetings()
         {
             InitializeComponent();
+            if (Constants.DEBUG)
+            {
+                greetings_welcome();
+            }
+        }
+
+        static class Constants
+        {
+            public const bool DEBUG = true;
+            public const int MAX = 100;
+            public const int MIN = 1;
+        }
+
+        private void greetings_welcome()
+        {
+            Console.WriteLine("-------------------");
+            Console.WriteLine("Greetings");
+            Console.WriteLine("-------------------");
         }
 
         private void Display_Click(object sender, RoutedEventArgs e)
@@ -34,6 +53,35 @@ namespace HelloWPF
             else if (byeButton.IsChecked == true)
             {
                 MessageBox.Show("Bye.");
+            }
+        }
+
+        System.Data.SqlClient.SqlConnection conn;
+
+        private void submitButton_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                conn = new System.Data.SqlClient.SqlConnection();
+                conn.ConnectionString = @"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename = D:\gitworks\code_practice\csharp\HelloWPF\HelloWPF\SampleDatabase.mdf; Integrated Security = True";
+                conn.Open();
+                MessageBox.Show("connection opened successfully");
+                conn.Close();
+                if (conn.State == System.Data.ConnectionState.Closed)
+                {
+                    MessageBox.Show("connection closed successfully");
+                }
+                else if (conn.State == System.Data.ConnectionState.Executing || conn.State == System.Data.ConnectionState.Fetching)
+                {
+                    MessageBox.Show("this connection is too busy to close. pls try again later");
+                }
+                else if (conn.State == System.Data.ConnectionState.Broken)
+                {
+                    MessageBox.Show("this connection is broken");
+                }
+            } catch (Exception)
+            {
+                MessageBox.Show("failed to access database or not exist!!!");
             }
         }
     }

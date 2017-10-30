@@ -23,7 +23,10 @@
                 </WrapPanel>
             </Button.Content>
         </Button>
-        <RadioButton x:Name="helloButton" Content="Hello" HorizontalAlignment="Left" Margin="81,71,0,0" VerticalAlignment="Top" IsChecked="True"/>
-        <RadioButton x:Name="byeButton" Content="Bye" HorizontalAlignment="Left" Margin="269,71,0,0" VerticalAlignment="Top"/>
+        <RadioButton x:Name="helloButton" Content="Hello" HorizontalAlignment="Left" Margin="79,180,0,0" VerticalAlignment="Top" IsChecked="True"/>
+        <RadioButton x:Name="byeButton" Content="Bye" HorizontalAlignment="Left" Margin="284,180,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="nameLabel" Content="Name:" HorizontalAlignment="Left" Margin="10,31,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="nameTextBox" HorizontalAlignment="Left" Height="23" Margin="59,32,0,0" TextWrapping="Wrap" Text="Enter name here" VerticalAlignment="Top" Width="120"/>
+        <Button x:Name="submitButton" Content="Submit" HorizontalAlignment="Left" Margin="184,34,0,0" VerticalAlignment="Top" Width="75" Click="submitButton_Click"/>
     </Grid>
 </Window>
