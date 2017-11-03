@@ -28,5 +28,12 @@
         <Label x:Name="nameLabel" Content="Name:" HorizontalAlignment="Left" Margin="10,31,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="nameTextBox" HorizontalAlignment="Left" Height="23" Margin="59,32,0,0" TextWrapping="Wrap" Text="Enter name here" VerticalAlignment="Top" Width="120"/>
         <Button x:Name="submitButton" Content="Submit" HorizontalAlignment="Left" Margin="184,34,0,0" VerticalAlignment="Top" Width="75" Click="submitButton_Click"/>
+        <Label x:Name="labelNum1" Content="num1" HorizontalAlignment="Left" Margin="16,71,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="labelNum2" Content="num2" HorizontalAlignment="Left" Margin="16,97,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="textBoxNum1" HorizontalAlignment="Left" Height="23" Margin="61,71,0,0" TextWrapping="Wrap" Text="1" VerticalAlignment="Top" Width="23"/>
+        <TextBox x:Name="textBoxNum2" HorizontalAlignment="Left" Height="23" Margin="61,101,0,0" TextWrapping="Wrap" Text="2" VerticalAlignment="Top" Width="23"/>
+        <Label x:Name="labelSum" Content="sum" HorizontalAlignment="Left" Margin="139,71,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="textBoxSum" HorizontalAlignment="Left" Height="23" Margin="176,71,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="23"/>
+        <Button x:Name="buttonSum" Content="Sum" HorizontalAlignment="Left" Margin="263,70,0,0" VerticalAlignment="Top" Width="75" Click="buttonSum_Click"/>
     </Grid>
 </Window>

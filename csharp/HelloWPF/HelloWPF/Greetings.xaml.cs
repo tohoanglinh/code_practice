@@ -40,7 +40,7 @@ namespace HelloWPF
         private void greetings_welcome()
         {
             Console.WriteLine("-------------------");
-            Console.WriteLine("Greetings");
+            Console.WriteLine("*****Greetings*****");
             Console.WriteLine("-------------------");
         }
 
@@ -67,8 +67,14 @@ namespace HelloWPF
                 conn.Open();
                 MessageBox.Show("connection opened successfully");
                 conn.Close();
+                //int a;
+                //a = 1;
+                //bool test;
+                //test = true;
                 if (conn.State == System.Data.ConnectionState.Closed)
                 {
+                    //Console.WriteLine("test = {0}, a = {1}", test, a);
+                    MessageBox.Show(nameTextBox.Text);
                     MessageBox.Show("connection closed successfully");
                 }
                 else if (conn.State == System.Data.ConnectionState.Executing || conn.State == System.Data.ConnectionState.Fetching)
@@ -83,6 +89,11 @@ namespace HelloWPF
             {
                 MessageBox.Show("failed to access database or not exist!!!");
             }
+        }
+
+        private void buttonSum_Click(object sender, RoutedEventArgs e)
+        {
+            textBoxSum.Text = (Convert.ToInt16(textBoxNum1.Text) + Convert.ToInt16(textBoxNum2.Text)).ToString();
         }
     }
 }
