@@ -6,6 +6,8 @@ echo "[1].Compiling mysite... :-)"
 ../jemdoc -c mathjax.conf -o html/ *.jemdoc
 # ../jemdoc -c googleanalytics.conf -o html/ *.jemdoc && ../jemdoc -c bibover.conf -o html/ *.jemdoc
 
+cp -r html/. ../../../../tohoanglinh.github.io/
+
 # remove contents of htdocs folder?
 if [ "$(ls -A $xampp_path)" ]; then
     echo "$xampp_path is not empty"
