@@ -1,6 +1,7 @@
 *.exe
 *.o
 *~
+*.un~
 *.swp
 *.swo
 .DS_STORE
