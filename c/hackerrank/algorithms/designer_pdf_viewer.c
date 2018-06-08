@@ -56,12 +56,40 @@ int maxHeight(char tmp_str[], int length_str)
     return max;
 }
 
+typedef struct
+{
+	uint32_t x;
+	uint32_t y;
+} usdhc_t;
+
+#define BUFFER_SIZE 100
+
+uint8_t g_data[BUFFER_SIZE];
+
+void tc_01(void)
+{
+	g_data[10];
+}
+
+void tc_02(void)
+{
+	g_data[50];
+}
+
 int main(void)
 {
     /* input */
     char str[] = "abc";
 
+	uint32_t arr[8];
+	
+	printf("Hi arr %d\n", sizeof(usdhc_t));
+
     int length = 0;
+    
+	tc_01();
+	
+	tc_02();
 
     /* output */
     length = strlen(str);
