@@ -58,45 +58,21 @@ int maxHeight(char tmp_str[], int length_str)
 
 typedef struct
 {
-	uint32_t x;
-	uint32_t y;
-} usdhc_t;
+	struct gcov_info *info;	
+} GcovInfo;
 
-#define BUFFER_SIZE 100
-
-uint8_t g_data[BUFFER_SIZE];
-
-void tc_01(void)
-{
-	g_data[10];
-}
-
-void tc_02(void)
-{
-	g_data[50];
-}
+struct gcov_info *infotest;
+GcovInfo *fileGcovInfo;
 
 int main(void)
 {
     /* input */
     char str[] = "abc";
-
-	uint32_t arr[8];
-	
-	printf("Hi arr %d\n", sizeof(usdhc_t));
-
-    int length = 0;
     
-	tc_01();
-	
-	tc_02();
+    fileGcovInfo = 
+    
 
     /* output */
-    length = strlen(str);
-
-    //printf("%d\n", charToIndex(str[1]));
-
-    printf("Hello %d\n", maxHeight(str, length));
 
     return 0;
 }
