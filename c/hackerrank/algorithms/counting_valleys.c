@@ -26,17 +26,30 @@
 /*******************************************************************************
  * Definitions
  ******************************************************************************/
-#define DEBUG 1
+#define DEBUG 0
 
 /*******************************************************************************
  * Code
  ******************************************************************************/
+void wait(void)
+{
+    char c;
+    c = getchar();
+    while (getchar() != '\n');
+}
+
 int main(void)
 {
     /* input n: number of steps in Gary's hike */
-    int n;
-    scanf("%d ", &n);
-
+    int n = 0;
+    #if (DEBUG)
+    printf("number of steps in Gary's hike: ");
+    #endif
+    while (n < 2 || n > 1e6)
+    {
+    	scanf("%d ", &n);
+	}
+    
     /* input: sequence of Up-Down steps */
     char *sequenceUD;
     sequenceUD = malloc(sizeof(char)*n);
@@ -45,7 +58,14 @@ int main(void)
     i = 0;
     for (i = 0; i < n; i++)
     {
-        scanf("%c", sequenceUD+i);
+    	scanf("%c", sequenceUD+i);
+        while(*(sequenceUD+i) != 'U' && *(sequenceUD+i) != 'D')
+        {
+        	#if (DEBUG)
+        	printf("Reenter order %d pls", i);
+        	#endif
+        	scanf("%c", sequenceUD+i);
+		}
     }
 
     /* output: number of valleys Gary walked through? */
@@ -70,20 +90,26 @@ int main(void)
         #endif /* IF_DEBUG */
     }
 
-    int cnt_sea;
-    cnt_sea = 0;
-    for (i = 0; i <= n; i++)
+    int cnt_valley;
+    cnt_valley = 0;
+    for (i = 0; i < n; i++)
     {
-        //printf("%d", *(height+i));
-        if (height[i] == 0)
+        #if (DEBUG)
+		printf("%d\n", *(height+i));
+		#endif
+		if (height[i] == 0 && (i == (n-1)))
+		{
+			break;
+		}
+        if (height[i] == 0 && height[i+1] < 0)
         {
-            cnt_sea++;
+            cnt_valley++;
         }
     }
-    printf("%d", cnt_sea);
+    printf("%d", cnt_valley);
 
-    free(sequenceUD);
     free(height);
+    free(sequenceUD);
 
     return 0;
 }
