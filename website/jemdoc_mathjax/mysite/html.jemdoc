@@ -1,9 +1,0 @@
-# jemdoc: menu{MENU}{html.html}
-# jemdoc: title{HTML}
-# jemdoc: addcss{jemdoc.css}
-# jemdoc: analytics{UA-50706531-1}
-= HTML
-
-== A HTML page
-
-#includeraw{html/hello.html
