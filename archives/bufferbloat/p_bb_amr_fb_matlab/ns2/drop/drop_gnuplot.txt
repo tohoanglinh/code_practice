@@ -1,0 +1,7 @@
+set term pdf
+set out "Drop.pdf"
+unset label
+set title "Dropping Probability vs Time"
+set xlabel "Time (s)"
+set ylabel "Dropping Probability"
+plot "drop_ours.txt" using 1:2 title "OC_Queue" with lines, "drop_red.txt" using 1:2 title "RED" with lines

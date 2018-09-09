@@ -1,0 +1,88 @@
+% This file was created by matlab2tikz v0.4.7 running on MATLAB 8.1.
+% Copyright (c) 2008--2014, Nico Schlömer <nico.schloemer@gmail.com>
+% All rights reserved.
+% Minimal pgfplots version: 1.3
+% 
+% The latest updates can be retrieved from
+%   http://www.mathworks.com/matlabcentral/fileexchange/22022-matlab2tikz
+% where you can also make suggestions and rate matlab2tikz.
+% 
+\begin{tikzpicture}
+
+\begin{axis}[%
+width=4.76302083333333in,
+height=3.48072916666667in,
+scale only axis,
+xmin=0,
+xmax=80,
+xlabel={Buffer Size (Number of packets)},
+ymin=0,
+ymax=12,
+ylabel={Delay at Wireless Bottleneck Hop (seconds)},
+legend style={at={(0.164278947728323,0.71928609234526)},anchor=south west,draw=black,fill=white,legend cell align=left}
+]
+\addplot [color=black,solid,line width=2.0pt,mark=triangle,mark options={solid}]
+  table[row sep=crcr]{0	1.77635683940025e-15\\
+5	0.812882333565964\\
+10	1.47016318466155\\
+15	1.98548902379481\\
+20	2.37773628854113\\
+25	2.66817890503132\\
+30	2.87791627349092\\
+35	3.02603165780706\\
+40	3.12860446706742\\
+45	3.19844498811612\\
+50	3.24531087162614\\
+55	3.27636993055865\\
+60	3.29673493296957\\
+65	3.30996645238242\\
+70	3.31849593584069\\
+75	3.32395716954707\\
+80	3.32743336172505\\
+};
+\addlegendentry{$\rho\text{ = 0.9}$};
+
+\addplot [color=black,solid,line width=2.0pt,mark=square,mark options={solid}]
+  table[row sep=crcr]{0	1.30266168222685e-14\\
+5	0.824784820727034\\
+10	1.57536507340441\\
+15	2.25337097547547\\
+20	2.86130507884347\\
+25	3.40243236917832\\
+30	3.88064366608659\\
+35	4.30030306837318\\
+40	4.66609040956214\\
+45	4.98284873619162\\
+50	5.255444990855\\
+55	5.48864975089458\\
+60	5.6870394183749\\
+65	5.85492198883835\\
+70	5.99628565651726\\
+75	6.11476814619679\\
+80	6.2136438082654\\
+};
+\addlegendentry{$\rho\text{ = 0.95}$};
+
+\addplot [color=black,solid,line width=2.0pt,mark=o,mark options={solid}]
+  table[row sep=crcr]{0	4.736951571734e-15\\
+5	0.830302810424575\\
+10	1.63202054181334\\
+15	2.4052520883415\\
+20	3.15015368160719\\
+25	3.8669377639066\\
+30	4.55587146752561\\
+35	5.21727472125311\\
+40	5.85151801018774\\
+45	6.45901981919896\\
+50	7.04024379403389\\
+55	7.59569565697248\\
+60	8.12591991608535\\
+65	8.6314964085258\\
+70	9.11303671889278\\
+75	9.5711805135627\\
+80	10.0065918310464\\
+};
+\addlegendentry{$\rho\text{ = 0.98}$};
+
+\end{axis}
+\end{tikzpicture}%

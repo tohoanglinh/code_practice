@@ -1,0 +1,8 @@
+set term pdf
+set out "AvgQueueLength.pdf"
+unset label
+set title "Average Queue Length Comparison"
+set xlabel "Time (s)"
+set ylabel "Average Queue Length(packets)"
+
+plot "avgql_ours.out" using 1:2 title "OC_Queue" with lines, "avgql_red.out" using 1:2 title "RED" with lines, "avgql_rem.out" using 1:2 title "REM" with lines, "avgql_pi.out" using 1:2 title "PI" with lines, "avgql_codel.out" using 1:2 title "CoDel" with lines

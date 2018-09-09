@@ -1,0 +1,8 @@
+set term pdf
+set out "Throughput.pdf"
+unset label
+set title "Throughput Comparison"
+set xlabel "Time (s)"
+set ylabel "Throughput(Mbps)"
+
+plot "throughputF_ours" using 1:2 title "OC_Queue" with lines, "throughputF_red" using 1:2 title "RED" with lines, "throughputF_rem" using 1:2 title "REM" with lines, "throughputF_pi" using 1:2 title "PI" with lines, "throughputF_codel" using 1:2 title "CoDel" with lines

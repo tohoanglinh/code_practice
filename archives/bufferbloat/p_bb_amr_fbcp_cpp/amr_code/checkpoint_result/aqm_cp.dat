@@ -1,0 +1,34 @@
+#1: advances: 124750 takeshots: 1 commands: 1500 range = 500 reps = 499 ratio_run_time = 249.5000
+#10: advances: 1636 takeshots: 220 commands: 1719 range = 1001 reps = 4 ratio_run_time = 3.272
+#100: advances: 898 takeshots: 399 commands: 1898 range = 5151 reps = 2 ratio_run_time = 1.796
+#110: advances: 888 takeshots: 389 commands: 1888 range = 6216 reps = 2 ratio_run_time = 1.776 
+#120: advances: 878 takeshots: 379 commands: 1878 range = 7381 reps = 2 ratio_run_time = 1.756 
+#150: advances: 848 takeshots: 349 commands: 1848 range = 11476 reps = 2 ratio_run_time = 1.696
+#200: advances: 798 takeshots: 299 commands: 1798 range = 20301 reps = 2 ratio_run_time = 1.596 
+#250: advances: 748 takeshots: 250 commands: 1749 range = 31626 reps = 2 ratio_run_time = 1.496
+#300: advances: 698 takeshots: 300 commands: 1799 range = 45451 reps = 2 ratio_run_time = 1.396 
+
+#STEPS: 500		SNAPS (CP):
+#0: segmentation fault (core dumped)
+
+# CP	advances	takeshots	commands	range	reps	ratio_run_time
+#1	124750	1		1500	500		499		249.5
+10	1636	220		1719	1001	4		3.272
+15	1347	364		1863	816		3		2.694
+20	1247	269		1768	1771	3		2.494
+25	1122	325		1824	3276	3		2.244
+30	972		465		1964	5456	3		1.944
+40	958		459		1958	861		2		1.916
+50	948		449		1948	1326	2		1.896
+60	938		439		1938	1891	2		1.876
+80	918		419		1918	3321	2		1.836
+100	898		399		1898	5151	2		1.796
+110	888		389		1888	6216	2		1.776
+120	878		379		1878	7381	2		1.756
+150	848		349		1848	11476	2		1.696
+200	798		299		1798	20301	2		1.596
+250	748		250		1749	31626	2		1.496
+300	698		300		1799	45451	2		1.396
+400	598		400		1899	80601	2		1.196
+500	499		499		1998	501		1		0.998
+1000 499	499		1998	1001	1		0.998		

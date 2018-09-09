@@ -1,0 +1,12 @@
+set terminal postscript eps enhanced color font 'Helvetica,25'
+    set output "fig_ratio_run_time_vs_cp.eps"		
+#    set title "Algorithm Run Time vs. No of Checkpoints"
+    set xlabel "Number of checkpoints"
+    set ylabel "Ratio of Run-Time"
+	set autoscale
+	set logscale x
+    set border linewidth 2
+    set key right top
+    set grid 
+plot 'aqm_cp.dat' using 1:7 title 'FBSM-AQM-CP' with lp lc 'red' lw 2 pt 4 ps 2
+set output

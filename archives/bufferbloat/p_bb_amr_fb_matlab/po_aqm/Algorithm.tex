@@ -1,0 +1,39 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+
+\usepackage{enumerate}
+\usepackage{amssymb}
+\usepackage{pseudocode}
+\begin{document}
+
+\begin{pseudocode}[ruled]{ }{First \hspace{1mm} Order \hspace{1mm} Sweeping \hspace{1mm}Method \hspace{1mm} for \hspace{1mm} AQM\hspace{1mm}  }
+ \textit{Choose initial control trajectory}:\hspace{1mm} u_{0},\dots, u_{N},\delta u_{0},\dots,\delta u_{N},{u_{+}}_{0}=u_{0},\dots,{u_{+}}_{N}=u_{N},   \\ 
+  \mathcal{J}_{-} = \infty, \gamma,\hspace{1mm}\textit{Iter}=1,\bigtriangleup_{0},\hspace{1mm} $TOL$,\hspace{2mm}\textit{MaxIter},\hspace{1mm}\textit{and  $\rho \in (0,1)$.}\\\\
+\textit{\bf Do:}
+ \BEGIN
+% \\
+  \textit{\bf{Initialisation:}}  \hspace{5mm}  \ {x_{+}}_{0}, \mathcal{J}_{-} \hspace{2mm}\textit{are given}\\
+\FOR i=0,1,\dots,N-1\\
+  \hspace{1mm}\textit{\bf{Forward Sweep:}} \\ 
+	\hspace{5mm} \textit{\bf{Evaluate:}} \\
+
+\hspace{10mm} \textit{if} \hspace{5mm}\textit{Iter}>1: \hspace{2mm} {u_{+}}_{i} = u_{i} +  \bigtriangleup \delta u_{i}\\
+		\hspace{10mm} {x_{+}}_{i+1} = f_{i}({x_{+}}_{i},{u_{+}}_{i})\\
+\mathcal{J}_{+} = \phi({x_{+}}_{N})\\
+	\textit{if} \hspace{4mm}  \mathcal{J}_{+} < \mathcal{J}_{-}:\hspace{2mm}  \mathcal{J}_{-} = \mathcal{J}_{+}, \hspace{2mm}\bigtriangleup = \bigtriangleup_{0}\\
+\textit{\bf{else:}}\hspace{2mm} \bigtriangleup = \frac{\bigtriangleup}{\rho},\hspace{2mm} \textit{goto {\bf Forward Sweep}}\\
+   \textit{\bf{Adjoint Initialisation}}  \hspace{2mm}  \ \bar{x}_{N} = \phi_{x_+}^\top ({x_{+}}_{N}), \gamma_{N} = 0\\
+\FOR i=N-1,N-2,\dots,0\\
+  \hspace{1mm}\textit{\bf{Backward sweep:}}  \hspace{2mm} {x_{+}}_{i}=x_{i}, \hspace{1mm} {u_{+}}_{i}=u_{i},\hspace{1mm} \\
+	\hspace{10mm} \textit{\bf{Evaluate:}}  \\
+	\hspace{15mm} \bar{x}_{i} = f_{x,i}^\top \bar{x}_{i+1},\hspace{1mm}{\bar{u}_{i}} = - H_{x,i}(x_{i}, u_{i}, \bar{x}_{i})\\%
+	\hspace{15mm} \gamma_{i} =  \parallel \bar{u}_{i} \parallel^{2}, \hspace{1mm} \delta u_{i} = -{\bar{u}_{i}}\\
+	\hspace{10mm} \gamma={\gamma}_{N} \\
+
+\textit{if} \hspace{5mm}\parallel \gamma \parallel< $TOL$:\hspace{1mm} \textit{stop}\\
+\textit{Iter}=Iter+1\\
+\END\\
+
+\textit{\bf{while}:} \hspace{2mm} Iter \leq MaxIter 
+\end{pseudocode}
+\end{document}

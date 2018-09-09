@@ -1,0 +1,14 @@
+		Reverse (with CP)
+Ratio Run Time = ---------------------------
+		Straight (basic, without CP)
+
+Run time increase with no of CP
+
+1000 ~ no CP --> have to store 1000 states
+
+10 ~ 		
+
+
+Reduce storage
+
+gnuplot *.gnuplot && find . -name "*.eps" -exec epstopdf {} \;

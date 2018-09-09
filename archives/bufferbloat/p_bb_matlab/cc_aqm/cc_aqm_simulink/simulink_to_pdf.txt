@@ -1,0 +1,13 @@
+% The better way of saving is PDF
+% Open the simulink model
+print -dpdf -smymodel myfig.pdf
+
+Example 4: Saving a Simulink Diagram
+Save a Simulink diagram from command line. The file is saved as counters.bmp
+
+saveas(get_param('cascade_aqm','Handle'),'cascade_aqm.eps')
+
+Reference:
+sldemo_tank
+saveas(get_param('sldemo_tank','Handle'),'topmodel.bmp'); 
+Using get_param, get the handle of the model and save using the saveas command. The file can be saved in any desired standard image formats.
